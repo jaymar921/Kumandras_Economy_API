@@ -1,0 +1,48 @@
+name: KumandrasEconomy
+version: ${project.version}
+main: me.jaymar921.kumandraseconomy.KumandrasEconomy
+api-version: 1.17
+authors: [ JayMar921 ]
+website: https://www.spigotmc.org/resources/authors/jaymar921.1073076/
+
+commands:
+
+    kumandra:
+        description: Command for Kumandra Economy plugin
+        aliases: [kd]
+        usage: /kumandra [Sub Commands]
+        permission: kumandraseconomy.kumandra
+        permission-message: You have no permission to use this command
+    trade:
+        description: Command for Trading [Kumandra Economy Plugin]
+        usage: /trade [Sub Commands]
+
+    permissions:
+        kumandraseconomy.*:
+            desription: Gives access to all plugin commands
+            default: not-op
+            children:
+                kumandraseconomy.kumandra: true
+                kumandraseconomy.kumandra.balance: true
+                kumandraseconomy.kumandra.pay: true
+                kumandraseconomy.kumandra.trade: true
+
+        kumandraseconomy.kumandra:
+            description: Command for Kumandra Economy Plugin
+            default: not-op
+
+        kumandraseconomy.kumandra.balance:
+            description: Show the player's account
+            default: not-op
+
+        kumandraseconomy.kumandra.deposit:
+            description: Add money to a player's account
+            default: op
+
+        kumandraseconomy.kumandra.pay:
+            description: Pay money to a player's account
+            default: not-op
+
+        kumandraseconomy.kumandra.trade:
+            description: Trade with players
+            default: not-op
