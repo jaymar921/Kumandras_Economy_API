@@ -50,3 +50,38 @@ Add the dependency
 </dependency>
 ```
 ----
+
+### How to implement the API
+
+You need to get the Main class instance and then get the API instance from the plugin main
+
+```java
+//Get the instance of the main class
+
+KumandrasEconomy kumandrasEconomy = Bukkit.getServer().getPluginManager().getPlugin("KumandrasEconomy");
+
+//Get the API handler
+
+KumandrasAPI kumandrasAPI = (KumandrasAPI) kumandrasEconomy.getAPI();
+
+```
+
+### How to use the API
+
+Once you have successfully instantiated the KumandrasAPI, these are the methods useful for plugin interaction
+
+```java
+//Register your plugin to the API
+kumandrasAPI.RegisterPlugin(@NotNull String pluginName); //Void
+//e.g. kumandrasAPI.RegisterPlugin("CustomEnchantments"); 
+
+//Get player balance
+double balance = kumandrasAPI.getBalance(@NotNull player); //Double, returns null if player has no data
+
+//Deposit money to player
+kumandrasAPI.deposit(@NotNull Player player, double amount);//Boolean, returns true if amount is added to player data
+
+//Withdraw money from player
+kumandrasAPI.withdraw(@NotNull Player player, double amount);//Boolean, returns false if amount>balance or player has no data
+```
+
