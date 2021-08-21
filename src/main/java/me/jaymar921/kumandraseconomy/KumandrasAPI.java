@@ -37,7 +37,7 @@ public class KumandrasAPI {
             PlayerStatus status = plugin.getDataHandler().getStatusHolder().get(player.getUniqueId().toString());
             double balance = 0;
 
-            if(status.getBalance()>amount)
+            if(status.getBalance()>=amount)
                 balance = status.getBalance() - amount;
             else
                 return false;
@@ -45,5 +45,10 @@ public class KumandrasAPI {
             return true;
         }
         return false;
+    }
+
+    public boolean RegisterPlugin(@NotNull String pluginName){
+        plugin.getDataHandler().getPluginsRegistered().add(pluginName);
+        return true;
     }
 }

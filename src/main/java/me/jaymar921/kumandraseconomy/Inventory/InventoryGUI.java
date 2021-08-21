@@ -1,5 +1,6 @@
 package me.jaymar921.kumandraseconomy.Inventory;
 
+import me.jaymar921.kumandraseconomy.ItemHandler.PlayerHeads;
 import me.jaymar921.kumandraseconomy.economy.PlayerStatus;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -31,7 +32,7 @@ public class InventoryGUI {
             gui.setItem(i, item);
         }
 
-        item = new ItemStack(Material.PAPER);
+        item = new PlayerHeads().getPlayerHead(player);
         meta = item.getItemMeta();
         assert meta != null;
         meta.setDisplayName(ChatColor.LIGHT_PURPLE+""+ChatColor.BOLD+"Economy Account");
@@ -39,14 +40,15 @@ public class InventoryGUI {
         meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
         meta.addItemFlags(ItemFlag.HIDE_ATTRIBUTES);
         List<String> lore = new ArrayList<>();
-        lore.add(ChatColor.GREEN+""+ChatColor.BOLD+"Account Name: "+ChatColor.GOLD+player.getName());
-        lore.add(ChatColor.GREEN+""+ChatColor.BOLD+"Balance: "+ChatColor.GOLD+"$"+status.getBalance());
-        lore.add(ChatColor.GREEN+""+ChatColor.BOLD+"Player Level: "+ChatColor.GOLD+player.getLevel());
+        lore.add(ChatColor.GREEN+""+ChatColor.BOLD+"Account Name: "+ChatColor.GOLD+""+ChatColor.BOLD+player.getName());
+        lore.add(ChatColor.GREEN+""+ChatColor.BOLD+"Balance: "+ChatColor.GOLD+"$"+ChatColor.BOLD+status.getBalance());
+        lore.add(ChatColor.GREEN+""+ChatColor.BOLD+"Player Level: "+ChatColor.GOLD+""+ChatColor.BOLD+player.getLevel());
         meta.setLore(lore);
         item.setItemMeta(meta);
 
         gui.setItem(11, item);
 
+        /*
         item = new ItemStack(Material.DIAMOND_AXE);
         meta = item.getItemMeta();
         assert meta != null;
@@ -61,6 +63,7 @@ public class InventoryGUI {
 
         gui.setItem(13, item);
 
+        */
         item = new ItemStack(Material.ENDER_EYE);
         meta = item.getItemMeta();
         assert meta != null;
@@ -84,4 +87,7 @@ public class InventoryGUI {
 
         return gui;
     }
+
+
+
 }

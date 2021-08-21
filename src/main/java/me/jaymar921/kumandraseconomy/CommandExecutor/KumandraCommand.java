@@ -200,6 +200,37 @@ public class KumandraCommand implements CommandExecutor {
                                 player.sendMessage(ChatColor.RED+"You do not have the permission to use this command");
                                 return true;
                             }
+                        }else if(args[0].equalsIgnoreCase("deliver")){
+                            if(player.hasPermission("kumandraseconomy.kumandra.deliver")){
+                                //player.sendMessage("You just opened your balance");
+                                if(args.length>1){
+                                    String playername = args[1];
+                                    if(player.getName().equals(playername)){
+                                        player.sendMessage(ChatColor.RED+"You cannot deliver something for yourself");
+                                        return true;
+                                    }
+                                    boolean isOnline = false;
+                                    for(Player buyer : Bukkit.getServer().getOnlinePlayers())
+                                        if(buyer.getName().equals(playername)) {
+                                            isOnline = true;
+                                            //
+                                            player.sendMessage("A deliver chicken has appeared");
+                                        }
+                                    //trading
+                                    if(!isOnline){
+                                        player.sendMessage(ChatColor.RED+"The player must be online");
+                                        return true;
+                                    }
+
+
+                                }else{
+                                    player.sendMessage(ChatColor.RED+"You need to specify the player");
+                                    return true;
+                                }
+                            }else{
+                                player.sendMessage(ChatColor.RED+"You do not have the permission to use this command");
+                                return true;
+                            }
                         }
                     }else{
                         player.sendMessage(ChatColor.AQUA+"You need to specify the sub command");

@@ -13,6 +13,7 @@ public class dataHandler {
     private Map<String, PlayerStatus> statusHolder = new HashMap<>();
     private List<String> pluginsRegistered = new ArrayList<>();
     private Map<String, Inventory> playerInventory = new HashMap<>();
+    private Map<String, Inventory> deliverInventory = new HashMap<>();
 
 
     public Map<String,PlayerStatus> getStatusHolder(){
@@ -25,6 +26,8 @@ public class dataHandler {
 
     public List<String> getPluginsRegistered(){ return pluginsRegistered;}
     public void setPluginsRegistered(List<String> pluginsRegistered){ this.pluginsRegistered = pluginsRegistered;}
+
+    public Map<String, Inventory> getDeliverInventory() {return deliverInventory;}
 
     public Map<String, Inventory> getPlayerInventory(){ return playerInventory;}
 

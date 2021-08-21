@@ -21,7 +21,7 @@ public class Tabbing implements TabCompleter {
                  arguments.add("Deposit");
              arguments.add("Pay");
              arguments.add("Trade");
-             arguments.add("Jobs");
+             arguments.add("Deliver");
         }
         List<String> result = new ArrayList<>();
         if(args.length== 1){
@@ -59,6 +59,14 @@ public class Tabbing implements TabCompleter {
         }
         if(args.length == 2){
             if(args[0].equalsIgnoreCase("trade")){
+                for(String args1 : players())
+                    if(args1.toLowerCase().startsWith(args[1].toLowerCase()))
+                        result.add(args1);
+            }
+        }
+
+        if(args.length == 2){
+            if(args[0].equalsIgnoreCase("Deliver")){
                 for(String args1 : players())
                     if(args1.toLowerCase().startsWith(args[1].toLowerCase()))
                         result.add(args1);
