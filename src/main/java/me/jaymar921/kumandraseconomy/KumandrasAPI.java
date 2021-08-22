@@ -3,6 +3,8 @@ package me.jaymar921.kumandraseconomy;
 import me.jaymar921.kumandraseconomy.economy.PlayerStatus;
 import org.bukkit.entity.Player;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
+
 public class KumandrasAPI {
 
     public static KumandrasEconomy plugin;
@@ -11,7 +13,7 @@ public class KumandrasAPI {
         plugin = main;
     }
 
-
+    @Nullable
     public Double getBalance(@NotNull Player player){
         String uuid = player.getUniqueId().toString();
         double balance = 0;

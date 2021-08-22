@@ -11,7 +11,7 @@ public class PlayerHeads {
     public ItemStack getPlayerHead(Player player){
         ItemStack head = new ItemStack(Material.PLAYER_HEAD,1, (short) 3);
         SkullMeta meta = (SkullMeta) head.getItemMeta();
-        meta.setOwner(player.getDisplayName());
+        meta.setOwningPlayer(player);
         head.setItemMeta(meta);
         return head;
     }

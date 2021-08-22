@@ -1,6 +1,7 @@
 package me.jaymar921.kumandraseconomy.CommandExecutor;
 
-import me.jaymar921.kumandraseconomy.Inventory.InventoryGUI;
+import me.jaymar921.kumandraseconomy.InventoryGUI.BalanceGUI;
+import me.jaymar921.kumandraseconomy.InventoryGUI.DeliveryGUI;
 import me.jaymar921.kumandraseconomy.KumandrasEconomy;
 import me.jaymar921.kumandraseconomy.economy.PlayerStatus;
 import org.bukkit.Bukkit;
@@ -11,7 +12,6 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
-import org.bukkit.permissions.PermissionAttachmentInfo;
 
 import java.util.List;
 
@@ -35,10 +35,15 @@ public class KumandraCommand implements CommandExecutor {
                         if(args[0].equalsIgnoreCase("balance")){
                             if(player.hasPermission("kumandraseconomy.kumandra.balance")){
                                 //player.sendMessage("You just opened your balance");
+                                //check if player has data
+                                if(!plugin.getDataHandler().getStatusHolder().containsKey(player.getUniqueId().toString())){
+                                    PlayerStatus status = new PlayerStatus(player.getUniqueId().toString(),0);
+                                    plugin.getDataHandler().getStatusHolder().put(player.getUniqueId().toString(), status);
+                                }
                                 PlayerStatus status = plugin.getDataHandler().getStatusHolder().get(player.getUniqueId().toString());
                                 List<String> plugins = plugin.getDataHandler().getPluginsRegistered();
-                                Inventory inventory = new InventoryGUI().BalanceInventory(player,status, plugins);
-                                plugin.getDataHandler().getPlayerInventory().put(player.getUniqueId().toString(),inventory);
+                                Inventory inventory = new BalanceGUI().BalanceInventory(player,status, plugins);
+                                plugin.getDataHandler().getBalanceGUI().put(player.getUniqueId().toString(),inventory);
                                 player.openInventory(inventory);
                                 return true;
                             }
@@ -210,11 +215,13 @@ public class KumandraCommand implements CommandExecutor {
                                         return true;
                                     }
                                     boolean isOnline = false;
-                                    for(Player buyer : Bukkit.getServer().getOnlinePlayers())
-                                        if(buyer.getName().equals(playername)) {
+                                    for(Player recipient : Bukkit.getServer().getOnlinePlayers())
+                                        if(recipient.getName().equals(playername)) {
                                             isOnline = true;
                                             //
-                                            player.sendMessage("A deliver chicken has appeared");
+                                            //player.sendMessage("A deliver chicken has appeared");
+                                            plugin.getDeliveryHandler().getScheduleDelivery().put(player, recipient);
+                                            player.openInventory(plugin.getDeliveryGUI());
                                         }
                                     //trading
                                     if(!isOnline){

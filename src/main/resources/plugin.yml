@@ -3,6 +3,7 @@ version: ${project.version}
 main: me.jaymar921.kumandraseconomy.KumandrasEconomy
 api-version: 1.17
 authors: [ JayMar921 ]
+softdepend: [Vault]
 website: https://www.spigotmc.org/resources/authors/jaymar921.1073076/
 
 commands:

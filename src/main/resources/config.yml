@@ -1,0 +1,35 @@
+#
+# Kumandra's Economy Plugin
+# by JayMar921
+#
+# Discord: 5v8BnnPrVH
+#
+# [Configuration]
+#
+# If any of these plugins are present, leave it as Separate_Economy to true
+# you only need to set it to false if you want to use this plugin as your
+# main economy plugin
+# --------------------------------------------------------------------------#
+# iConomy 4,5,6, BOSEconomy 6 & 7, EssentialsEcon, 3Co, MultiCurrency,      #
+# MineConomy, eWallet, EconXP, CurrencyCore, CraftConomy, AEco, Gringotts   #
+#---------------------------------------------------------------------------#
+Separate_Economy: true
+# [Currency only works if Separate_Economy is true]
+# Currency, it is the medium for exchange of money
+# 1 Currency of your main economy plugin is equal to 'Currency' of Kumandra's Economy
+Currency: 0.25
+Currency_Prefix: 'Kd'
+#
+#--------------------------------------------------------------------------#
+# Delivery System - You can set the configuration for delivery system here #
+#--------------------------------------------------------------------------#
+# Timers in second, Delay on how long will the item to be delivered
+Cheap_Delivery_Timer: 180
+Regular_Delivery_Timer: 130
+Fast_Delivery_Timer: 70
+Priority_Delivery_Timer: 30
+# Delivery Prices
+Cheap_Delivery_Price: 25
+Regular_Delivery_Price: 40
+Fast_Delivery_Price: 75
+Priority_Delivery_Price: 100
