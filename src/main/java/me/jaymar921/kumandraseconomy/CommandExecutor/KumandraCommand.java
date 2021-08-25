@@ -72,12 +72,12 @@ public class KumandraCommand implements CommandExecutor {
                                                     }else{
                                                         PlayerStatus status = new PlayerStatus(uuid, amount);
                                                         plugin.getDataHandler().getStatusHolder().put(uuid, status);
-                                                        player.sendMessage(ChatColor.AQUA+playername+"'s account has been created, added "+amount);
+                                                        player.sendMessage(ChatColor.AQUA+playername+"'s account has been created, added "+amount+plugin.getRegistryConfiguration().currency_prefix);
                                                     }
                                                     for(Player receiver: Bukkit.getServer().getOnlinePlayers())
                                                         if(receiver.getUniqueId().toString().equals(uuid))
-                                                            receiver.sendMessage(ChatColor.GREEN+""+player.getName()+" had deposited $"+amount+" to your account");
-                                                    player.sendMessage(ChatColor.GREEN+"You have added "+amount+ " to "+playername+"'s account");
+                                                            receiver.sendMessage(ChatColor.GREEN+""+player.getName()+" had deposited "+amount+plugin.getRegistryConfiguration().currency_prefix+" to your account");
+                                                    player.sendMessage(ChatColor.GREEN+"You have added "+amount+plugin.getRegistryConfiguration().currency_prefix+ " to "+playername+"'s account");
 
                                                     return true;
                                                 }
@@ -136,7 +136,7 @@ public class KumandraCommand implements CommandExecutor {
                                                     }else{
                                                         PlayerStatus status = new PlayerStatus(uuid, amount);
                                                         plugin.getDataHandler().getStatusHolder().put(uuid, status);
-                                                        player.sendMessage(ChatColor.AQUA+playername+"'s account has been created, added "+amount);
+                                                        player.sendMessage(ChatColor.AQUA+playername+"'s account has been created, added "+amount+plugin.getRegistryConfiguration().currency_prefix);
                                                     }
 
                                                     double userBal = stat.getBalance() - amount;
@@ -144,9 +144,9 @@ public class KumandraCommand implements CommandExecutor {
                                                     plugin.getDataHandler().getStatusHolder().replace(player.getUniqueId().toString(),stat);
                                                     for(Player receiver: Bukkit.getServer().getOnlinePlayers())
                                                         if(receiver.getUniqueId().toString().equals(uuid))
-                                                            receiver.sendMessage(ChatColor.GREEN+""+player.getName()+" had deposited $"+amount+" to your account");
-                                                    player.sendMessage(ChatColor.GREEN+"You have paid "+amount+ " to "+playername+"'s account");
-                                                    player.sendMessage(ChatColor.GREEN+"Your running balance: "+ChatColor.GOLD+"$"+stat.getBalance());
+                                                            receiver.sendMessage(ChatColor.GREEN+""+player.getName()+" had deposited "+amount+plugin.getRegistryConfiguration().currency_prefix+" to your account");
+                                                    player.sendMessage(ChatColor.GREEN+"You have paid "+amount+plugin.getRegistryConfiguration().currency_prefix+ " to "+playername+"'s account");
+                                                    player.sendMessage(ChatColor.GREEN+"Your running balance: "+ChatColor.GOLD+""+stat.getBalance()+plugin.getRegistryConfiguration().currency_prefix);
 
 
                                                     return true;
@@ -183,12 +183,12 @@ public class KumandraCommand implements CommandExecutor {
                                         if(buyer.getName().equals(playername)) {
                                             isOnline = true;
                                             plugin.getTradingHandler().createTrade(player, buyer);
-                                            buyer.sendMessage(ChatColor.AQUA+"You have a trade with "+ChatColor.GREEN+player.getName());
-                                            buyer.sendMessage(ChatColor.AQUA+"/Trade accept "+ChatColor.YELLOW+"- to accept");
-                                            buyer.sendMessage(ChatColor.AQUA+"/Trade deny "+ChatColor.YELLOW+"- to deny");
-                                            buyer.sendMessage(ChatColor.AQUA+"Trading Session will expire by 20s");
+                                            buyer.sendMessage(ChatColor.AQUA+"You have a trade request with "+ChatColor.GREEN+player.getName());
+                                            buyer.sendMessage(ChatColor.AQUA+"/kTrade accept "+ChatColor.YELLOW+"- to accept");
+                                            buyer.sendMessage(ChatColor.AQUA+"/kTrade deny "+ChatColor.YELLOW+"- to deny");
+                                            buyer.sendMessage(ChatColor.DARK_AQUA+"Trading Request will expire on 20s");
                                             player.sendMessage(ChatColor.AQUA+"You have sent a trade request to "+ChatColor.GREEN+playername);
-                                            player.sendMessage(ChatColor.AQUA+"Trading Session will expire by 20s");
+                                            player.sendMessage(ChatColor.DARK_AQUA+"Trading Request will expire on 20s");
                                         }
                                     //trading
                                     if(!isOnline){

@@ -7,4 +7,6 @@ public class RegistryConfiguration {
     public String currency_prefix;
     public String foreign_economy;
     public DeliveryDataHandler deliveryHandler;
+    public int requestTradeSessionExpiry;
+    public double tradingIncrease;
 }

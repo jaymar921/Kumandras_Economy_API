@@ -107,7 +107,7 @@ public class DeliveryGUI {
     }
 
     public Inventory getFiveSlotUI(String title, String recipient){
-        Inventory ui = Bukkit.createInventory(null, 9, ChatColor.GREEN+title);
+        Inventory ui = Bukkit.createInventory(null, 9, ChatColor.LIGHT_PURPLE+title);
 
         ItemStack item = new ItemStack(Material.BLUE_STAINED_GLASS_PANE);
         ItemMeta meta = item.getItemMeta();
@@ -126,6 +126,66 @@ public class DeliveryGUI {
         meta.setDisplayName(ChatColor.GREEN+"Send items to "+recipient);
         item.setItemMeta(meta);
         ui.setItem(8,item);
+
+        return ui;
+    }
+
+    public Inventory getTenSlotUI(String title, String recipient){
+        Inventory ui = Bukkit.createInventory(null, 18, ChatColor.LIGHT_PURPLE+title);
+
+        ItemStack item = new ItemStack(Material.BLUE_STAINED_GLASS_PANE);
+        ItemMeta meta = item.getItemMeta();
+        assert meta != null;
+        meta.setDisplayName(" ");
+        item.setItemMeta(meta);
+
+        ui.setItem(0, item);
+        ui.setItem(1, item);
+        ui.setItem(9, item);
+        ui.setItem(10, item);
+        ui.setItem(7, item);
+        ui.setItem(8, item);
+        ui.setItem(16, item);
+
+        item = new ItemStack(Material.DARK_OAK_SIGN);
+        meta = item.getItemMeta();
+        assert meta != null;
+        meta.setDisplayName(ChatColor.YELLOW+"[DELIVER]");
+        meta.setDisplayName(ChatColor.GREEN+"Send items to "+recipient);
+        item.setItemMeta(meta);
+        ui.setItem(17,item);
+
+        return ui;
+    }
+
+    public Inventory getFifteenSlotUI(String title, String recipient){
+        Inventory ui = Bukkit.createInventory(null, 27, ChatColor.LIGHT_PURPLE+title);
+
+        ItemStack item = new ItemStack(Material.BLUE_STAINED_GLASS_PANE);
+        ItemMeta meta = item.getItemMeta();
+        assert meta != null;
+        meta.setDisplayName(" ");
+        item.setItemMeta(meta);
+
+        ui.setItem(0, item);
+        ui.setItem(1, item);
+        ui.setItem(9, item);
+        ui.setItem(10, item);
+        ui.setItem(7, item);
+        ui.setItem(8, item);
+        ui.setItem(16, item);
+        ui.setItem(17, item);
+        ui.setItem(18, item);
+        ui.setItem(19, item);
+        ui.setItem(25, item);
+
+        item = new ItemStack(Material.DARK_OAK_SIGN);
+        meta = item.getItemMeta();
+        assert meta != null;
+        meta.setDisplayName(ChatColor.YELLOW+"[DELIVER]");
+        meta.setDisplayName(ChatColor.GREEN+"Send items to "+recipient);
+        item.setItemMeta(meta);
+        ui.setItem(26,item);
 
         return ui;
     }

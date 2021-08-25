@@ -33,3 +33,10 @@ Cheap_Delivery_Price: 25
 Regular_Delivery_Price: 40
 Fast_Delivery_Price: 75
 Priority_Delivery_Price: 100
+#
+#---------------------------------------------------------------------------#
+# Trading Session - Interaction between 2 players                           #
+#---------------------------------------------------------------------------#
+# Request Trading Session Expiry, in seconds
+RequestTradingSessionExpiry: 20
+TradingIncreaseValue: 1

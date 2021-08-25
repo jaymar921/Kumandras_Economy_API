@@ -1,13 +1,14 @@
 package me.jaymar921.kumandraseconomy;
 
 import me.jaymar921.kumandraseconomy.CommandExecutor.KumandraCommand;
-import me.jaymar921.kumandraseconomy.CommandExecutor.Tabbing;
+import me.jaymar921.kumandraseconomy.CommandExecutor.KumandraTabbing;
 import me.jaymar921.kumandraseconomy.CommandExecutor.TradeCommand;
+import me.jaymar921.kumandraseconomy.CommandExecutor.TradeTabbing;
 import me.jaymar921.kumandraseconomy.InventoryGUI.DeliveryGUI;
 import me.jaymar921.kumandraseconomy.Listeners.InteractEvents;
 import me.jaymar921.kumandraseconomy.Listeners.InventoryClick;
 import me.jaymar921.kumandraseconomy.Listeners.PlayerJoinLeaveEvent;
-import me.jaymar921.kumandraseconomy.Vault.Vault;
+import me.jaymar921.kumandraseconomy.Listeners.TradingListener;
 import me.jaymar921.kumandraseconomy.Vault.VaultLoader;
 import me.jaymar921.kumandraseconomy.Vault.VaultSupport;
 import me.jaymar921.kumandraseconomy.datahandlers.ConfigLoader;
@@ -15,9 +16,9 @@ import me.jaymar921.kumandraseconomy.datahandlers.RegistryConfiguration;
 import me.jaymar921.kumandraseconomy.datahandlers.dataHandler;
 import me.jaymar921.kumandraseconomy.datahandlers.dataHandlerLoader;
 import me.jaymar921.kumandraseconomy.economy.DeliveryHandler;
-import me.jaymar921.kumandraseconomy.economy.EconomyImplementer;
 import me.jaymar921.kumandraseconomy.economy.PlayerStatus;
 import me.jaymar921.kumandraseconomy.economy.TradingHandler;
+import me.jaymar921.kumandraseconomy.entity.DeliveryEntity;
 import org.bukkit.Bukkit;
 import org.bukkit.configuration.serialization.ConfigurationSerialization;
 import org.bukkit.inventory.Inventory;
@@ -50,7 +51,7 @@ public final class KumandrasEconomy extends JavaPlugin {
         //load handlers
         dataHandler = new dataHandler();
         dataHandlerLoader = new dataHandlerLoader(this);
-        tradingHandler = new TradingHandler();
+        tradingHandler = new TradingHandler(this);
         loadDataLoader();
 
         //instantiate classes
@@ -62,7 +63,7 @@ public final class KumandrasEconomy extends JavaPlugin {
         pluginManager.registerEvents(new PlayerJoinLeaveEvent(this),this);
         pluginManager.registerEvents(new InventoryClick(this), this);
         pluginManager.registerEvents(new InteractEvents(this), this);
-
+        pluginManager.registerEvents(new TradingListener(this), this);
         //register Commands
         registerCommands();
 
@@ -73,6 +74,7 @@ public final class KumandrasEconomy extends JavaPlugin {
     @Override
     public void onDisable() {
         saveDataLoader();
+        new DeliveryEntity(this).deleteMobs();
         vaultLoader.unregisterVault();
     }
 
@@ -96,9 +98,10 @@ public final class KumandrasEconomy extends JavaPlugin {
 
     private void registerCommands(){
         this.getCommand("kumandra").setExecutor(new KumandraCommand(this));
-        this.getCommand("kumandra").setTabCompleter(new Tabbing());
+        this.getCommand("kumandra").setTabCompleter(new KumandraTabbing());
 
-        this.getCommand("trade").setExecutor(new TradeCommand(this));
+        this.getCommand("ktrade").setExecutor(new TradeCommand(this));
+        this.getCommand("ktrade").setTabCompleter(new TradeTabbing());
     }
 
     public TradingHandler getTradingHandler(){return tradingHandler;}

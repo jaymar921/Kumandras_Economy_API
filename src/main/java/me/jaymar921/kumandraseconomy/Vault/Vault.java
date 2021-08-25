@@ -20,6 +20,7 @@ public class Vault {
         economy = new EconomyImplementer(plugin);
         Bukkit.getServicesManager().register(Economy.class, economy , plugin, ServicePriority.Normal);
         plugin.getLogger().info(ChatColor.GREEN+"Vault API hooked");
+        plugin.getLogger().info(ChatColor.GREEN+"Kumandra's Economy is set to primary Economy");
     }
 
     public void unHook(){

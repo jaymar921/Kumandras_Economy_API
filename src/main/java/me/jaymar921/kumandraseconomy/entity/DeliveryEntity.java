@@ -1,7 +1,10 @@
 package me.jaymar921.kumandraseconomy.entity;
 
 import me.jaymar921.kumandraseconomy.KumandrasEconomy;
+import org.bukkit.entity.Entity;
 import org.bukkit.entity.LivingEntity;
+
+import java.util.List;
 
 public class DeliveryEntity {
 
@@ -10,11 +13,10 @@ public class DeliveryEntity {
         main = plugin;
     }
 
-    public void spawnDeliveryEntity(DeliveryType deliveryType){
-
-    }
-
-    private void createInventory(LivingEntity entity){
-        //Slots
+    public void deleteMobs(){
+        if(!main.getDeliveryHandler().getEntityDelivery().isEmpty())
+        for(String entity_id : main.getDeliveryHandler().getEntityDelivery().keySet()){
+            main.getDeliveryHandler().getEntityDelivery().get(entity_id).remove();
+        }
     }
 }

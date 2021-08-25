@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
-public class Tabbing implements TabCompleter {
+public class KumandraTabbing implements TabCompleter {
 
     List<String> arguments = new ArrayList<>();
 

@@ -21,6 +21,10 @@ public class ConfigLoader {
             registryConfiguration.currency_economy = plugin.getConfig().getDouble("Currency");
         if(plugin.getConfig().contains("Currency_Prefix"))
             registryConfiguration.currency_prefix = plugin.getConfig().getString("Currency_Prefix");
+        if(plugin.getConfig().contains("RequestTradingSessionExpiry"))
+            registryConfiguration.requestTradeSessionExpiry = plugin.getConfig().getInt("RequestTradingSessionExpiry");
+        if(plugin.getConfig().contains("TradingIncreaseValue"))
+            registryConfiguration.tradingIncrease = plugin.getConfig().getDouble("TradingIncreaseValue");
 
         loadDeliveryHandler(registryConfiguration);
     }

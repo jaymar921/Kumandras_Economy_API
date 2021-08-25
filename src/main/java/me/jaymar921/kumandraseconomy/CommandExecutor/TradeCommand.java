@@ -16,7 +16,7 @@ public class TradeCommand implements CommandExecutor {
 
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args){
 
-        if(label.equalsIgnoreCase("Trade")){
+        if(label.equalsIgnoreCase("kTrade")){
             if(sender instanceof Player){
                 Player player = (Player) sender;
                 if(args.length>0){
@@ -28,6 +28,9 @@ public class TradeCommand implements CommandExecutor {
                                     trader.openInventory(plugin.getTradingHandler().getTradeInventory().get(trader.getUniqueId().toString()));
                                     player.sendMessage(ChatColor.GREEN+"Trade Accepted");
                                     trader.sendMessage(ChatColor.GREEN+"Trade request was accepted");
+                                    plugin.getTradingHandler().startActiveSession(trader, player);
+                                    plugin.getTradingHandler().activateSession(trader.getUniqueId().toString());
+                                    return true;
                                 }
                             }
                         }else{

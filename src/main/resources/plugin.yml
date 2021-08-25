@@ -14,9 +14,9 @@ commands:
         usage: /kumandra [Sub Commands]
         permission: kumandraseconomy.kumandra
         permission-message: You have no permission to use this command
-    trade:
+    ktrade:
         description: Command for Trading [Kumandra Economy Plugin]
-        usage: /trade [Sub Commands]
+        usage: /ktrade [Sub Commands]
 
 permissions:
     kumandraseconomy.kumandra:

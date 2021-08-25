@@ -19,7 +19,7 @@ public class VaultSupport {
 
     public void StartVault() {
         if(registerVault())
-            plugin.getLogger().info(ChatColor.GREEN+"Implemented Vault");
+            plugin.getLogger().info(ChatColor.GREEN+"Kumandra's Economy is set to secondary Economy");
     }
 
     public boolean registerVault() {

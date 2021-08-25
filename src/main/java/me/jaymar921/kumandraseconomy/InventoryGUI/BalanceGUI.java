@@ -91,7 +91,6 @@ public class BalanceGUI {
 
         gui.setItem(15, item);
 
-
         return gui;
     }
 

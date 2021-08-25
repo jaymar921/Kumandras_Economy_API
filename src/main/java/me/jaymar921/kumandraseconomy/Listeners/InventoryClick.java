@@ -7,6 +7,7 @@ import me.jaymar921.kumandraseconomy.datahandlers.DeliveryDataHandler;
 import me.jaymar921.kumandraseconomy.economy.PlayerStatus;
 import me.jaymar921.kumandraseconomy.entity.DeliveryType;
 import org.bukkit.ChatColor;
+import org.bukkit.Sound;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -155,11 +156,54 @@ public class InventoryClick implements Listener {
                     if(player_balance>=deliveryHandler.getCheap_delivery_price()){
                         player_balance-=deliveryHandler.getCheap_delivery_price();
                         playerStatus.setBalance(player_balance);
-                        player.sendMessage(ChatColor.AQUA+"A delivery Chicken has arrived, right click to add items");
-                        Player recepient = plugin.getDeliveryHandler().getScheduleDelivery().get(player);
-                        plugin.getDeliveryHandler().createDelivery(DeliveryType.CHEAP, player, recepient);
+                        player.sendMessage(ChatColor.GREEN+"You paid "+ChatColor.YELLOW+deliveryHandler.getCheap_delivery_price()+kumandras_prefix+ChatColor.GREEN+" for cheap delivery");
+                        Player recipient = plugin.getDeliveryHandler().getScheduleDelivery().get(player);
+                        plugin.getDeliveryHandler().createDelivery(DeliveryType.CHEAP, player, recipient);
                         player.closeInventory();
+                    }else{
+                        player.sendMessage(ChatColor.RED+"You do not have enough Kumandra's Money to pay the delivery");
+                        player.playSound(player.getLocation(), Sound.ENTITY_VILLAGER_NO, 1.0f, 1.0f);
                     }
+                    break;
+                case 12:
+                    if(player_balance>=deliveryHandler.getRegular_delivery_price()){
+                        player_balance-=deliveryHandler.getRegular_delivery_price();
+                        playerStatus.setBalance(player_balance);
+                        player.sendMessage(ChatColor.GREEN+"You paid "+ChatColor.YELLOW+deliveryHandler.getRegular_delivery_price()+kumandras_prefix+ChatColor.GREEN+" for regular delivery");
+                        Player recipient = plugin.getDeliveryHandler().getScheduleDelivery().get(player);
+                        plugin.getDeliveryHandler().createDelivery(DeliveryType.REGULAR, player, recipient);
+                        player.closeInventory();
+                    }else{
+                        player.sendMessage(ChatColor.RED+"You do not have enough Kumandra's Money to pay the delivery");
+                        player.playSound(player.getLocation(), Sound.ENTITY_VILLAGER_NO, 1.0f, 1.0f);
+                    }
+                    break;
+                case 14:
+                    if(player_balance>=deliveryHandler.getFast_delivery_price()){
+                        player_balance-=deliveryHandler.getFast_delivery_price();
+                        playerStatus.setBalance(player_balance);
+                        player.sendMessage(ChatColor.GREEN+"You paid "+ChatColor.YELLOW+deliveryHandler.getFast_delivery_price()+kumandras_prefix+ChatColor.GREEN+" for fast delivery");
+                        Player recipient = plugin.getDeliveryHandler().getScheduleDelivery().get(player);
+                        plugin.getDeliveryHandler().createDelivery(DeliveryType.FAST, player, recipient);
+                        player.closeInventory();
+                    }else{
+                        player.sendMessage(ChatColor.RED+"You do not have enough Kumandra's Money to pay the delivery");
+                        player.playSound(player.getLocation(), Sound.ENTITY_VILLAGER_NO, 1.0f, 1.0f);
+                    }
+                    break;
+                case 16:
+                    if(player_balance>=deliveryHandler.getPriority_delivery_price()){
+                        player_balance-=deliveryHandler.getPriority_delivery_price();
+                        playerStatus.setBalance(player_balance);
+                        player.sendMessage(ChatColor.GREEN+"You paid "+ChatColor.YELLOW+deliveryHandler.getPriority_delivery_price()+kumandras_prefix+ChatColor.GREEN+" for priority delivery");
+                        Player recipient = plugin.getDeliveryHandler().getScheduleDelivery().get(player);
+                        plugin.getDeliveryHandler().createDelivery(DeliveryType.PRIORITY, player, recipient);
+                        player.closeInventory();
+                    }else{
+                        player.sendMessage(ChatColor.RED+"You do not have enough Kumandra's Money to pay the delivery");
+                        player.playSound(player.getLocation(), Sound.ENTITY_VILLAGER_NO, 1.0f, 1.0f);
+                    }
+                    break;
             }
 
             plugin.getDataHandler().getStatusHolder().replace(player.getUniqueId().toString(), playerStatus);
@@ -217,13 +261,102 @@ public class InventoryClick implements Listener {
                                             player.getInventory().addItem(itemStack);
                                     }
                                     for(Player p : plugin.getDeliveryHandler().getId_delivery().get(key)){
-                                        p.sendMessage(ChatColor.GREEN+""+key+" - Has been Accepted");
+                                        p.sendMessage(ChatColor.GREEN+""+key+" was received");
                                     }
 
                                     player.sendMessage(ChatColor.GREEN+"You have received the delivery");
                                     plugin.getDeliveryHandler().deliveryAccepted(key);
                                     player.closeInventory();
                                 }
+                        event.setCancelled(true);
+                    }
+                }else if(deliveryType.equals(DeliveryType.REGULAR) || deliveryType.equals(DeliveryType.FAST)){
+                    if(event.getRawSlot()==0||event.getRawSlot()==1||event.getRawSlot()==7||event.getRawSlot()==8||event.getRawSlot()==9||event.getRawSlot()==10||event.getRawSlot()==16)
+                        event.setCancelled(true);
+                    if(event.getRawSlot()==17) {
+                        if(event.getCurrentItem()!=null)
+                            if(event.getCurrentItem().hasItemMeta())
+                                if(event.getCurrentItem().getItemMeta().getDisplayName()!=null)
+                                    if(event.getCurrentItem().getItemMeta().getDisplayName().contains("Send items")){
+                                        if(plugin.getDeliveryHandler().getScheduleDelivery().containsKey(player)) {
+                                            plugin.getDeliveryHandler().startDelivery(deliveryType, key, player);
+                                            player.sendMessage(ChatColor.GREEN+"You have sent the delivery");
+                                            player.closeInventory();
+                                        }else{
+                                            player.sendMessage(ChatColor.RED+"You have not booked any delivery");
+                                            player.closeInventory();
+                                        }
+                                    }else if(event.getCurrentItem().getItemMeta().getDisplayName().contains(ChatColor.YELLOW+"[Accept]")){
+                                        event.setCancelled(true);
+                                        List<ItemStack> items = new ArrayList<>();
+                                        Inventory inv = plugin.getDeliveryHandler().getDeliveryInventory().get(key);
+                                        for(int i = 2; i < 7; i++)
+                                            items.add(inv.getItem(i));
+                                        for(int i = 11; i < 16; i++)
+                                            items.add(inv.getItem(i));
+
+                                        for(ItemStack itemStack : items){
+                                            if(itemStack==null)
+                                                continue;
+                                            if(player.getInventory().firstEmpty()==-1)
+                                                player.getWorld().dropItemNaturally(player.getLocation(), itemStack);
+                                            else
+                                                player.getInventory().addItem(itemStack);
+                                        }
+                                        for(Player p : plugin.getDeliveryHandler().getId_delivery().get(key)){
+                                            p.sendMessage(ChatColor.GREEN+""+key+" was received");
+                                        }
+
+                                        player.sendMessage(ChatColor.GREEN+"You have received the delivery");
+                                        plugin.getDeliveryHandler().deliveryAccepted(key);
+                                        player.closeInventory();
+                                    }
+                        event.setCancelled(true);
+                    }
+                }else if(deliveryType.equals(DeliveryType.PRIORITY)){
+                    if(event.getRawSlot()==0||event.getRawSlot()==1||event.getRawSlot()==7||event.getRawSlot()==8||event.getRawSlot()==9||event.getRawSlot()==10||event.getRawSlot()==16||event.getRawSlot()==17
+                            ||event.getRawSlot()==18||event.getRawSlot()==19||event.getRawSlot()==25)
+                        event.setCancelled(true);
+                    if(event.getRawSlot()==26) {
+                        if(event.getCurrentItem()!=null)
+                            if(event.getCurrentItem().hasItemMeta())
+                                if(event.getCurrentItem().getItemMeta().getDisplayName()!=null)
+                                    if(event.getCurrentItem().getItemMeta().getDisplayName().contains("Send items")){
+                                        if(plugin.getDeliveryHandler().getScheduleDelivery().containsKey(player)) {
+                                            plugin.getDeliveryHandler().startDelivery(deliveryType, key, player);
+                                            player.sendMessage(ChatColor.GREEN+"You have sent the delivery");
+                                            player.closeInventory();
+                                        }else{
+                                            player.sendMessage(ChatColor.RED+"You have not booked any delivery");
+                                            player.closeInventory();
+                                        }
+                                    }else if(event.getCurrentItem().getItemMeta().getDisplayName().contains(ChatColor.YELLOW+"[Accept]")){
+                                        event.setCancelled(true);
+                                        List<ItemStack> items = new ArrayList<>();
+                                        Inventory inv = plugin.getDeliveryHandler().getDeliveryInventory().get(key);
+                                        for(int i = 2; i < 7; i++)
+                                            items.add(inv.getItem(i));
+                                        for(int i = 11; i < 16; i++)
+                                            items.add(inv.getItem(i));
+                                        for(int i = 20; i < 25; i++)
+                                            items.add(inv.getItem(i));
+
+                                        for(ItemStack itemStack : items){
+                                            if(itemStack==null)
+                                                continue;
+                                            if(player.getInventory().firstEmpty()==-1)
+                                                player.getWorld().dropItemNaturally(player.getLocation(), itemStack);
+                                            else
+                                                player.getInventory().addItem(itemStack);
+                                        }
+                                        for(Player p : plugin.getDeliveryHandler().getId_delivery().get(key)){
+                                            p.sendMessage(ChatColor.GREEN+""+key+" was received");
+                                        }
+
+                                        player.sendMessage(ChatColor.GREEN+"You have received the delivery");
+                                        plugin.getDeliveryHandler().deliveryAccepted(key);
+                                        player.closeInventory();
+                                    }
                         event.setCancelled(true);
                     }
                 }
