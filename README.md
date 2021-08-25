@@ -6,7 +6,7 @@
 
 ### Description
 
-This plugin adds an economy system in game, it has deposit/withdraw/pay system which is common in economy plugins. The plugin does not just limit on adding currency in game, it also has its own trading systems and delivery system which enhances the item transportation with player interaction, This plugin soft depend on EssentialsX Economy means that it can run with or without this Essentials plugin.
+This plugin adds an economy system in game, it has deposit/withdraw/pay system which is common in economy plugins. The plugin does not just limit on adding currency in game, it also has its own trading systems and delivery system which enhances the item transportation with player interaction, This plugin depends on vault plugin, it can be a primary or secondary economy plugin on a single server.
 
 ### Kumandra's Economy API
 
