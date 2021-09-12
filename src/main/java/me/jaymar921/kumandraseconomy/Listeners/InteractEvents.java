@@ -4,9 +4,7 @@ import me.jaymar921.kumandraseconomy.KumandrasEconomy;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
-import org.bukkit.event.entity.EntityInteractEvent;
 import org.bukkit.event.player.PlayerInteractEntityEvent;
-import org.bukkit.event.player.PlayerInteractEvent;
 
 public class InteractEvents implements Listener {
 

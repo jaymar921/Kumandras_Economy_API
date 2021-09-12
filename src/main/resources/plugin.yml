@@ -1,9 +1,9 @@
 name: KumandrasEconomy
 version: ${project.version}
 main: me.jaymar921.kumandraseconomy.KumandrasEconomy
-api-version: 1.17
+api-version: 1.16
 authors: [ JayMar921 ]
-softdepend: [Vault]
+softdepend: [Vault,CustomEnchantments]
 website: https://www.spigotmc.org/resources/authors/jaymar921.1073076/
 
 commands:
@@ -25,13 +25,16 @@ permissions:
         children:
             kumandraseconomy.kumandra.balance: true
             kumandraseconomy.kumandra.pay: true
-            kumandraseconomy.kumandra.deposit: true
+            kumandraseconomy.kumandra.deposit: false
             kumandraseconomy.kumandra.trade: true
             kumandraseconomy.kumandra.deliver: true
+            kumandraseconomy.kumandra.job: true
+            kumandraseconomy.kumandra.shop: true
+            kumandraseconomy.kumandra.shopAdmin: false
 
     kumandraseconomy.kumandra.balance:
         description: Show the player's account
-        default: not-op
+        default: true
 
     kumandraseconomy.kumandra.deposit:
         description: Add money to a player's account
@@ -39,12 +42,24 @@ permissions:
 
     kumandraseconomy.kumandra.pay:
         description: Pay money to a player's account
-        default: not-op
+        default: true
 
     kumandraseconomy.kumandra.trade:
         description: Trade with players
-        default: not-op
+        default: true
 
     kumandraseconomy.kumandra.deliver:
         description: Deliver items to players
-        default: not-op
+        default: true
+
+    kumandraseconomy.kumandra.job:
+        description: Join jobs
+        default: true
+
+    kumandraseconomy.kumandra.shop:
+        description: Create shops
+        default: true
+
+    kumandraseconomy.kumandra.shopAdmin:
+        description: Create/Modify shops
+        default: op

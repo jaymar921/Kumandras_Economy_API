@@ -251,7 +251,7 @@ public class EconomyImplementer implements Economy {
             balance = playerStatus.getBalance();
 
             responseType = EconomyResponse.ResponseType.SUCCESS;
-            balance+=amount;
+            balance = amount + playerStatus.getBalance();
             playerStatus.setBalance(balance);
             plugin.getDataHandler().getStatusHolder().replace(player.getUniqueId().toString(), playerStatus);
 
@@ -270,7 +270,7 @@ public class EconomyImplementer implements Economy {
             balance = playerStatus.getBalance();
 
             responseType = EconomyResponse.ResponseType.SUCCESS;
-            balance+=amount;
+            balance = amount + playerStatus.getBalance();
             playerStatus.setBalance(balance);
             plugin.getDataHandler().getStatusHolder().replace(player.getUniqueId().toString(), playerStatus);
 
@@ -291,7 +291,7 @@ public class EconomyImplementer implements Economy {
             balance = playerStatus.getBalance();
 
             responseType = EconomyResponse.ResponseType.SUCCESS;
-            balance+=amount;
+            balance=amount + playerStatus.getBalance();
             playerStatus.setBalance(balance);
             plugin.getDataHandler().getStatusHolder().replace(player.getUniqueId().toString(), playerStatus);
 
@@ -311,7 +311,7 @@ public class EconomyImplementer implements Economy {
                 balance = playerStatus.getBalance();
 
                 responseType = EconomyResponse.ResponseType.SUCCESS;
-                balance+=amount;
+                balance=amount + playerStatus.getBalance();
                 playerStatus.setBalance(balance);
                 plugin.getDataHandler().getStatusHolder().replace(player.getUniqueId().toString(), playerStatus);
 

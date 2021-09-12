@@ -7,6 +7,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
+import org.bukkit.scheduler.BukkitRunnable;
 
 public class PlayerJoinLeaveEvent implements Listener {
 
@@ -23,6 +24,20 @@ public class PlayerJoinLeaveEvent implements Listener {
             player.sendMessage(ChatColor.GOLD+"["+ChatColor.GREEN+"Kumandra's Economy"+ChatColor.GOLD+"] "+ChatColor.GREEN+"Your account has been created!");
             PlayerStatus status = new PlayerStatus(player.getUniqueId().toString(),0);
             plugin.getDataHandler().getStatusHolder().put(player.getUniqueId().toString(), status);
+        }
+
+
+
+        if(player.isOp() && plugin.getRegistryConfiguration().newVersionRelease) {
+            new BukkitRunnable() {
+                public void run() {
+                    player.sendMessage("");
+                    player.sendMessage(ChatColor.LIGHT_PURPLE+"["+ChatColor.GOLD+plugin.getDescription().getName()+ChatColor.LIGHT_PURPLE+"] "+ChatColor.GREEN+"Kumandra's Update!");
+                    player.sendMessage(ChatColor.LIGHT_PURPLE+"["+ChatColor.GOLD+plugin.getDescription().getName()+ChatColor.LIGHT_PURPLE+"] "+ChatColor.GREEN+"New version: "+ChatColor.RED+plugin.getRegistryConfiguration().newVersion);
+                    player.sendMessage(ChatColor.LIGHT_PURPLE+"["+ChatColor.GOLD+plugin.getDescription().getName()+ChatColor.LIGHT_PURPLE+"] "+ChatColor.GREEN+"Current version: "+ChatColor.RED+plugin.getDescription().getVersion());
+                    player.sendMessage("");
+                }
+            }.runTaskLater(plugin, 20);
         }
     }
 }

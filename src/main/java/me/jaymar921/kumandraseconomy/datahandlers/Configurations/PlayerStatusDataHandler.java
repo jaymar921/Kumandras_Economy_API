@@ -1,4 +1,4 @@
-package me.jaymar921.kumandraseconomy.datahandlers;
+package me.jaymar921.kumandraseconomy.datahandlers.Configurations;
 
 import me.jaymar921.kumandraseconomy.KumandrasEconomy;
 import org.bukkit.configuration.file.FileConfiguration;

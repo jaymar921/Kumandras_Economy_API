@@ -37,7 +37,7 @@ public class DeliveryGUI {
             gui.setItem(i, item);
         }
 
-        item = new ItemStack(Material.CHICKEN_SPAWN_EGG);
+        item = new ItemStack(Material.BARREL);
         meta = item.getItemMeta();
         assert meta != null;
         meta.setDisplayName(ChatColor.GREEN+""+ChatColor.BOLD+"Cheap Delivery");
@@ -53,7 +53,7 @@ public class DeliveryGUI {
 
         gui.setItem(10, item);
 
-        item = new ItemStack(Material.PIG_SPAWN_EGG);
+        item = new ItemStack(Material.CHEST);
         meta = item.getItemMeta();
         assert meta != null;
         meta.setDisplayName(ChatColor.GREEN+""+ChatColor.BOLD+"Regular Delivery");
@@ -69,7 +69,7 @@ public class DeliveryGUI {
 
         gui.setItem(12, item);
 
-        item = new ItemStack(Material.SHEEP_SPAWN_EGG);
+        item = new ItemStack(Material.GREEN_SHULKER_BOX);
         meta = item.getItemMeta();
         assert meta != null;
         meta.setDisplayName(ChatColor.GREEN+""+ChatColor.BOLD+"Fast Delivery");
@@ -85,7 +85,7 @@ public class DeliveryGUI {
 
         gui.setItem(14, item);
 
-        item = new ItemStack(Material.COW_SPAWN_EGG);
+        item = new ItemStack(Material.ENDER_CHEST);
         meta = item.getItemMeta();
         assert meta != null;
         meta.setDisplayName(ChatColor.GREEN+""+ChatColor.BOLD+"Priority Delivery");

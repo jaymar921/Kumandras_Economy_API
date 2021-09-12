@@ -11,10 +11,7 @@ import org.bukkit.block.data.type.Switch;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
-import org.bukkit.event.inventory.InventoryClickEvent;
-import org.bukkit.event.inventory.InventoryCloseEvent;
-import org.bukkit.event.inventory.InventoryCreativeEvent;
-import org.bukkit.event.inventory.InventoryInteractEvent;
+import org.bukkit.event.inventory.*;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
@@ -35,12 +32,15 @@ public class TradingListener implements Listener {
 
     @EventHandler
     private void leftClickInvalidTradingItems(InventoryClickEvent event){
-        if(!plugin.getTradingHandler().getTradePersonnel().containsKey(event.getClickedInventory()))
+        if(!plugin.getTradingHandler().getTradePersonnel().containsKey(event.getInventory()))
             return;
+
         List<Integer> deny_slots = plugin.getTradingHandler().denySlots();
         if(deny_slots.contains(event.getRawSlot())){
             event.setCancelled(true);
         }
+        if(event.isShiftClick())
+            event.setCancelled(true);
     }
 
     @EventHandler
@@ -98,6 +98,9 @@ public class TradingListener implements Listener {
 
         int slot = event.getRawSlot();
 
+        if(event.getClick().equals(ClickType.SHIFT_LEFT)) {
+            event.setCancelled(true);
+        }
         if(data.getRole().equals("trader")){
             if(buyerSlot.contains(slot)){
                 data.getOwner().playSound(data.getOwner().getLocation(), Sound.ENTITY_VILLAGER_NO,1.0f,1.0f);

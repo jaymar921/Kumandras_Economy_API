@@ -5,16 +5,13 @@ import me.jaymar921.kumandraseconomy.CommandExecutor.KumandraTabbing;
 import me.jaymar921.kumandraseconomy.CommandExecutor.TradeCommand;
 import me.jaymar921.kumandraseconomy.CommandExecutor.TradeTabbing;
 import me.jaymar921.kumandraseconomy.InventoryGUI.DeliveryGUI;
-import me.jaymar921.kumandraseconomy.Listeners.InteractEvents;
-import me.jaymar921.kumandraseconomy.Listeners.InventoryClick;
-import me.jaymar921.kumandraseconomy.Listeners.PlayerJoinLeaveEvent;
-import me.jaymar921.kumandraseconomy.Listeners.TradingListener;
+import me.jaymar921.kumandraseconomy.InventoryGUI.JobsGUI;
+import me.jaymar921.kumandraseconomy.InventoryGUI.Supporters;
+import me.jaymar921.kumandraseconomy.Listeners.*;
 import me.jaymar921.kumandraseconomy.Vault.VaultLoader;
 import me.jaymar921.kumandraseconomy.Vault.VaultSupport;
-import me.jaymar921.kumandraseconomy.datahandlers.ConfigLoader;
-import me.jaymar921.kumandraseconomy.datahandlers.RegistryConfiguration;
-import me.jaymar921.kumandraseconomy.datahandlers.dataHandler;
-import me.jaymar921.kumandraseconomy.datahandlers.dataHandlerLoader;
+import me.jaymar921.kumandraseconomy.Version.VersionChecker;
+import me.jaymar921.kumandraseconomy.datahandlers.*;
 import me.jaymar921.kumandraseconomy.economy.DeliveryHandler;
 import me.jaymar921.kumandraseconomy.economy.PlayerStatus;
 import me.jaymar921.kumandraseconomy.economy.TradingHandler;
@@ -33,7 +30,12 @@ public final class KumandrasEconomy extends JavaPlugin {
     private TradingHandler tradingHandler;
     private VaultLoader vaultLoader;
     private Inventory deliveryGUI;
+    private Inventory jobsGUI;
     private DeliveryHandler deliveryHandler;
+    private ShopDataHandler shopDataHandler;
+    private Inventory supporters;
+    private VersionChecker version;
+    private QuestEvent questEvent;
 
     private RegistryConfiguration registryConfiguration;
 
@@ -44,6 +46,7 @@ public final class KumandrasEconomy extends JavaPlugin {
         saveDefaultConfig();
         //register classes
         ConfigurationSerialization.registerClass(PlayerStatus.class);
+        ConfigurationSerialization.registerClass(QuestData.class);
 
         //Load Registry Configuration
         new ConfigLoader(this);
@@ -52,6 +55,7 @@ public final class KumandrasEconomy extends JavaPlugin {
         dataHandler = new dataHandler();
         dataHandlerLoader = new dataHandlerLoader(this);
         tradingHandler = new TradingHandler(this);
+        shopDataHandler = new ShopDataHandler(this);
         loadDataLoader();
 
         //instantiate classes
@@ -64,6 +68,10 @@ public final class KumandrasEconomy extends JavaPlugin {
         pluginManager.registerEvents(new InventoryClick(this), this);
         pluginManager.registerEvents(new InteractEvents(this), this);
         pluginManager.registerEvents(new TradingListener(this), this);
+        pluginManager.registerEvents(new ShopListener(this), this);
+        pluginManager.registerEvents(new JobsListener(this), this);
+        if(getRegistryConfiguration().QuestAllowed)
+            pluginManager.registerEvents(questEvent, this);
         //register Commands
         registerCommands();
 
@@ -74,6 +82,8 @@ public final class KumandrasEconomy extends JavaPlugin {
     @Override
     public void onDisable() {
         saveDataLoader();
+        getShopDataHandler().saveShopData();
+        questEvent.flush();
         new DeliveryEntity(this).deleteMobs();
         vaultLoader.unregisterVault();
     }
@@ -81,7 +91,11 @@ public final class KumandrasEconomy extends JavaPlugin {
     private void instantiateClasses(){
         vaultLoader = new VaultLoader(this);
         deliveryGUI = new DeliveryGUI(registryConfiguration.deliveryHandler).DeliveryUI();
+        jobsGUI = new JobsGUI().joinJobUI();
+        supporters = new Supporters().getSupporters();
         deliveryHandler = new DeliveryHandler(this);
+        version = new VersionChecker(Bukkit.getServer().getVersion());
+        questEvent = new QuestEvent(this);
     }
 
     public dataHandler getDataHandler(){
@@ -117,7 +131,17 @@ public final class KumandrasEconomy extends JavaPlugin {
 
     public Inventory getDeliveryGUI(){return deliveryGUI;}
 
+    public Inventory getJobsGUI(){return jobsGUI;}
+
+    public Inventory getSupporters(){return supporters;}
+
     public DeliveryHandler getDeliveryHandler() { return deliveryHandler;}
+
+    public ShopDataHandler getShopDataHandler() {return shopDataHandler;}
+
+    public QuestEvent getQuestEvent() {return  questEvent;}
+
+    public VersionChecker getVersion(){return version;}
 
     public void setRegistryConfiguration(RegistryConfiguration registryConfiguration){this.registryConfiguration =registryConfiguration;}
 }

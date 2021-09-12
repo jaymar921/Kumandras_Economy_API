@@ -36,12 +36,13 @@ public class InventoryClick implements Listener {
             if(plugin.getDataHandler().getBalanceGUI().get(event.getWhoClicked().getUniqueId().toString())==null)
                 return;
             if(event.getClickedInventory().equals(plugin.getDataHandler().getBalanceGUI().get(event.getWhoClicked().getUniqueId().toString()))) {
-                if(event.getRawSlot()==13){
-                    PlayerStatus status = plugin.getDataHandler().getStatusHolder().get(event.getWhoClicked().getUniqueId().toString());
-                    Inventory exchangeGUI = new ExchangeGUI().getExchangeGUI((Player) event.getWhoClicked(),status);
-                    plugin.getDataHandler().getExchangeGUI().put(event.getWhoClicked().getUniqueId(),exchangeGUI);
-                    event.getWhoClicked().openInventory(exchangeGUI);
-                }
+                if(plugin.getRegistryConfiguration().separate_economy)
+                    if(event.getRawSlot()==13){
+                        PlayerStatus status = plugin.getDataHandler().getStatusHolder().get(event.getWhoClicked().getUniqueId().toString());
+                        Inventory exchangeGUI = new ExchangeGUI().getExchangeGUI((Player) event.getWhoClicked(),status);
+                        plugin.getDataHandler().getExchangeGUI().put(event.getWhoClicked().getUniqueId(),exchangeGUI);
+                        event.getWhoClicked().openInventory(exchangeGUI);
+                    }
 
                 event.setCancelled(true);
             }
@@ -78,6 +79,20 @@ public class InventoryClick implements Listener {
                             }
                         }
                         break;
+                    case 28:
+                        //check if player has account from the foreign economy
+                        if(vault.economy.hasAccount(player)){
+                            kumandras_money = 50*currency;
+                            foreign_money = 50;
+                            if(playerStatus.getBalance()>=kumandras_money){
+                                vault.economy.depositPlayer(player, foreign_money);
+                                playerStatus.setBalance(playerStatus.getBalance()-kumandras_money);
+                                player.sendMessage(ChatColor.GREEN+"You have successfully exchanged "+ChatColor.GOLD +kumandras_money+ChatColor.DARK_AQUA+kumandras_prefix + ChatColor.GREEN + " for "+ChatColor.GOLD + foreign_money + " "+ ChatColor.DARK_AQUA + foreign_economy);
+                            }else{
+                                player.sendMessage(ChatColor.RED+"You do not have enough "+kumandras_money+kumandras_prefix+" balance for exchange");
+                            }
+                        }
+                        break;
                     case 21:
                         //check if player has account from the foreign economy
                         if(vault.economy.hasAccount(player)){
@@ -89,6 +104,20 @@ public class InventoryClick implements Listener {
                                 player.sendMessage(ChatColor.GREEN+"You have successfully exchanged "+ChatColor.GOLD + "$" +foreign_money+" "+ChatColor.DARK_AQUA+foreign_economy + ChatColor.GREEN + " for "+ChatColor.GOLD + kumandras_money + ChatColor.DARK_AQUA + kumandras_prefix);
                             }else{
                                 player.sendMessage(ChatColor.RED+"You do not have enough "+foreign_economy+" balance for exchange");
+                            }
+                        }
+                        break;
+                    case 30:
+                        //check if player has account from the foreign economy
+                        if(vault.economy.hasAccount(player)){
+                            kumandras_money = 100*currency;
+                            foreign_money = 100;
+                            if(playerStatus.getBalance()>=kumandras_money){
+                                vault.economy.depositPlayer(player, foreign_money);
+                                playerStatus.setBalance(playerStatus.getBalance()-kumandras_money);
+                                player.sendMessage(ChatColor.GREEN+"You have successfully exchanged "+ChatColor.GOLD +kumandras_money+ChatColor.DARK_AQUA+kumandras_prefix + ChatColor.GREEN + " for "+ChatColor.GOLD + foreign_money + " "+ ChatColor.DARK_AQUA + foreign_economy);
+                            }else{
+                                player.sendMessage(ChatColor.RED+"You do not have enough "+kumandras_money+kumandras_prefix+" balance for exchange");
                             }
                         }
                         break;
@@ -106,6 +135,20 @@ public class InventoryClick implements Listener {
                             }
                         }
                         break;
+                    case 32:
+                        //check if player has account from the foreign economy
+                        if(vault.economy.hasAccount(player)){
+                            kumandras_money = 500*currency;
+                            foreign_money = 500;
+                            if(playerStatus.getBalance()>=kumandras_money){
+                                vault.economy.depositPlayer(player, foreign_money);
+                                playerStatus.setBalance(playerStatus.getBalance()-kumandras_money);
+                                player.sendMessage(ChatColor.GREEN+"You have successfully exchanged "+ChatColor.GOLD +kumandras_money+ChatColor.DARK_AQUA+kumandras_prefix + ChatColor.GREEN + " for "+ChatColor.GOLD + foreign_money + " "+ ChatColor.DARK_AQUA + foreign_economy);
+                            }else{
+                                player.sendMessage(ChatColor.RED+"You do not have enough "+kumandras_money+kumandras_prefix+" balance for exchange");
+                            }
+                        }
+                        break;
                     case 25:
                         //check if player has account from the foreign economy
                         if(vault.economy.hasAccount(player)){
@@ -117,6 +160,20 @@ public class InventoryClick implements Listener {
                                 player.sendMessage(ChatColor.GREEN+"You have successfully exchanged "+ChatColor.GOLD + "$" +foreign_money+" "+ChatColor.DARK_AQUA+foreign_economy + ChatColor.GREEN + " for "+ChatColor.GOLD + kumandras_money + ChatColor.DARK_AQUA + kumandras_prefix);
                             }else{
                                 player.sendMessage(ChatColor.RED+"You do not have enough "+foreign_economy+" balance for exchange");
+                            }
+                        }
+                        break;
+                    case 34:
+                        //check if player has account from the foreign economy
+                        if(vault.economy.hasAccount(player)){
+                            kumandras_money = 1000*currency;
+                            foreign_money = 1000;
+                            if(playerStatus.getBalance()>=kumandras_money){
+                                vault.economy.depositPlayer(player, foreign_money);
+                                playerStatus.setBalance(playerStatus.getBalance()-kumandras_money);
+                                player.sendMessage(ChatColor.GREEN+"You have successfully exchanged "+ChatColor.GOLD +kumandras_money+ChatColor.DARK_AQUA+kumandras_prefix + ChatColor.GREEN + " for "+ChatColor.GOLD + foreign_money + " "+ ChatColor.DARK_AQUA + foreign_economy);
+                            }else{
+                                player.sendMessage(ChatColor.RED+"You do not have enough "+kumandras_money+kumandras_prefix+" balance for exchange");
                             }
                         }
                         break;

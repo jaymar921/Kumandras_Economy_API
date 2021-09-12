@@ -1,8 +1,9 @@
-#
 # Kumandra's Economy Plugin
 # by JayMar921
 #
-# Discord: 5v8BnnPrVH
+Version: '${project.version}'
+#
+# YouTube: JayMar921
 #
 # [Configuration]
 #
@@ -17,7 +18,7 @@ Separate_Economy: true
 # [Currency only works if Separate_Economy is true]
 # Currency, it is the medium for exchange of money
 # 1 Currency of your main economy plugin is equal to 'Currency' of Kumandra's Economy
-Currency: 0.25
+Currency: 0.23
 Currency_Prefix: 'Kd'
 #
 #--------------------------------------------------------------------------#
@@ -40,3 +41,59 @@ Priority_Delivery_Price: 100
 # Request Trading Session Expiry, in seconds
 RequestTradingSessionExpiry: 20
 TradingIncreaseValue: 1
+#---------------------------------------------------------------------------#
+# Jobs Settings | You can change the value with decimal points '1.05'       #
+#---------------------------------------------------------------------------#
+# Numbers of Jobs [Default: '2']
+Jobs: 2
+# [JOB INCOME]
+# Farmers [Harvesting Crops and Breeding animals]
+CropsHarvesting: 0.25
+BreedingAnimals: 0.53
+# Lumberjack [Breaking Logs and Planting Trees]
+BreakingLogs: 0.22
+PlantingTrees: 0.34
+# Miner [Mining Blocks and Mining Ores]
+# Considered mining Blocks
+# I removed blocks from 1.17 for 1.16 compatibility, if you wish to add more blocks
+# from 1.17 or 1.16, here are the material list:
+# https://hub.spigotmc.org/javadocs/bukkit/org/bukkit/Material.html
+ConsideredMiningBlocks:
+  - STONE
+  - DIORITE
+  - ANDESITE
+  - GRANITE
+  - PRISMARINE
+MiningBlocks: 0.21
+# Considered Mining Ores
+ConsideredMiningOres:
+  - COAL_ORE
+  - IRON_ORE
+  - GOLD_ORE
+  - DIAMOND_ORE
+  - EMERALD_ORE
+  - NETHER_GOLD_ORE
+  - NETHER_QUARTZ_ORE
+MiningOres: 0.32
+# Hunter [Killing Hostile Mobs]
+Hunter: 0.32
+# Guardian [Killing Hostile Mobs 'x' blocks from a Villager Radius]
+VillagerRadius: 20
+Guardian: 0.35
+# Builder [Placing considered building blocks]
+# Default - Allow all blocks to be placed with income
+ConsideredBlocksForBuilding:
+  - DEFAULT
+Builder: 0.15
+# Fisherman [Earn by fishing and getting treasure]
+Fisherman: 0.23
+LuckyFisherman: 0.35
+#---------------------------------------------------------------------------#
+#    QUEST EVENT, There are 2 type of Quests [VILLAGER/ANIMAL QUEST]        #
+#    You can modify the quests at Data/Quest.yml                            #
+#---------------------------------------------------------------------------#
+AllowQuest: true
+# Quest chance per {interval} minutes
+# Default is 0.3 which is [0.3*100%] = 30%
+QuestChance: 0.3
+QuestInterval: 5

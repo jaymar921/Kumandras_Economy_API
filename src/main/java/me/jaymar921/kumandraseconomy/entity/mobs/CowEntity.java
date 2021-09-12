@@ -16,6 +16,7 @@ public class CowEntity {
 
     @SuppressWarnings("deprecation")
     public LivingEntity spawnEntity(@NotNull final Location location, String customName){
+        location.setPitch(0.0f);
         Entity cow = location.getWorld().spawnEntity(location, EntityType.COW);
         LivingEntity Cow = (LivingEntity) cow;
 
@@ -35,7 +36,7 @@ public class CowEntity {
         Cow.setAI(false);
 
         //Add persistent
-        Cow.getPersistentDataContainer().set(new NamespacedKey(KumandrasEconomy.getPlugin(KumandrasEconomy.class), "DeliverChicken"), PersistentDataType.STRING, customName);
+        Cow.getPersistentDataContainer().set(new NamespacedKey(KumandrasEconomy.getPlugin(KumandrasEconomy.class), "DeliverCow"), PersistentDataType.STRING, customName);
 
         return Cow;
     }

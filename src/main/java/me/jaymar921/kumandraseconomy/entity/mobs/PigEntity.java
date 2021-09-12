@@ -16,6 +16,7 @@ public class PigEntity {
 
     @SuppressWarnings("deprecation")
     public LivingEntity spawnEntity(@NotNull final Location location, String customName){
+        location.setPitch(0.0f);
         Entity pig = location.getWorld().spawnEntity(location, EntityType.PIG);
         LivingEntity Pig = (LivingEntity) pig;
 
@@ -34,7 +35,7 @@ public class PigEntity {
         //Remove AI
         Pig.setAI(false);
         //Add persistent
-        Pig.getPersistentDataContainer().set(new NamespacedKey(KumandrasEconomy.getPlugin(KumandrasEconomy.class), "DeliverChicken"), PersistentDataType.STRING, customName);
+        Pig.getPersistentDataContainer().set(new NamespacedKey(KumandrasEconomy.getPlugin(KumandrasEconomy.class), "DeliverPig"), PersistentDataType.STRING, customName);
 
         return Pig;
     }

@@ -1,0 +1,1428 @@
+#List Of Quests, you can modify if you want
+#
+# How to add your own quest, since this is a quest list, you need
+# to follow the format
+# [NOTE THAT THE SPACING MUST BE EXACT WITH OTHER VALUES IN THE LIST]
+#
+# Quest type, there are 2 quest types, either VILLAGER or ANIMAL.
+# Type: VILLAGER
+# Quest title, you know it, no need to explain.
+# Title: Kill Zombies
+# Quest Message, provide a message that supports your quest title.
+# Message:
+#   - Kill 5 Zombies to get a diamond sword
+#   - Quest duration will be 320 seconds
+# Quest Duration, in seconds, it will the duration of the quest
+# before it expires.
+# Duration: 320
+# Quest task, you can provide KILL, FEED, MINE, CRAFT task. ex. FEED_COW
+# Note: CRAFT task will only detect if item is in inventory, you can have
+#       a cooking quest with it
+# Task: KILL_ZOMBIE
+# Quest count, this will be the number of times to complete the task
+# Count: 5
+# Quest Reward type, you can set reward type to ITEM, EXP or MONEY
+# if your RewardType is ITEM, you need to provide an itemStack in
+# ItemReward field, if your RewardType is EXP or MONEY
+# you must provide a value in ExpReward.
+# RewardType: ITEM
+# ItemReward:
+#   ==: org.bukkit.inventory.ItemStack
+#      v: 2730
+#      type: DIAMOND_SWORD
+# ExpReward: null
+#
+# Example Quest, This is a quest for villager, task is to kill 5 zombies
+# reward type is item and the duration of the quest is 320
+#
+# [FORMAT]
+# - ==: me.jaymar921.kumandraseconomy.datahandlers.QuestData
+#    ExpReward: 0
+#    Type: VILLAGER
+#    Task: KILL_ZOMBIE
+#    Message:
+#      - Kill 5 Zombies for a diamond sword
+#    RewardType: ITEM
+#    ItemReward:
+#      ==: org.bukkit.inventory.ItemStack
+#      v: 2730
+#      type: DIAMOND_SWORD
+#    Title: Kill Zombie
+#    Duration: 320
+#    Count: 5
+#
+#
+QUESTS:
+  - ==: me.jaymar921.kumandraseconomy.datahandlers.QuestData
+    ExpReward: 0
+    Type: VILLAGER
+    Task: KILL_ZOMBIE
+    Message:
+      - Will you protect us? I will give you a Diamond Sword
+    RewardType: ITEM
+    ItemReward:
+      ==: org.bukkit.inventory.ItemStack
+      v: 2730
+      type: DIAMOND_SWORD
+    Title: Kill Zombies
+    Duration: 320
+    Count: 25
+  - ==: me.jaymar921.kumandraseconomy.datahandlers.QuestData
+    ExpReward: 100
+    Type: VILLAGER
+    Task: KILL_CREEPER
+    Message:
+      - I needed gun powder for my Experiment, would you kill 5 creepers for me?
+    RewardType: EXP
+    ItemReward: null
+    Title: Kill Creeper
+    Duration: 320
+    Count: 5
+  - ==: me.jaymar921.kumandraseconomy.datahandlers.QuestData
+    ExpReward: 0
+    Type: VILLAGER
+    Task: KILL_COW
+    Message:
+      - I need you to slaughter 5 cows for my Cheese Burger recipe
+    RewardType: ITEM
+    ItemReward:
+      ==: org.bukkit.inventory.ItemStack
+      v: 2730
+      type: EMERALD
+    Title: Cheese Burger
+    Duration: 320
+    Count: 5
+  - ==: me.jaymar921.kumandraseconomy.datahandlers.QuestData
+    ExpReward: 10
+    Type: VILLAGER
+    Task: KILL_PIG
+    Message:
+      - I need you to kill 8 pigs for my special pork BBQ
+    RewardType: MONEY
+    ItemReward: null
+    Title: Pork BBQ Recipe
+    Duration: 420
+    Count: 8
+  - ==: me.jaymar921.kumandraseconomy.datahandlers.QuestData
+    ExpReward: 8
+    Type: VILLAGER
+    Task: FEED_SHEEP
+    Message:
+      - If you found 10 sheeps, feed them, I'll pay you later
+    RewardType: MONEY
+    ItemReward: null
+    Title: Sheep feeding
+    Duration: 420
+    Count: 10
+  - ==: me.jaymar921.kumandraseconomy.datahandlers.QuestData
+    ExpReward: 3
+    Type: VILLAGER
+    Task: FEED_CHICKEN
+    Message:
+      - I want you to feed 5 chickens
+    RewardType: MONEY
+    ItemReward: null
+    Title: Chicken Feeding
+    Duration: 140
+    Count: 5
+  - ==: me.jaymar921.kumandraseconomy.datahandlers.QuestData
+    ExpReward: 12
+    Type: VILLAGER
+    Task: FEED_CAT
+    Message:
+      - Please feed the cats
+    RewardType: MONEY
+    ItemReward: null
+    Title: Cater the Cat
+    Duration: 340
+    Count: 2
+  - ==: me.jaymar921.kumandraseconomy.datahandlers.QuestData
+    ExpReward: 17
+    Type: VILLAGER
+    Task: MINE_RAIL
+    Message:
+      - Find a mineshaft and mine 28 rail roads
+    RewardType: MONEY
+    ItemReward: null
+    Title: I need a Cart
+    Duration: 440
+    Count: 28
+  - ==: me.jaymar921.kumandraseconomy.datahandlers.QuestData
+    ExpReward: 15
+    Type: VILLAGER
+    Task: MINE_EMERALD_ORE
+    Message:
+      - Can you mine 4 emeralds for me?
+    RewardType: MONEY
+    ItemReward: null
+    Title: Mine 4 Emeralds
+    Duration: 360
+    Count: 4
+  - ==: me.jaymar921.kumandraseconomy.datahandlers.QuestData
+    ExpReward: 20
+    Type: VILLAGER
+    Task: MINE_DIAMOND_ORE
+    Message:
+      - Can you mine 5 diamonds for me?
+    RewardType: MONEY
+    ItemReward: null
+    Title: Mine 5 Diamonds
+    Duration: 360
+    Count: 5
+  - ==: me.jaymar921.kumandraseconomy.datahandlers.QuestData
+    ExpReward: 4
+    Type: VILLAGER
+    Task: MINE_OAK_LOG
+    Message:
+      - Can you chop 10 oak logs for me?
+    RewardType: MONEY
+    ItemReward: null
+    Title: Chop oak logs
+    Duration: 360
+    Count: 10
+  - ==: me.jaymar921.kumandraseconomy.datahandlers.QuestData
+    ExpReward: 8
+    Type: VILLAGER
+    Task: MINE_SPRUCE_LOG
+    Message:
+      - Can you chop 10 spruce logs for me?
+    RewardType: MONEY
+    ItemReward: null
+    Title: Chop spruce logs
+    Duration: 360
+    Count: 10
+  - ==: me.jaymar921.kumandraseconomy.datahandlers.QuestData
+    ExpReward: 9
+    Type: VILLAGER
+    Task: MINE_JUNGLE_LOG
+    Message:
+      - Can you chop 10 jungle logs for me?
+    RewardType: MONEY
+    ItemReward: null
+    Title: Chop jungle logs
+    Duration: 360
+    Count: 10
+  - ==: me.jaymar921.kumandraseconomy.datahandlers.QuestData
+    ExpReward: 5
+    Type: VILLAGER
+    Task: MINE_IRON_ORE
+    Message:
+      - Can you mine 8 iron ore for me?
+    RewardType: MONEY
+    ItemReward: null
+    Title: Mine 8 Iron ores
+    Duration: 360
+    Count: 8
+  - ==: me.jaymar921.kumandraseconomy.datahandlers.QuestData
+    ExpReward: 30
+    Type: VILLAGER
+    Task: MINE_STONE
+    Message:
+      - Can you mine 200 stones for me? I needed it
+    RewardType: MONEY
+    ItemReward: null
+    Title: Mine 200 Stones
+    Duration: 600
+    Count: 200
+  - ==: me.jaymar921.kumandraseconomy.datahandlers.QuestData
+    ExpReward: 35
+    Type: VILLAGER
+    Task: MINE_OBSIDIAN
+    Message:
+      - I need you to mine 10 obsidians
+    RewardType: MONEY
+    ItemReward: null
+    Title: Mine 10 Obsidians
+    Duration: 520
+    Count: 10
+  - ==: me.jaymar921.kumandraseconomy.datahandlers.QuestData
+    ExpReward: 75
+    Type: VILLAGER
+    Task: CRAFT_BOOK
+    Message:
+      - I need books, can you craft 10 pieces?
+    RewardType: EXP
+    ItemReward: null
+    Title: Craft 10 Books
+    Duration: 360
+    Count: 10
+  - ==: me.jaymar921.kumandraseconomy.datahandlers.QuestData
+    ExpReward: 57
+    Type: VILLAGER
+    Task: CRAFT_ARROW
+    Message:
+      - Can you craft 20 arrows for my bow?
+    RewardType: EXP
+    ItemReward: null
+    Title: Craft 20 arrows
+    Duration: 360
+    Count: 20
+  - ==: me.jaymar921.kumandraseconomy.datahandlers.QuestData
+    ExpReward: 7
+    Type: VILLAGER
+    Task: CRAFT_BARREL
+    Message:
+      - Can you craft 5 barrels for my restaurant?
+    RewardType: MONEY
+    ItemReward: null
+    Title: Craft 5 Barrels
+    Duration: 200
+    Count: 5
+  - ==: me.jaymar921.kumandraseconomy.datahandlers.QuestData
+    ExpReward: 45
+    Type: VILLAGER
+    Task: CRAFT_BREAD
+    Message:
+      - Can you craft 8 bread for me?
+    RewardType: EXP
+    ItemReward: null
+    Title: Craft 8 Bread
+    Duration: 200
+    Count: 8
+  - ==: me.jaymar921.kumandraseconomy.datahandlers.QuestData
+    ExpReward: 70
+    Type: VILLAGER
+    Task: KILL_WITCH
+    Message:
+      - I need you to steal the witch potions
+    RewardType: EXP
+    ItemReward: null
+    Title: Kill a witch
+    Duration: 200
+    Count: 1
+  - ==: me.jaymar921.kumandraseconomy.datahandlers.QuestData
+    ExpReward: 55
+    Type: VILLAGER
+    Task: KILL_CHICKEN
+    Message:
+      - The town fiesta is coming, I need you to kill 5 chickens
+    RewardType: EXP
+    ItemReward: null
+    Title: Fiesta Preparation
+    Duration: 200
+    Count: 5
+  - ==: me.jaymar921.kumandraseconomy.datahandlers.QuestData
+    ExpReward: 24
+    Type: VILLAGER
+    Task: CRAFT_CAKE
+    Message:
+      - There will be a town gathering tomorrow, can you craft a cake?
+    RewardType: MONEY
+    ItemReward: null
+    Title: Town Gathering
+    Duration: 200
+    Count: 1
+  - ==: me.jaymar921.kumandraseconomy.datahandlers.QuestData
+    ExpReward: 95
+    Type: VILLAGER
+    Task: CRAFT_PUMPKIN_PIE
+    Message:
+      - Special event will happen later, I need 2 Pumpkin Pie
+    RewardType: EXP
+    ItemReward: null
+    Title: Special Event
+    Duration: 200
+    Count: 2
+  - ==: me.jaymar921.kumandraseconomy.datahandlers.QuestData
+    ExpReward: 100
+    Type: VILLAGER
+    Task: SUBSCRIBE
+    Message:
+      - My friend JayMar needs subscriber, can you subscribe?
+    RewardType: EXP
+    ItemReward: null
+    Title: Subscribe to JayMar921
+    Duration: 10
+    Count: 0
+  - ==: me.jaymar921.kumandraseconomy.datahandlers.QuestData
+    ExpReward: 40
+    Type: VILLAGER
+    Task: CRAFT_STEAK
+    Message:
+      - Can you cook 3 steak? I need it for my journey
+    RewardType: EXP
+    ItemReward: null
+    Title: Cook a Steak
+    Duration: 200
+    Count: 3
+  - ==: me.jaymar921.kumandraseconomy.datahandlers.QuestData
+    ExpReward: 25
+    Type: VILLAGER
+    Task: CRAFT_BAKED_POTATO
+    Message:
+      - Can I request you to cook 5 baked potato for my friend?
+    RewardType: EXP
+    ItemReward: null
+    Title: 5 Baked Potato
+    Duration: 200
+    Count: 5
+  - ==: me.jaymar921.kumandraseconomy.datahandlers.QuestData
+    ExpReward: 12
+    Type: VILLAGER
+    Task: CRAFT_PAPER
+    Message:
+      - I needed papers for my research, can you craft 20 pieces?
+    RewardType: MONEY
+    ItemReward: null
+    Title: Research Papers
+    Duration: 180
+    Count: 20
+  - ==: me.jaymar921.kumandraseconomy.datahandlers.QuestData
+    ExpReward: 18
+    Type: VILLAGER
+    Task: CRAFT_LOG
+    Message:
+      - I need you to chop 20 logs for my Tinker Machine
+    RewardType: MONEY
+    ItemReward: null
+    Title: Any Logs?
+    Duration: 180
+    Count: 20
+  - ==: me.jaymar921.kumandraseconomy.datahandlers.QuestData
+    ExpReward: 14
+    Type: VILLAGER
+    Task: CRAFT_STRIPPED
+    Message:
+      - I need 35 any stripped logs for my machine
+    RewardType: MONEY
+    ItemReward: null
+    Title: Stripping Logs
+    Duration: 180
+    Count: 35
+  - ==: me.jaymar921.kumandraseconomy.datahandlers.QuestData
+    ExpReward: 250
+    Type: VILLAGER
+    Task: CRAFT_DIAMOND_SWORD
+    Message:
+      - Kumandra's guards needs weapon, can you craft 5 diamond swords?
+    RewardType: EXP
+    ItemReward: null
+    Title: Kumandra needs you
+    Duration: 200
+    Count: 5
+  - ==: me.jaymar921.kumandraseconomy.datahandlers.QuestData
+    ExpReward: 30
+    Type: VILLAGER
+    Task: CRAFT_COD
+    Message:
+      - I need cod, can you fish some for me?
+    RewardType: EXP
+    ItemReward: null
+    Title: Fishy Business
+    Duration: 200
+    Count: 5
+  - ==: me.jaymar921.kumandraseconomy.datahandlers.QuestData
+    ExpReward: 30
+    Type: VILLAGER
+    Task: CRAFT_SALMON
+    Message:
+      - I need salmon, can you fish some for me?
+    RewardType: EXP
+    ItemReward: null
+    Title: Fishy Business
+    Duration: 200
+    Count: 5
+  - ==: me.jaymar921.kumandraseconomy.datahandlers.QuestData
+    ExpReward: 27
+    Type: VILLAGER
+    Task: MINE_IRON_ORE
+    Message:
+      - Kumandra needs iron resources, can you mine 64 iron ores?
+    RewardType: MONEY
+    ItemReward: null
+    Title: Iron Request
+    Duration: 650
+    Count: 64
+  - ==: me.jaymar921.kumandraseconomy.datahandlers.QuestData
+    ExpReward: 13
+    Type: VILLAGER
+    Task: MINE_LOG
+    Message:
+      - Kumandra needs wood resources, can you chop 64 logs?
+    RewardType: MONEY
+    ItemReward: null
+    Title: Log Request
+    Duration: 450
+    Count: 64
+  - ==: me.jaymar921.kumandraseconomy.datahandlers.QuestData
+    ExpReward: 17
+    Type: VILLAGER
+    Task: MINE_STONE
+    Message:
+      - Kumandra needs stone resources, can you mine 128 stones?
+    RewardType: MONEY
+    ItemReward: null
+    Title: I'm a miner
+    Duration: 450
+    Count: 64
+  - ==: me.jaymar921.kumandraseconomy.datahandlers.QuestData
+    ExpReward: 8
+    Type: VILLAGER
+    Task: MINE_SAND
+    Message:
+      - Kumandra needs sand resources, can you dig 64 sand blocks?
+    RewardType: MONEY
+    ItemReward: null
+    Title: Sand for Glass
+    Duration: 350
+    Count: 64
+  - ==: me.jaymar921.kumandraseconomy.datahandlers.QuestData
+    ExpReward: 25
+    Type: VILLAGER
+    Task: MINE_GOLD_ORE
+    Message:
+      - Kumandra needs gold resources, can you mine 32 gold ores?
+    RewardType: MONEY
+    ItemReward: null
+    Title: Gold Request
+    Duration: 1200
+    Count: 32
+  - ==: me.jaymar921.kumandraseconomy.datahandlers.QuestData
+    ExpReward: 45
+    Type: VILLAGER
+    Task: MINE_EMERALD_ORE
+    Message:
+      - Kumandra needs emerald resources, can you mine 16 emerald ores?
+    RewardType: MONEY
+    ItemReward: null
+    Title: Emerald Request
+    Duration: 1200
+    Count: 16
+  - ==: me.jaymar921.kumandraseconomy.datahandlers.QuestData
+    ExpReward: 12
+    Type: VILLAGER
+    Task: CRAFT_WHEAT
+    Message:
+      - Kumandra needs food resources, can you gather 64 wheat?
+    RewardType: MONEY
+    ItemReward: null
+    Title: Food Request
+    Duration: 320
+    Count: 64
+  - ==: me.jaymar921.kumandraseconomy.datahandlers.QuestData
+    ExpReward: 10
+    Type: VILLAGER
+    Task: CRAFT_APPLE
+    Message:
+      - Kumandra needs food resources, can you gather 32 apples?
+    RewardType: MONEY
+    ItemReward: null
+    Title: Food Request
+    Duration: 420
+    Count: 32
+  - ==: me.jaymar921.kumandraseconomy.datahandlers.QuestData
+    ExpReward: 8
+    Type: VILLAGER
+    Task: CRAFT_POTATO
+    Message:
+      - Kumandra needs food resources, can you gather 32 Potatoes?
+    RewardType: MONEY
+    ItemReward: null
+    Title: Food Request
+    Duration: 320
+    Count: 32
+  - ==: me.jaymar921.kumandraseconomy.datahandlers.QuestData
+    ExpReward: 12
+    Type: VILLAGER
+    Task: CRAFT_BOW
+    Message:
+      - Kumandra needs weapon resources, can you craft 5 bows?
+    RewardType: MONEY
+    ItemReward: null
+    Title: Weapon Request
+    Duration: 320
+    Count: 5
+  - ==: me.jaymar921.kumandraseconomy.datahandlers.QuestData
+    ExpReward: 6
+    Type: VILLAGER
+    Task: CRAFT_PORKCHOP
+    Message:
+      - I'm going to make a ham, can you get me 3 porkchops?
+    RewardType: MONEY
+    ItemReward: null
+    Title: Pork ham
+    Duration: 320
+    Count: 3
+  - ==: me.jaymar921.kumandraseconomy.datahandlers.QuestData
+    ExpReward: 19
+    Type: VILLAGER
+    Task: CRAFT_RABBIT
+    Message:
+      - Fiesta is coming! I need 5 rabbit meats
+    RewardType: MONEY
+    ItemReward: null
+    Title: Hunting Time
+    Duration: 720
+    Count: 5
+  - ==: me.jaymar921.kumandraseconomy.datahandlers.QuestData
+    ExpReward: 5
+    Type: VILLAGER
+    Task: CRAFT_BROWN_MUSHROOM
+    Message:
+      - Can you get me 5 brown mushrooms for my burger steak?
+    RewardType: MONEY
+    ItemReward: null
+    Title: Burger Steak Recipe
+    Duration: 320
+    Count: 5
+  - ==: me.jaymar921.kumandraseconomy.datahandlers.QuestData
+    ExpReward: 5
+    Type: VILLAGER
+    Task: CRAFT_RED_MUSHROOM
+    Message:
+      - Can you get me 5 red mushrooms for my burger steak?
+    RewardType: MONEY
+    ItemReward: null
+    Title: Burger Steak Recipe
+    Duration: 320
+    Count: 5
+  - ==: me.jaymar921.kumandraseconomy.datahandlers.QuestData
+    ExpReward: 28
+    Type: VILLAGER
+    Task: CRAFT_BLAZE_ROD
+    Message:
+      - Keep this as a secret, I need 10 blaze rod
+    RewardType: MONEY
+    ItemReward: null
+    Title: Be aware
+    Duration: 520
+    Count: 10
+  - ==: me.jaymar921.kumandraseconomy.datahandlers.QuestData
+    ExpReward: 10
+    Type: VILLAGER
+    Task: NOTHING
+    Message:
+      - Is Animal Kingdom true? I'm pretty sure it's just a myth
+    RewardType: EXP
+    ItemReward: null
+    Title: ........
+    Duration: 10
+    Count: 0
+  - ==: me.jaymar921.kumandraseconomy.datahandlers.QuestData
+    ExpReward: 30
+    Type: VILLAGER
+    Task: CRAFT_BED
+    Message:
+      - Can you make 15 beds for me? I'll use it for my guests.
+    RewardType: MONEY
+    ItemReward: null
+    Title: Beds for Everyone
+    Duration: 320
+    Count: 5
+  - ==: me.jaymar921.kumandraseconomy.datahandlers.QuestData
+    ExpReward: 13
+    Type: VILLAGER
+    Task: CRAFT_PLANK
+    Message:
+      - Another town has fallen yesterday, we need planks for rebuild
+    RewardType: MONEY
+    ItemReward: null
+    Title: Help a town
+    Duration: 320
+    Count: 50
+  - ==: me.jaymar921.kumandraseconomy.datahandlers.QuestData
+    ExpReward: 18
+    Type: VILLAGER
+    Task: CRAFT_BREAD
+    Message:
+      - Big event tomorrow! I need 55 bread
+    RewardType: MONEY
+    ItemReward: null
+    Title: Bake bake bake
+    Duration: 320
+    Count: 55
+  - ==: me.jaymar921.kumandraseconomy.datahandlers.QuestData
+    ExpReward: 14
+    Type: VILLAGER
+    Task: PLACE_SAPLING
+    Message:
+      - I need you to plant 20 saplings
+    RewardType: MONEY
+    ItemReward: null
+    Title: Save Nature
+    Duration: 320
+    Count: 20
+  - ==: me.jaymar921.kumandraseconomy.datahandlers.QuestData
+    ExpReward: 8
+    Type: VILLAGER
+    Task: PLACE_OAK_SAPLING
+    Message:
+      - Plant 10 oak saplings
+    RewardType: MONEY
+    ItemReward: null
+    Title: Save Nature
+    Duration: 320
+    Count: 10
+  - ==: me.jaymar921.kumandraseconomy.datahandlers.QuestData
+    ExpReward: 8
+    Type: VILLAGER
+    Task: PLACE_BIRCH_SAPLING
+    Message:
+      - Plant 10 birch saplings
+    RewardType: MONEY
+    ItemReward: null
+    Title: Save Nature
+    Duration: 320
+    Count: 10
+  - ==: me.jaymar921.kumandraseconomy.datahandlers.QuestData
+    ExpReward: 8
+    Type: VILLAGER
+    Task: PLACE_JUNGLE_SAPLING
+    Message:
+      - Plant 10 jungle saplings
+    RewardType: MONEY
+    ItemReward: null
+    Title: Save Nature
+    Duration: 320
+    Count: 10
+  - ==: me.jaymar921.kumandraseconomy.datahandlers.QuestData
+    ExpReward: 11
+    Type: VILLAGER
+    Task: PLACE_PLANK
+    Message:
+      - Place 25 planks, build something
+    RewardType: MONEY
+    ItemReward: null
+    Title: I'm a Builder!
+    Duration: 320
+    Count: 25
+  - ==: me.jaymar921.kumandraseconomy.datahandlers.QuestData
+    ExpReward: 11
+    Type: VILLAGER
+    Task: PLACE_SLAB
+    Message:
+      - Place 25 slabs, build something
+    RewardType: MONEY
+    ItemReward: null
+    Title: I'm a Builder!
+    Duration: 320
+    Count: 25
+  - ==: me.jaymar921.kumandraseconomy.datahandlers.QuestData
+    ExpReward: 16
+    Type: VILLAGER
+    Task: PLACE_BRICK
+    Message:
+      - Place 25 bricks, build something
+    RewardType: MONEY
+    ItemReward: null
+    Title: I'm a Builder!
+    Duration: 320
+    Count: 25
+  - ==: me.jaymar921.kumandraseconomy.datahandlers.QuestData
+    ExpReward: 20
+    Type: VILLAGER
+    Task: PLACE_MUSHROOM
+    Message:
+      - Can you plant 10 mushrooms? I'm going to need it
+    RewardType: MONEY
+    ItemReward: null
+    Title: Mush Mush!
+    Duration: 320
+    Count: 10
+  - ==: me.jaymar921.kumandraseconomy.datahandlers.QuestData
+    ExpReward: 16
+    Type: VILLAGER
+    Task: PLACE_BRICK
+    Message:
+      - Place 25 bricks, build something
+    RewardType: MONEY
+    ItemReward: null
+    Title: I'm a Builder!
+    Duration: 320
+    Count: 25
+  - ==: me.jaymar921.kumandraseconomy.datahandlers.QuestData
+    ExpReward: 14
+    Type: VILLAGER
+    Task: PLACE_GLASS
+    Message:
+      - Place 10 glass blocks, build something
+    RewardType: MONEY
+    ItemReward: null
+    Title: I'm a Builder!
+    Duration: 320
+    Count: 10
+  - ==: me.jaymar921.kumandraseconomy.datahandlers.QuestData
+    ExpReward: 9
+    Type: VILLAGER
+    Task: PLACE_STONE
+    Message:
+      - Build something with 15 stones
+    RewardType: MONEY
+    ItemReward: null
+    Title: I'm a Builder!
+    Duration: 320
+    Count: 15
+  - ==: me.jaymar921.kumandraseconomy.datahandlers.QuestData
+    ExpReward: 45
+    Type: VILLAGER
+    Task: PLACE_BEACON
+    Message:
+      - Craft and place a beacon
+    RewardType: MONEY
+    ItemReward: null
+    Title: Expensive Deal
+    Duration: 320
+    Count: 1
+  - ==: me.jaymar921.kumandraseconomy.datahandlers.QuestData
+    ExpReward: 3
+    Type: VILLAGER
+    Task: PLACE_CAMPFIRE
+    Message:
+      - Can you place a campfire near me?
+    RewardType: MONEY
+    ItemReward: null
+    Title: Cozy
+    Duration: 110
+    Count: 1
+  - ==: me.jaymar921.kumandraseconomy.datahandlers.QuestData
+    ExpReward: 10
+    Type: VILLAGER
+    Task: CRAFT_BANNER
+    Message:
+      - I need 3 banners for the parade
+    RewardType: MONEY
+    ItemReward: null
+    Title: Banners!
+    Duration: 210
+    Count: 3
+  - ==: me.jaymar921.kumandraseconomy.datahandlers.QuestData
+    ExpReward: 11
+    Type: VILLAGER
+    Task: PLACE_FENCE
+    Message:
+      - I need you to trap animals in 25 fences
+    RewardType: MONEY
+    ItemReward: null
+    Title: I'm a Farmer!
+    Duration: 423
+    Count: 25
+  - ==: me.jaymar921.kumandraseconomy.datahandlers.QuestData
+    ExpReward: 125
+    Type: VILLAGER
+    Task: MINE_DIAMOND_ORE
+    Message:
+      - "Can you mine 25 diamonds? I'll use it for wedding :>"
+    RewardType: MONEY
+    ItemReward: null
+    Title: What a deal!
+    Duration: 840
+    Count: 25
+  - ==: me.jaymar921.kumandraseconomy.datahandlers.QuestData
+    ExpReward: 137
+    Type: VILLAGER
+    Task: MINE_EMERALD_ORE
+    Message:
+      - "I need you to mine 8 emeralds for my girlfriend :)"
+    RewardType: MONEY
+    ItemReward: null
+    Title: Wow! proposal?
+    Duration: 845
+    Count: 8
+  - ==: me.jaymar921.kumandraseconomy.datahandlers.QuestData
+    ExpReward: 245
+    Type: VILLAGER
+    Task: MINE_ANCIENT_DEBRIS
+    Message:
+      - I need you to mine 5 ancient debris for my research
+    RewardType: MONEY
+    ItemReward: null
+    Title: Kinda Tough
+    Duration: 920
+    Count: 5
+  - ==: me.jaymar921.kumandraseconomy.datahandlers.QuestData
+    ExpReward: 795
+    Type: VILLAGER
+    Task: MINE_ANCIENT_DEBRIS
+    Message:
+      - I need you to mine 15 ancient debris for my research
+    RewardType: MONEY
+    ItemReward: null
+    Title: Kinda Tough
+    Duration: 1420
+    Count: 15
+  - ==: me.jaymar921.kumandraseconomy.datahandlers.QuestData
+    ExpReward: 2450
+    Type: VILLAGER
+    Task: MINE_ANCIENT_DEBRIS
+    Message:
+      - I need you to mine 25 ancient debris for my research
+    RewardType: MONEY
+    ItemReward: null
+    Title: Kinda Tough
+    Duration: 2420
+    Count: 25
+  - ==: me.jaymar921.kumandraseconomy.datahandlers.QuestData
+    ExpReward: 24
+    Type: VILLAGER
+    Task: MINE_COAL_ORE
+    Message:
+      - Mine 64 coal ores for the power plant
+    RewardType: MONEY
+    ItemReward: null
+    Title: Coal Mining
+    Duration: 430
+    Count: 64
+  - ==: me.jaymar921.kumandraseconomy.datahandlers.QuestData
+    ExpReward: 45
+    Type: VILLAGER
+    Task: MINE_COAL_ORE
+    Message:
+      - Mine 128 coal ores for the power plant
+    RewardType: MONEY
+    ItemReward: null
+    Title: Coal Mining
+    Duration: 430
+    Count: 128
+  - ==: me.jaymar921.kumandraseconomy.datahandlers.QuestData
+    ExpReward: 10
+    Type: VILLAGER
+    Task: CRAFT_GLASS_BOTTLE
+    Message:
+      - I need 10 glass bottle for my Magical Potion
+    RewardType: MONEY
+    ItemReward: null
+    Title: Bottle o" Magic
+    Duration: 320
+    Count: 10
+  - ==: me.jaymar921.kumandraseconomy.datahandlers.QuestData
+    ExpReward: 18
+    Type: ANIMAL
+    Task: FEED_PIG
+    Message:
+      - My pig friends need your help, they need to be fed
+    RewardType: EXP
+    ItemReward: null
+    Title: Pig Feeding
+    Duration: 140
+    Count: 4
+  - ==: me.jaymar921.kumandraseconomy.datahandlers.QuestData
+    ExpReward: 25
+    Type: ANIMAL
+    Task: FEED_COW
+    Message:
+      - I want you to feed 7 cows if you find them
+    RewardType: EXP
+    ItemReward: null
+    Title: Cow Feeding
+    Duration: 450
+    Count: 7
+  - ==: me.jaymar921.kumandraseconomy.datahandlers.QuestData
+    ExpReward: 0
+    Type: ANIMAL
+    Task: KILL_SKELETON
+    Message:
+      - Can you kill 12 skeletons? to help our friend wolves
+    RewardType: EXP
+    ItemReward:
+      ==: org.bukkit.inventory.ItemStack
+      v: 2730
+      type: DIAMOND
+    Title: Kill Skeletons
+    Duration: 450
+    Count: 12
+  - ==: me.jaymar921.kumandraseconomy.datahandlers.QuestData
+    ExpReward: 120
+    Type: ANIMAL
+    Task: FEED_CAT
+    Message:
+      - Can you feed 2 cats?
+    RewardType: EXP
+    ItemReward: null
+    Title: Cat Feeding
+    Duration: 450
+    Count: 2
+  - ==: me.jaymar921.kumandraseconomy.datahandlers.QuestData
+    ExpReward: 250
+    Type: ANIMAL
+    Task: KILL_GUARDIAN
+    Message:
+      - I request you to kill 5 Guardians, I'll give you time
+    RewardType: EXP
+    ItemReward: null
+    Title: Our Enemy
+    Duration: 600
+    Count: 5
+  - ==: me.jaymar921.kumandraseconomy.datahandlers.QuestData
+    ExpReward: 18
+    Type: ANIMAL
+    Task: KILL_ZOMBIE
+    Message:
+      - I want you to kill 35 Zombies, I'll ask my villager friend to pay you
+    RewardType: MONEY
+    ItemReward: null
+    Title: Villager Friends
+    Duration: 300
+    Count: 35
+  - ==: me.jaymar921.kumandraseconomy.datahandlers.QuestData
+    ExpReward: 45
+    Type: ANIMAL
+    Task: FEED_SHEEP
+    Message:
+      - Can you feed 20 sheeps?
+    RewardType: EXP
+    ItemReward: null
+    Title: Cater for Sheep
+    Duration: 300
+    Count: 20
+  - ==: me.jaymar921.kumandraseconomy.datahandlers.QuestData
+    ExpReward: 120
+    Type: ANIMAL
+    Task: CRAFT_HAY_BLOCK
+    Message:
+      - Animal kingdom needs 20 haybale, your help is appreciated
+    RewardType: EXP
+    ItemReward: null
+    Title: Animal Kingdom Request
+    Duration: 300
+    Count: 20
+  - ==: me.jaymar921.kumandraseconomy.datahandlers.QuestData
+    ExpReward: 65
+    Type: ANIMAL
+    Task: MINE_GRASS_BLOCK
+    Message:
+      - Can you mine 25 grass blocks for my friend sheep?
+    RewardType: EXP
+    ItemReward: null
+    Title: Grassy Business
+    Duration: 300
+    Count: 25
+  - ==: me.jaymar921.kumandraseconomy.datahandlers.QuestData
+    ExpReward: 85
+    Type: ANIMAL
+    Task: MINE_GRASS_BLOCK
+    Message:
+      - Can you mine 50 grass blocks for my friend cows?
+    RewardType: EXP
+    ItemReward: null
+    Title: Grassy Business
+    Duration: 300
+    Count: 50
+  - ==: me.jaymar921.kumandraseconomy.datahandlers.QuestData
+    ExpReward: 65
+    Type: ANIMAL
+    Task: CRAFT_WHEAT_SEEDS
+    Message:
+      - Can you get 20 wheat seed for my friend chicken?
+    RewardType: EXP
+    ItemReward: null
+    Title: Seed for a friend
+    Duration: 300
+    Count: 20
+  - ==: me.jaymar921.kumandraseconomy.datahandlers.QuestData
+    ExpReward: 120
+    Type: ANIMAL
+    Task: CRAFT_CAKE
+    Message:
+      - We will have a party tonight, can I ask for a cake?
+    RewardType: EXP
+    ItemReward: null
+    Title: Cake Delivery
+    Duration: 300
+    Count: 1
+  - ==: me.jaymar921.kumandraseconomy.datahandlers.QuestData
+    ExpReward: 200
+    Type: ANIMAL
+    Task: CRAFT_PUMPKIN_PIE
+    Message:
+      - There will be a special event later, we need 10 pumpkin pies
+    RewardType: EXP
+    ItemReward: null
+    Title: Pumpkin Delivery
+    Duration: 420
+    Count: 10
+  - ==: me.jaymar921.kumandraseconomy.datahandlers.QuestData
+    ExpReward: 430
+    Type: ANIMAL
+    Task: CRAFT_HONEY_BOTTLE
+    Message:
+      - The Enchanted Fairy needs 7 honey bottles
+    RewardType: EXP
+    ItemReward: null
+    Title: Magical Bottle
+    Duration: 420
+    Count: 7
+  - ==: me.jaymar921.kumandraseconomy.datahandlers.QuestData
+    ExpReward: 530
+    Type: ANIMAL
+    Task: CRAFT_ENCHANTED_BOOK
+    Message:
+      - The Magical Wisp asks for an enchanted book
+    RewardType: EXP
+    ItemReward: null
+    Title: Enchanted Wisp
+    Duration: 420
+    Count: 1
+  - ==: me.jaymar921.kumandraseconomy.datahandlers.QuestData
+    ExpReward: 745
+    Type: ANIMAL
+    Task: CRAFT_BLAZE_ROD
+    Message:
+      - The Magical Fairy needs 10 blaze rods for her Magical Wand
+    RewardType: EXP
+    ItemReward: null
+    Title: Magical Wand
+    Duration: 620
+    Count: 10
+  - ==: me.jaymar921.kumandraseconomy.datahandlers.QuestData
+    ExpReward: 350
+    Type: ANIMAL
+    Task: CRAFT_BOOK
+    Message:
+      - A Flower Fairy asks for 20 books
+    RewardType: EXP
+    ItemReward: null
+    Title: Magical Book
+    Duration: 320
+    Count: 20
+  - ==: me.jaymar921.kumandraseconomy.datahandlers.QuestData
+    ExpReward: 220
+    Type: ANIMAL
+    Task: CRAFT_COCOA_BEANS
+    Message:
+      - My friend Fox want some Cocoa Beans
+    RewardType: EXP
+    ItemReward: null
+    Title: 25 Cocoa Beans
+    Duration: 620
+    Count: 25
+  - ==: me.jaymar921.kumandraseconomy.datahandlers.QuestData
+    ExpReward: 125
+    Type: ANIMAL
+    Task: CRAFT_GLASS_BOTTLE
+    Message:
+      - I was curious what a glass bottle looks like
+    RewardType: EXP
+    ItemReward: null
+    Title: Glass Bottle
+    Duration: 120
+    Count: 1
+  - ==: me.jaymar921.kumandraseconomy.datahandlers.QuestData
+    ExpReward: 320
+    Type: ANIMAL
+    Task: CRAFT_MELON_SLICE
+    Message:
+      - The Animal Kingdom request for 25 melon slices
+    RewardType: EXP
+    ItemReward: null
+    Title: Melon Party
+    Duration: 550
+    Count: 25
+  - ==: me.jaymar921.kumandraseconomy.datahandlers.QuestData
+    ExpReward: 320
+    Type: ANIMAL
+    Task: CRAFT_FENCE
+    Message:
+      - The Animal Kingdom request for 50 any types of fences
+    RewardType: EXP
+    ItemReward: null
+    Title: Animal Kingdom Protection
+    Duration: 340
+    Count: 50
+  - ==: me.jaymar921.kumandraseconomy.datahandlers.QuestData
+    ExpReward: 320
+    Type: ANIMAL
+    Task: CRAFT_WALL
+    Message:
+      - The Animal Kingdom request for 50 any types of walls
+    RewardType: EXP
+    ItemReward: null
+    Title: Animal Kingdom Protection
+    Duration: 340
+    Count: 50
+  - ==: me.jaymar921.kumandraseconomy.datahandlers.QuestData
+    ExpReward: 220
+    Type: ANIMAL
+    Task: CRAFT_PLANK
+    Message:
+      - The Animal Kingdom request for 25 any types of planks
+    RewardType: EXP
+    ItemReward: null
+    Title: Kingdom Upgrade
+    Duration: 340
+    Count: 25
+  - ==: me.jaymar921.kumandraseconomy.datahandlers.QuestData
+    ExpReward: 120
+    Type: ANIMAL
+    Task: MINE_STONE
+    Message:
+      - The Animal Kingdom request for 50 Stones
+    RewardType: EXP
+    ItemReward: null
+    Title: Resource Request
+    Duration: 300
+    Count: 50
+  - ==: me.jaymar921.kumandraseconomy.datahandlers.QuestData
+    ExpReward: 178
+    Type: ANIMAL
+    Task: CRAFT_GUNPOWDER
+    Message:
+      - The Animal Kingdom help, we need 30 gun powders
+    RewardType: EXP
+    ItemReward: null
+    Title: Secret Project
+    Duration: 340
+    Count: 30
+  - ==: me.jaymar921.kumandraseconomy.datahandlers.QuestData
+    ExpReward: 320
+    Type: ANIMAL
+    Task: KILL_SKELETON
+    Message:
+      - The Animal Kingdom needs help, kill 20 skeletons for bones
+    RewardType: EXP
+    ItemReward: null
+    Title: 20 Skeletons
+    Duration: 400
+    Count: 20
+  - ==: me.jaymar921.kumandraseconomy.datahandlers.QuestData
+    ExpReward: 430
+    Type: ANIMAL
+    Task: KILL_CREEPER
+    Message:
+      - The Animal Kingdom needs help, kill 20 creepers for essence
+    RewardType: EXP
+    ItemReward: null
+    Title: Creeper Essence
+    Duration: 400
+    Count: 20
+  - ==: me.jaymar921.kumandraseconomy.datahandlers.QuestData
+    ExpReward: 320
+    Type: ANIMAL
+    Task: CRAFT_STRING
+    Message:
+      - I need 25 strings to make a pouch
+    RewardType: EXP
+    ItemReward: null
+    Title: String for Pouch
+    Duration: 120
+    Count: 25
+  - ==: me.jaymar921.kumandraseconomy.datahandlers.QuestData
+    ExpReward: 230
+    Type: ANIMAL
+    Task: CRAFT_WHEAT
+    Message:
+      - I need 32 Wheat
+    RewardType: EXP
+    ItemReward: null
+    Title: Wheat?
+    Duration: 120
+    Count: 32
+  - ==: me.jaymar921.kumandraseconomy.datahandlers.QuestData
+    ExpReward: 135
+    Type: ANIMAL
+    Task: CRAFT_SEED
+    Message:
+      - Do you have 64 seeds?
+    RewardType: EXP
+    ItemReward: null
+    Title: I need Seeds
+    Duration: 120
+    Count: 64
+  - ==: me.jaymar921.kumandraseconomy.datahandlers.QuestData
+    ExpReward: 1250
+    Type: ANIMAL
+    Task: CRAFT_NETHER_STAR
+    Message:
+      - A wisp Fairy needs a Nether Star
+    RewardType: EXP
+    ItemReward: null
+    Title: Lots o' Exp
+    Duration: 1200
+    Count: 1
+  - ==: me.jaymar921.kumandraseconomy.datahandlers.QuestData
+    ExpReward: 210
+    Type: ANIMAL
+    Task: CRAFT_FISHING_ROD
+    Message:
+      - Can you craft 5 fishing rods?
+    RewardType: EXP
+    ItemReward: null
+    Title: Wheat?
+    Duration: 220
+    Count: 5
+  - ==: me.jaymar921.kumandraseconomy.datahandlers.QuestData
+    ExpReward: 345
+    Type: ANIMAL
+    Task: MINE_COBBLESTONE
+    Message:
+      - Can you mine 50 cobblestones?
+    RewardType: EXP
+    ItemReward: null
+    Title: Cobble Business
+    Duration: 420
+    Count: 50
+  - ==: me.jaymar921.kumandraseconomy.datahandlers.QuestData
+    ExpReward: 230
+    Type: ANIMAL
+    Task: MINE_DIRT
+    Message:
+      - Can you dig 40 dirts for my house?
+    RewardType: EXP
+    ItemReward: null
+    Title: Dirt House
+    Duration: 210
+    Count: 40
+  - ==: me.jaymar921.kumandraseconomy.datahandlers.QuestData
+    ExpReward: 330
+    Type: ANIMAL
+    Task: CRAFT_MILK
+    Message:
+      - A wisp Fairy needs a Milk
+    RewardType: EXP
+    ItemReward: null
+    Title: Just 1 okay?
+    Duration: 120
+    Count: 1
+  - ==: me.jaymar921.kumandraseconomy.datahandlers.QuestData
+    ExpReward: 125
+    Type: ANIMAL
+    Task: PLACE_SAPLING
+    Message:
+      - The animal fairy wants you to plant 25 saplings
+    RewardType: EXP
+    ItemReward: null
+    Title: Save Nature
+    Duration: 225
+    Count: 25
+  - ==: me.jaymar921.kumandraseconomy.datahandlers.QuestData
+    ExpReward: 125
+    Type: ANIMAL
+    Task: PLACE_OAK_SAPLING
+    Message:
+      - The animal fairy wants you to plant 25 oak saplings
+    RewardType: EXP
+    ItemReward: null
+    Title: Save Nature
+    Duration: 225
+    Count: 25
+  - ==: me.jaymar921.kumandraseconomy.datahandlers.QuestData
+    ExpReward: 125
+    Type: ANIMAL
+    Task: PLACE_JUNGLE_SAPLING
+    Message:
+      - The animal fairy wants you to plant 25 jungle saplings
+    RewardType: EXP
+    ItemReward: null
+    Title: Save Nature
+    Duration: 225
+    Count: 25
+  - ==: me.jaymar921.kumandraseconomy.datahandlers.QuestData
+    ExpReward: 350
+    Type: ANIMAL
+    Task: MINE_GOLD_ORE
+    Message:
+      - The animal fairy requests you to mine 10 gold ores
+    RewardType: EXP
+    ItemReward: null
+    Title: Into Mine!
+    Duration: 525
+    Count: 10
+  - ==: me.jaymar921.kumandraseconomy.datahandlers.QuestData
+    ExpReward: 450
+    Type: ANIMAL
+    Task: MINE_DIAMOND_ORE
+    Message:
+      - The animal fairy requests you to mine 10 diamond ores
+    RewardType: EXP
+    ItemReward: null
+    Title: Into Mine!
+    Duration: 525
+    Count: 10
+  - ==: me.jaymar921.kumandraseconomy.datahandlers.QuestData
+    ExpReward: 550
+    Type: ANIMAL
+    Task: MINE_EMERALD_ORE
+    Message:
+      - The animal fairy requests you to mine 10 emerald ores
+    RewardType: EXP
+    ItemReward: null
+    Title: Into Mine!
+    Duration: 625
+    Count: 10
+  - ==: me.jaymar921.kumandraseconomy.datahandlers.QuestData
+    ExpReward: 250
+    Type: ANIMAL
+    Task: MINE_IRON_ORE
+    Message:
+      - The animal fairy requests you to mine 10 iron ores
+    RewardType: EXP
+    ItemReward: null
+    Title: Into Mine!
+    Duration: 325
+    Count: 10
+  - ==: me.jaymar921.kumandraseconomy.datahandlers.QuestData
+    ExpReward: 450
+    Type: ANIMAL
+    Task: MINE_STONE
+    Message:
+      - The animal fairy requests you to mine 400 stones
+    RewardType: EXP
+    ItemReward: null
+    Title: Into Mine!
+    Duration: 525
+    Count: 400
+  - ==: me.jaymar921.kumandraseconomy.datahandlers.QuestData
+    ExpReward: 198
+    Type: ANIMAL
+    Task: FEED_CHICKEN
+    Message:
+      - The animal fairy orders you to feed 25 chickens
+    RewardType: EXP
+    ItemReward: null
+    Title: Feeding Time
+    Duration: 225
+    Count: 25
+  - ==: me.jaymar921.kumandraseconomy.datahandlers.QuestData
+    ExpReward: 212
+    Type: ANIMAL
+    Task: FEED_PIG
+    Message:
+      - The animal fairy orders you to feed 25 pigs
+    RewardType: EXP
+    ItemReward: null
+    Title: Feeding Time
+    Duration: 225
+    Count: 25
+  - ==: me.jaymar921.kumandraseconomy.datahandlers.QuestData
+    ExpReward: 225
+    Type: ANIMAL
+    Task: FEED_SHEEP
+    Message:
+      - The animal fairy orders you to feed 25 sheep
+    RewardType: EXP
+    ItemReward: null
+    Title: Feeding Time
+    Duration: 225
+    Count: 25
+  - ==: me.jaymar921.kumandraseconomy.datahandlers.QuestData
+    ExpReward: 230
+    Type: ANIMAL
+    Task: FEED_COW
+    Message:
+      - The animal fairy orders you to feed 25 cows
+    RewardType: EXP
+    ItemReward: null
+    Title: Feeding Time
+    Duration: 225
+    Count: 25
+  - ==: me.jaymar921.kumandraseconomy.datahandlers.QuestData
+    ExpReward: 550
+    Type: ANIMAL
+    Task: FEED_CAT
+    Message:
+      - The animal fairy orders you to feed 10 cats
+    RewardType: EXP
+    ItemReward: null
+    Title: Feeding Time
+    Duration: 525
+    Count: 10
+  - ==: me.jaymar921.kumandraseconomy.datahandlers.QuestData
+    ExpReward: 75
+    Type: ANIMAL
+    Task: CRAFT_MILK
+    Message:
+      - The animal fairy orders you to milk a cow
+    RewardType: EXP
+    ItemReward: null
+    Title: Milk
+    Duration: 115
+    Count: 1

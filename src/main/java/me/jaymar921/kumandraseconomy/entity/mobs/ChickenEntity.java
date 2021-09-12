@@ -16,6 +16,7 @@ public class ChickenEntity {
 
     @SuppressWarnings("deprecation")
     public LivingEntity spawnEntity(@NotNull final Location location,String customName){
+        location.setPitch(0.0f);
         Entity chicken = location.getWorld().spawnEntity(location, EntityType.CHICKEN);
         LivingEntity Chicken = (LivingEntity) chicken;
 

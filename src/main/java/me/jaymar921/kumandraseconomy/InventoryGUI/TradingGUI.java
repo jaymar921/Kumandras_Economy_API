@@ -1,15 +1,19 @@
 package me.jaymar921.kumandraseconomy.InventoryGUI;
 
+import me.jaymar921.kumandraseconomy.ItemHandler.PlayerHeads;
 import me.jaymar921.kumandraseconomy.KumandrasEconomy;
 import net.milkbowl.vault.chat.Chat;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
+import org.bukkit.NamespacedKey;
 import org.bukkit.enchantments.Enchantment;
+import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
+import org.bukkit.persistence.PersistentDataType;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -48,13 +52,32 @@ public class TradingGUI {
         inv.setItem(35,item);
         inv.setItem(44,item);
 
-        item = new ItemStack(Material.CHEST);
+        item = new ItemStack(Material.MAGENTA_STAINED_GLASS_PANE);
         meta = item.getItemMeta();
         assert meta != null;
         meta.setDisplayName(ChatColor.GOLD+"Trading: "+trader+" -> "+buyer);
-        meta.setLore(Arrays.asList(ChatColor.LIGHT_PURPLE+"Trader: "+trader,ChatColor.LIGHT_PURPLE+"Trader partner: "+buyer,ChatColor.GREEN+"Trader UI will be on the left",ChatColor.GREEN+"Trader partner UI will be on the right",ChatColor.DARK_AQUA+"Click on "+ChatColor.GREEN+"SET TRADE"+ChatColor.DARK_AQUA+" to trade items",ChatColor.RED+"Closing the UI will end the trading session",ChatColor.DARK_RED+"Do not shift+right click items whine on this UI"));
+        meta.setLore(Arrays.asList(ChatColor.LIGHT_PURPLE+"Trader: "+trader,ChatColor.LIGHT_PURPLE+"Trader partner: "+buyer,ChatColor.GREEN+"Trader UI will be on the left",ChatColor.GREEN+"Trader partner UI will be on the right",ChatColor.DARK_AQUA+"Click on "+ChatColor.GREEN+"SET TRADE"+ChatColor.DARK_AQUA+" to trade items",ChatColor.RED+"Closing the UI will end the trading session"));
         item.setItemMeta(meta);
         inv.setItem(4, item);
+        inv.setItem(13, item);
+        inv.setItem(22, item);
+        inv.setItem(31, item);
+        inv.setItem(40, item);
+        inv.setItem(49, item);
+
+        item = new PlayerHeads().getPlayerHead(trader);
+        meta = item.getItemMeta();
+        assert meta != null;
+        meta.setLore(Arrays.asList(ChatColor.GREEN+"Trader"));
+        item.setItemMeta(meta);
+        inv.setItem(2, item);
+
+        item = new PlayerHeads().getPlayerHead(buyer);
+        meta = item.getItemMeta();
+        assert meta != null;
+        meta.setLore(Arrays.asList(ChatColor.GREEN+"Trading Partner"));
+        item.setItemMeta(meta);
+        inv.setItem(6, item);
 
         item = new ItemStack(Material.GOLD_INGOT);
         meta = item.getItemMeta();
@@ -92,8 +115,13 @@ public class TradingGUI {
         meta.addItemFlags(ItemFlag.HIDE_ATTRIBUTES);
         meta.setDisplayName(ChatColor.GREEN+"SET TRADE");
         meta.setLore(null);
+
+        NamespacedKey itemdata = new NamespacedKey(KumandrasEconomy.getPlugin(KumandrasEconomy.class), "itemData");
+        meta.getPersistentDataContainer().set(itemdata, PersistentDataType.INTEGER, new Random().nextInt(100000));
         item.setItemMeta(meta);
         inv.setItem(48, item);
+        meta.getPersistentDataContainer().set(itemdata, PersistentDataType.INTEGER, new Random().nextInt(100000));
+        item.setItemMeta(meta);
         inv.setItem(52, item);
 
         return inv;

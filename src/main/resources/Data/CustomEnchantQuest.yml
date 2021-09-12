@@ -1,0 +1,1177 @@
+QUESTS:
+  - ==: me.jaymar921.kumandraseconomy.datahandlers.QuestData
+    ExpReward: 0
+    Type: VILLAGER
+    Task: KILL_WITCH
+    Message:
+      - Can you kill 40 Witches for a Vampire Sword?
+    RewardType: ITEM
+    ItemReward:
+      ==: org.bukkit.inventory.ItemStack
+      v: 2730
+      type: DIAMOND_SWORD
+      meta:
+        ==: ItemMeta
+        meta-type: UNSPECIFIC
+        display-name: '{"extra":[{"bold":true,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"red","text":"Vampire
+          Sword"}],"text":""}'
+        lore:
+          - '{"extra":[{"bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"gray","text":"Sword
+          Status ⚔"}],"text":""}'
+          - '{"extra":[{"bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"gray","text":""}],"text":""}'
+          - '{"extra":[{"bold":true,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"gray","text":"Base
+          Dmg:    12hp"}],"text":""}'
+          - '{"extra":[{"bold":true,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"gray","text":"Crit
+          Chance: 14%"}],"text":""}'
+          - '{"extra":[{"bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"gray","text":""}],"text":""}'
+          - '{"extra":[{"bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"yellow","text":"Enchantments:
+          "}],"text":""}'
+          - '{"extra":[{"bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"gray","text":"Sharpness
+          VI"}],"text":""}'
+          - '{"extra":[{"bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"dark_gray","text":"[CE]
+          Unbreaking I"}],"text":""}'
+          - '{"extra":[{"bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"dark_red","text":"Lifesteal
+          II"}],"text":""}'
+        enchants:
+          LifeSteal: 2
+          DAMAGE_ALL: 6
+          DURABILITY: 4
+          Unbreakingce: 1
+        ItemFlags:
+          - HIDE_ENCHANTS
+          - HIDE_ATTRIBUTES
+        PublicBukkitValues:
+          customenchantments:swordstatus: '[B;-84B,-19B,0B,5B,115B,114B,0B,49B,109B,101B,46B,74B,97B,121B,77B,97B,114B,57B,50B,49B,46B,67B,117B,115B,116B,111B,109B,69B,110B,99B,104B,97B,110B,116B,109B,101B,110B,116B,46B,101B,120B,116B,114B,97B,115B,46B,83B,119B,111B,114B,100B,83B,116B,97B,116B,117B,115B,0B,0B,0B,0B,0B,0B,0B,1B,2B,0B,3B,68B,0B,11B,99B,114B,105B,116B,95B,99B,104B,97B,110B,99B,101B,73B,0B,6B,100B,97B,109B,97B,103B,101B,76B,0B,5B,111B,119B,110B,101B,114B,116B,0B,18B,76B,106B,97B,118B,97B,47B,108B,97B,110B,103B,47B,83B,116B,114B,105B,110B,103B,59B,120B,112B,63B,-63B,-21B,-123B,30B,-72B,81B,-20B,0B,0B,0B,12B,116B,0B,13B,86B,97B,109B,112B,105B,114B,101B,32B,83B,119B,111B,114B,100B]'
+    Title: Turning to Vampire
+    Duration: 1200
+    Count: 40
+  - ==: me.jaymar921.kumandraseconomy.datahandlers.QuestData
+    ExpReward: 0
+    Type: VILLAGER
+    Task: CRAFT_DIAMOND
+    Message:
+      - Do you have 30 diamonds in exhange for Elite Sword?
+    RewardType: ITEM
+    ItemReward:
+      ==: org.bukkit.inventory.ItemStack
+      v: 2730
+      type: DIAMOND_SWORD
+      meta:
+        ==: ItemMeta
+        meta-type: UNSPECIFIC
+        display-name: '{"extra":[{"bold":true,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"gray","text":"Elite
+          Sword"}],"text":""}'
+        lore:
+          - '{"extra":[{"bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"gray","text":"Sword
+          Status ⚔"}],"text":""}'
+          - '{"extra":[{"bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"gray","text":""}],"text":""}'
+          - '{"extra":[{"bold":true,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"gray","text":"Base
+          Dmg:    10hp"}],"text":""}'
+          - '{"extra":[{"bold":true,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"gray","text":"Crit
+          Chance: 12%"}],"text":""}'
+          - '{"extra":[{"bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"gray","text":""}],"text":""}'
+          - '{"extra":[{"bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"yellow","text":"Enchantments:
+          "}],"text":""}'
+          - '{"extra":[{"bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"gray","text":"Sharpness
+          VI"}],"text":""}'
+          - '{"extra":[{"bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"dark_gray","text":"[CE]
+          Unbreaking I"}],"text":""}'
+        enchants:
+          DAMAGE_ALL: 6
+          DURABILITY: 4
+          Unbreakingce: 1
+        ItemFlags:
+          - HIDE_ENCHANTS
+          - HIDE_ATTRIBUTES
+        PublicBukkitValues:
+          customenchantments:swordstatus: '[B;-84B,-19B,0B,5B,115B,114B,0B,49B,109B,101B,46B,74B,97B,121B,77B,97B,114B,57B,50B,49B,46B,67B,117B,115B,116B,111B,109B,69B,110B,99B,104B,97B,110B,116B,109B,101B,110B,116B,46B,101B,120B,116B,114B,97B,115B,46B,83B,119B,111B,114B,100B,83B,116B,97B,116B,117B,115B,0B,0B,0B,0B,0B,0B,0B,1B,2B,0B,3B,68B,0B,11B,99B,114B,105B,116B,95B,99B,104B,97B,110B,99B,101B,73B,0B,6B,100B,97B,109B,97B,103B,101B,76B,0B,5B,111B,119B,110B,101B,114B,116B,0B,18B,76B,106B,97B,118B,97B,47B,108B,97B,110B,103B,47B,83B,116B,114B,105B,110B,103B,59B,120B,112B,63B,-66B,-72B,81B,-21B,-123B,30B,-72B,0B,0B,0B,10B,116B,0B,11B,69B,108B,105B,116B,101B,32B,83B,119B,111B,114B,100B]'
+    Title: Diamond Trading
+    Duration: 320
+    Count: 30
+  - ==: me.jaymar921.kumandraseconomy.datahandlers.QuestData
+    ExpReward: 0
+    Type: VILLAGER
+    Task: CRAFT_EMERALD
+    Message:
+      - Would you trade 25 emeralds for a Shapen 1?
+    RewardType: ITEM
+    ItemReward:
+      ==: org.bukkit.inventory.ItemStack
+      v: 2730
+      type: BOOK
+      meta:
+        ==: ItemMeta
+        meta-type: UNSPECIFIC
+        display-name: '{"extra":[{"bold":false,"italic":false,"underlined":true,"strikethrough":false,"obfuscated":false,"color":"light_purple","text":"[SHARPEN
+          ENCHANTMENT]"}],"text":""}'
+        lore:
+          - '{"extra":[{"bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"green","text":">To
+          enchant, right click the enchantment book"}],"text":""}'
+          - '{"extra":[{"bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"green","text":"
+          then switch to an [Item] you want to enchant"}],"text":""}'
+          - '{"extra":[{"bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"green","text":"
+          then right click the [item]"},{"italic":false,"color":"black","text":"375476475"}],"text":""}'
+        custom-model-data: 2
+        enchants:
+          Sharpen: 1
+    Title: Sharpen Trade
+    Duration: 320
+    Count: 25
+  - ==: me.jaymar921.kumandraseconomy.datahandlers.QuestData
+    ExpReward: 0
+    Type: VILLAGER
+    Task: CRAFT_NAUTILUS_SHELL
+    Message:
+      - Will you find me 45 nautilus shells for a Soul Eater Enchant?
+    RewardType: ITEM
+    ItemReward:
+      ==: org.bukkit.inventory.ItemStack
+      v: 2730
+      type: BOOK
+      meta:
+        ==: ItemMeta
+        meta-type: UNSPECIFIC
+        display-name: '{"extra":[{"bold":false,"italic":false,"underlined":true,"strikethrough":false,"obfuscated":false,"color":"light_purple","text":"[SOUL
+          EATER ENCHANTMENT]"}],"text":""}'
+        lore:
+          - '{"extra":[{"bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"green","text":">To
+          enchant, right click the enchantment book"}],"text":""}'
+          - '{"extra":[{"bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"green","text":"
+          then switch to an [Item] you want to enchant"}],"text":""}'
+          - '{"extra":[{"bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"green","text":"
+          then right click the [item]"},{"italic":false,"color":"black","text":"-1375924960"}],"text":""}'
+        custom-model-data: 2
+        enchants:
+          Soul Eater: 1
+    Title: Treasure Finding
+    Duration: 600
+    Count: 45
+  - ==: me.jaymar921.kumandraseconomy.datahandlers.QuestData
+    ExpReward: 0
+    Type: VILLAGER
+    Task: CRAFT_CONDUIT
+    Message:
+      - Can you find me 1 conduit for my research?
+    RewardType: ITEM
+    ItemReward:
+      ==: org.bukkit.inventory.ItemStack
+      v: 2730
+      type: DIAMOND_SWORD
+      meta:
+        ==: ItemMeta
+        meta-type: UNSPECIFIC
+        display-name: '{"extra":[{"bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"gray","text":"["},{"italic":false,"obfuscated":true,"color":"light_purple","text":"UNKNOWN
+          SWORD"},{"italic":false,"obfuscated":false,"color":"gray","text":"]"}],"text":""}'
+        lore:
+          - '{"extra":[{"bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"gray","text":"Sword
+          Status ⚔"}],"text":""}'
+          - '{"extra":[{"bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"gray","text":""}],"text":""}'
+          - '{"extra":[{"bold":true,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"gray","text":"Base
+          Dmg:    23hp"}],"text":""}'
+          - '{"extra":[{"bold":true,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"gray","text":"Crit
+          Chance: 32%"}],"text":""}'
+          - '{"extra":[{"bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"gray","text":""}],"text":""}'
+          - '{"extra":[{"bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"yellow","text":"Enchantments:
+          "}],"text":""}'
+          - '{"extra":[{"bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"gray","text":"Sharpness
+          IV"}],"text":""}'
+          - '{"extra":[{"bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"gray","text":"Fire
+          Aspect I"}],"text":""}'
+          - '{"extra":[{"bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"gray","text":"Unbreaking
+          IV"}],"text":""}'
+          - '{"extra":[{"bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"dark_purple","text":"Life
+          Steal III"}],"text":""}'
+          - '{"extra":[{"bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"light_purple","text":"Storm
+          ****"}],"text":""}'
+        enchants:
+          FIRE_ASPECT: 1
+          LifeSteal: 3
+          DAMAGE_ALL: 4
+          Storm: 1
+          DURABILITY: 4
+        ItemFlags:
+          - HIDE_ENCHANTS
+          - HIDE_ATTRIBUTES
+        PublicBukkitValues:
+          customenchantments:swordstatus: '[B;-84B,-19B,0B,5B,115B,114B,0B,49B,109B,101B,46B,74B,97B,121B,77B,97B,114B,57B,50B,49B,46B,67B,117B,115B,116B,111B,109B,69B,110B,99B,104B,97B,110B,116B,109B,101B,110B,116B,46B,101B,120B,116B,114B,97B,115B,46B,83B,119B,111B,114B,100B,83B,116B,97B,116B,117B,115B,0B,0B,0B,0B,0B,0B,0B,1B,2B,0B,3B,68B,0B,11B,99B,114B,105B,116B,95B,99B,104B,97B,110B,99B,101B,73B,0B,6B,100B,97B,109B,97B,103B,101B,76B,0B,5B,111B,119B,110B,101B,114B,116B,0B,18B,76B,106B,97B,118B,97B,47B,108B,97B,110B,103B,47B,83B,116B,114B,105B,110B,103B,59B,120B,112B,63B,-44B,122B,-31B,71B,-82B,20B,123B,0B,0B,0B,23B,116B,0B,13B,85B,110B,107B,110B,111B,119B,110B,32B,83B,119B,111B,114B,100B]'
+
+    Title: Conduit Power
+    Duration: 600
+    Count: 1
+  - ==: me.jaymar921.kumandraseconomy.datahandlers.QuestData
+    ExpReward: 0
+    Type: VILLAGER
+    Task: CRAFT_NETHER_STAR
+    Message:
+      - Can you find me a NetherStar?
+    RewardType: ITEM
+    ItemReward:
+      ==: org.bukkit.inventory.ItemStack
+      v: 2730
+      type: DIAMOND_HELMET
+      meta:
+        ==: ItemMeta
+        meta-type: UNSPECIFIC
+        display-name: '{"extra":[{"bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"gray","text":"["},{"italic":false,"obfuscated":true,"color":"light_purple","text":"UNKNOWN
+          HELMET"},{"italic":false,"obfuscated":false,"color":"gray","text":"]"}],"text":""}'
+        lore:
+          - '{"extra":[{"bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"gray","text":"Armor
+          Status ⛨"}],"text":""}'
+          - '{"extra":[{"bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"gray","text":""}],"text":""}'
+          - '{"extra":[{"bold":true,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"gray","text":"Damage
+          Resist:      7%"}],"text":""}'
+          - '{"extra":[{"bold":true,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"gray","text":"Health
+          Regen Rate: 0.05hp/s"}],"text":""}'
+          - '{"extra":[{"bold":true,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"gray","text":"Movement
+          Speed:   --%"}],"text":""}'
+          - '{"extra":[{"bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"gray","text":""}],"text":""}'
+          - '{"extra":[{"bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"yellow","text":"Enchantments:
+          "}],"text":""}'
+          - '{"extra":[{"bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"gray","text":"Protection
+          VII"}],"text":""}'
+          - '{"extra":[{"bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"gray","text":"Blast
+          Protection V"}],"text":""}'
+          - '{"extra":[{"bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"dark_gray","text":"[CE]
+          Unbreaking I"}],"text":""}'
+          - '{"extra":[{"bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"red","text":"Heal"}],"text":""}'
+          - '{"extra":[{"bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"light_purple","text":"Water
+          Breathing"}],"text":""}'
+        enchants:
+          PROTECTION_EXPLOSIONS: 5
+          Heal: 1
+          PROTECTION_ENVIRONMENTAL: 7
+          DURABILITY: 4
+          Unbreakingce: 1
+          WaterBreathing: 1
+        ItemFlags:
+          - HIDE_ENCHANTS
+          - HIDE_ATTRIBUTES
+        PublicBukkitValues:
+          customenchantments:armorstatus: '[B;-84B,-19B,0B,5B,115B,114B,0B,49B,109B,101B,46B,74B,97B,121B,77B,97B,114B,57B,50B,49B,46B,67B,117B,115B,116B,111B,109B,69B,110B,99B,104B,97B,110B,116B,109B,101B,110B,116B,46B,101B,120B,116B,114B,97B,115B,46B,65B,114B,109B,111B,114B,83B,116B,97B,116B,117B,115B,0B,0B,0B,0B,0B,0B,0B,1B,2B,0B,3B,68B,0B,17B,104B,101B,97B,108B,116B,104B,95B,114B,101B,103B,101B,110B,95B,114B,97B,116B,101B,68B,0B,13B,109B,111B,118B,101B,109B,101B,110B,116B,83B,112B,101B,101B,100B,68B,0B,10B,114B,101B,115B,105B,115B,116B,97B,110B,99B,101B,120B,112B,63B,-87B,-103B,-103B,-103B,-103B,-103B,-102B,0B,0B,0B,0B,0B,0B,0B,0B,63B,-79B,-21B,-123B,30B,-72B,81B,-20B]'
+    Title: Tough Business
+    Duration: 720
+    Count: 1
+  - ==: me.jaymar921.kumandraseconomy.datahandlers.QuestData
+    ExpReward: 0
+    Type: VILLAGER
+    Task: CRAFT_NETHER_STAR
+    Message:
+      - My project is almost done but I need a NetherStar
+    RewardType: ITEM
+    ItemReward:
+      ==: org.bukkit.inventory.ItemStack
+      v: 2730
+      type: DIAMOND_CHESTPLATE
+      meta:
+        ==: ItemMeta
+        meta-type: UNSPECIFIC
+        display-name: '{"extra":[{"bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"gray","text":"["},{"italic":false,"obfuscated":true,"color":"dark_purple","text":"UNKNOWN
+          CHESTPLATE"},{"italic":false,"obfuscated":false,"color":"gray","text":"]"}],"text":""}'
+        lore:
+          - '{"extra":[{"bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"gray","text":"Armor
+          Status ⛨"}],"text":""}'
+          - '{"extra":[{"bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"gray","text":""}],"text":""}'
+          - '{"extra":[{"bold":true,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"gray","text":"Damage
+          Resist:      15%"}],"text":""}'
+          - '{"extra":[{"bold":true,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"gray","text":"Health
+          Regen Rate: 0.05hp/s"}],"text":""}'
+          - '{"extra":[{"bold":true,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"gray","text":"Movement
+          Speed:   --"}],"text":""}'
+          - '{"extra":[{"bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"gray","text":""}],"text":""}'
+          - '{"extra":[{"bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"yellow","text":"Enchantments:
+          "}],"text":""}'
+          - '{"extra":[{"bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"gray","text":"Protection
+          VII"}],"text":""}'
+          - '{"extra":[{"bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"gray","text":"Blast
+          Protection V"}],"text":""}'
+          - '{"extra":[{"bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"dark_gray","text":"[CE]
+          Unbreaking I"}],"text":""}'
+          - '{"extra":[{"bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"red","text":"Block
+          II"}],"text":""}'
+          - '{"extra":[{"bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"red","text":"Regen
+          I"}],"text":""}'
+          - '{"extra":[{"bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"red","text":"Regain"}],"text":""}'
+        enchants:
+          PROTECTION_EXPLOSIONS: 5
+          Block: 2
+          PROTECTION_ENVIRONMENTAL: 7
+          Regain: 1
+          Regeneration: 1
+          DURABILITY: 4
+          Unbreakingce: 1
+        ItemFlags:
+          - HIDE_ENCHANTS
+          - HIDE_ATTRIBUTES
+        PublicBukkitValues:
+          customenchantments:armorstatus: '[B;-84B,-19B,0B,5B,115B,114B,0B,49B,109B,101B,46B,74B,97B,121B,77B,97B,114B,57B,50B,49B,46B,67B,117B,115B,116B,111B,109B,69B,110B,99B,104B,97B,110B,116B,109B,101B,110B,116B,46B,101B,120B,116B,114B,97B,115B,46B,65B,114B,109B,111B,114B,83B,116B,97B,116B,117B,115B,0B,0B,0B,0B,0B,0B,0B,1B,2B,0B,3B,68B,0B,17B,104B,101B,97B,108B,116B,104B,95B,114B,101B,103B,101B,110B,95B,114B,97B,116B,101B,68B,0B,13B,109B,111B,118B,101B,109B,101B,110B,116B,83B,112B,101B,101B,100B,68B,0B,10B,114B,101B,115B,105B,115B,116B,97B,110B,99B,101B,120B,112B,63B,-87B,-103B,-103B,-103B,-103B,-103B,-102B,0B,0B,0B,0B,0B,0B,0B,0B,63B,-61B,51B,51B,51B,51B,51B,51B]'
+    Title: Tough Business
+    Duration: 720
+    Count: 1
+  - ==: me.jaymar921.kumandraseconomy.datahandlers.QuestData
+    ExpReward: 0
+    Type: VILLAGER
+    Task: CRAFT_BEACON
+    Message:
+      - I was doing some research but I need a beacon
+    RewardType: ITEM
+    ItemReward:
+      ==: org.bukkit.inventory.ItemStack
+      v: 2730
+      type: DIAMOND_LEGGINGS
+      meta:
+        ==: ItemMeta
+        meta-type: UNSPECIFIC
+        display-name: '{"extra":[{"bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"gray","text":"["},{"italic":false,"obfuscated":true,"color":"light_purple","text":"UNKNOWN
+          LEGGINGS"},{"italic":false,"obfuscated":false,"color":"gray","text":"]"}],"text":""}'
+        lore:
+          - '{"extra":[{"bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"gray","text":"Armor
+          Status ⛨"}],"text":""}'
+          - '{"extra":[{"bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"gray","text":""}],"text":""}'
+          - '{"extra":[{"bold":true,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"gray","text":"Damage
+          Resist:      8%"}],"text":""}'
+          - '{"extra":[{"bold":true,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"gray","text":"Health
+          Regen Rate: 0.05hp/s"}],"text":""}'
+          - '{"extra":[{"bold":true,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"gray","text":"Movement
+          Speed:   +3.00%"}],"text":""}'
+          - '{"extra":[{"bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"gray","text":""}],"text":""}'
+          - '{"extra":[{"bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"yellow","text":"Enchantments:
+          "}],"text":""}'
+          - '{"extra":[{"bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"gray","text":"Protection
+          VII"}],"text":""}'
+          - '{"extra":[{"bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"gray","text":"Blast
+          Protection V"}],"text":""}'
+          - '{"extra":[{"bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"dark_gray","text":"[CE]
+          Unbreaking I"}],"text":""}'
+          - '{"extra":[{"bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"light_purple","text":"Debuff"}],"text":""}'
+        enchants:
+          PROTECTION_EXPLOSIONS: 5
+          Debuff: 1
+          PROTECTION_ENVIRONMENTAL: 7
+          DURABILITY: 4
+          Unbreakingce: 1
+        ItemFlags:
+          - HIDE_ENCHANTS
+          - HIDE_ATTRIBUTES
+        PublicBukkitValues:
+          customenchantments:armorstatus: '[B;-84B,-19B,0B,5B,115B,114B,0B,49B,109B,101B,46B,74B,97B,121B,77B,97B,114B,57B,50B,49B,46B,67B,117B,115B,116B,111B,109B,69B,110B,99B,104B,97B,110B,116B,109B,101B,110B,116B,46B,101B,120B,116B,114B,97B,115B,46B,65B,114B,109B,111B,114B,83B,116B,97B,116B,117B,115B,0B,0B,0B,0B,0B,0B,0B,1B,2B,0B,3B,68B,0B,17B,104B,101B,97B,108B,116B,104B,95B,114B,101B,103B,101B,110B,95B,114B,97B,116B,101B,68B,0B,13B,109B,111B,118B,101B,109B,101B,110B,116B,83B,112B,101B,101B,100B,68B,0B,10B,114B,101B,115B,105B,115B,116B,97B,110B,99B,101B,120B,112B,63B,-87B,-103B,-103B,-103B,-103B,-103B,-102B,63B,-98B,-72B,81B,-21B,-123B,30B,-72B,63B,-76B,122B,-31B,71B,-82B,20B,123B]'
+    Title: Might be cool
+    Duration: 720
+    Count: 1
+  - ==: me.jaymar921.kumandraseconomy.datahandlers.QuestData
+    ExpReward: 0
+    Type: VILLAGER
+    Task: CRAFT_BEACON
+    Message:
+      - Can I have a beacon for my research?
+    RewardType: ITEM
+    ItemReward:
+      ==: org.bukkit.inventory.ItemStack
+      v: 2730
+      type: DIAMOND_BOOTS
+      meta:
+        ==: ItemMeta
+        meta-type: UNSPECIFIC
+        display-name: '{"extra":[{"bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"gray","text":"["},{"italic":false,"obfuscated":true,"color":"light_purple","text":"UNKNOWN
+          BOOTS"},{"italic":false,"obfuscated":false,"color":"gray","text":"]"}],"text":""}'
+        lore:
+          - '{"extra":[{"bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"gray","text":"Armor
+          Status ⛨"}],"text":""}'
+          - '{"extra":[{"bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"gray","text":""}],"text":""}'
+          - '{"extra":[{"bold":true,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"gray","text":"Damage
+          Resist:      5%"}],"text":""}'
+          - '{"extra":[{"bold":true,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"gray","text":"Health
+          Regen Rate: 0.05hp/s"}],"text":""}'
+          - '{"extra":[{"bold":true,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"gray","text":"Movement
+          Speed:   +7.00%"}],"text":""}'
+          - '{"extra":[{"bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"gray","text":""}],"text":""}'
+          - '{"extra":[{"bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"yellow","text":"Enchantments:
+          "}],"text":""}'
+          - '{"extra":[{"bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"gray","text":"Protection
+          VII"}],"text":""}'
+          - '{"extra":[{"bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"gray","text":"Blast
+          Protection V"}],"text":""}'
+          - '{"extra":[{"bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"dark_gray","text":"[CE]
+          Unbreaking I"}],"text":""}'
+          - '{"extra":[{"bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"blue","text":"Slow
+          Fall"}],"text":""}'
+        enchants:
+          PROTECTION_EXPLOSIONS: 5
+          PROTECTION_ENVIRONMENTAL: 7
+          SlowFall: 1
+          DURABILITY: 4
+          Unbreakingce: 1
+        ItemFlags:
+          - HIDE_ENCHANTS
+          - HIDE_ATTRIBUTES
+        PublicBukkitValues:
+          customenchantments:armorstatus: '[B;-84B,-19B,0B,5B,115B,114B,0B,49B,109B,101B,46B,74B,97B,121B,77B,97B,114B,57B,50B,49B,46B,67B,117B,115B,116B,111B,109B,69B,110B,99B,104B,97B,110B,116B,109B,101B,110B,116B,46B,101B,120B,116B,114B,97B,115B,46B,65B,114B,109B,111B,114B,83B,116B,97B,116B,117B,115B,0B,0B,0B,0B,0B,0B,0B,1B,2B,0B,3B,68B,0B,17B,104B,101B,97B,108B,116B,104B,95B,114B,101B,103B,101B,110B,95B,114B,97B,116B,101B,68B,0B,13B,109B,111B,118B,101B,109B,101B,110B,116B,83B,112B,101B,101B,100B,68B,0B,10B,114B,101B,115B,105B,115B,116B,97B,110B,99B,101B,120B,112B,63B,-87B,-103B,-103B,-103B,-103B,-103B,-102B,63B,-79B,-21B,-123B,30B,-72B,81B,-20B,63B,-87B,-103B,-103B,-103B,-103B,-103B,-102B]'
+    Title: Cool suit
+    Duration: 720
+    Count: 1
+  - ==: me.jaymar921.kumandraseconomy.datahandlers.QuestData
+    ExpReward: 0
+    Type: VILLAGER
+    Task: KILL_CREEPER
+    Message:
+      - I need essence from creepers, can you kill 40 of them?
+    RewardType: ITEM
+    ItemReward:
+      ==: org.bukkit.inventory.ItemStack
+      v: 2730
+      type: FISHING_ROD
+      meta:
+        ==: ItemMeta
+        meta-type: UNSPECIFIC
+        display-name: '{"extra":[{"bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"gray","text":"["},{"italic":false,"color":"light_purple","text":"GRAPPLING
+          HOOK"},{"italic":false,"color":"gray","text":"]"}],"text":""}'
+        lore:
+          - '{"extra":[{"bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"light_purple","text":"(Right
+          click on air twice to activate)"}],"text":""}'
+          - '{"extra":[{"bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"light_purple","text":"(3s
+          cooldown when used)"}],"text":""}'
+        enchants:
+          DURABILITY: 20
+    Title: Creeper Essence
+    Duration: 350
+    Count: 40
+  - ==: me.jaymar921.kumandraseconomy.datahandlers.QuestData
+    ExpReward: 0
+    Type: VILLAGER
+    Task: KILL_SKELETON
+    Message:
+      - I need skeleton essence, can you kill 50 of them?
+    RewardType: ITEM
+    ItemReward:
+      ==: org.bukkit.inventory.ItemStack
+      v: 2730
+      type: BOOK
+      meta:
+        ==: ItemMeta
+        meta-type: UNSPECIFIC
+        display-name: '{"extra":[{"bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"gray","text":"["},{"italic":false,"color":"green","text":"HEALING
+          GRIMOIRE"},{"italic":false,"color":"gray","text":"]"}],"text":""}'
+        lore:
+          - '{"extra":[{"bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"dark_purple","text":"-Support
+          Sorcery Book-"}],"text":""}'
+          - '{"extra":[{"bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"yellow","text":"[RIGHT
+          CLICK] "},{"italic":false,"color":"white","text":"To Cast a [HEALING] spell
+          for 5s"}],"text":""}'
+          - '{"extra":[{"bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"green","text":"[NOTE]
+          "},{"italic":false,"color":"gold","text":"All players withing 20 blocks will
+          heal"}],"text":""}'
+          - '{"extra":[{"bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"light_purple","text":"(2
+          mins cooldown after casting a spell)"}],"text":""}'
+        custom-model-data: 4
+        enchants:
+          Grimoire: 11
+    Title: Skeleton Essence
+    Duration: 450
+    Count: 50
+  - ==: me.jaymar921.kumandraseconomy.datahandlers.QuestData
+    ExpReward: 0
+    Type: VILLAGER
+    Task: CRAFT_BLAZE_ROD
+    Message:
+      - I was doing some magic, do you have 35 blaze rods?
+    RewardType: ITEM
+    ItemReward:
+      ==: org.bukkit.inventory.ItemStack
+      v: 2730
+      type: BOOK
+      meta:
+        ==: ItemMeta
+        meta-type: UNSPECIFIC
+        display-name: '{"extra":[{"bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"gray","text":"["},{"italic":false,"color":"green","text":"HEALING
+          GRIMOIRE"},{"italic":false,"color":"gray","text":"]"}],"text":""}'
+        lore:
+          - '{"extra":[{"bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"dark_purple","text":"-Support
+          Sorcery Book-"}],"text":""}'
+          - '{"extra":[{"bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"yellow","text":"[RIGHT
+          CLICK] "},{"italic":false,"color":"white","text":"To Cast a [HEALING] spell
+          for 5s"}],"text":""}'
+          - '{"extra":[{"bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"green","text":"[NOTE]
+          "},{"italic":false,"color":"gold","text":"All players withing 20 blocks will
+          heal"}],"text":""}'
+          - '{"extra":[{"bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"light_purple","text":"(2
+          mins cooldown after casting a spell)"}],"text":""}'
+        custom-model-data: 4
+        enchants:
+          Grimoire: 11
+    Title: Magic Book
+    Duration: 450
+    Count: 35
+  - ==: me.jaymar921.kumandraseconomy.datahandlers.QuestData
+    ExpReward: 0
+    Type: VILLAGER
+    Task: CRAFT_GHAST_TEAR
+    Message:
+      - My Magic book is almost done but I need 20 Ghast Tears
+    RewardType: ITEM
+    ItemReward:
+      ==: org.bukkit.inventory.ItemStack
+      v: 2730
+      type: BOOK
+      meta:
+        ==: ItemMeta
+        meta-type: UNSPECIFIC
+        display-name: '{"extra":[{"bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"light_purple","text":"[GRIMOIRE]"}],"text":""}'
+        lore:
+          - '{"extra":[{"bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"dark_purple","text":"
+          Left Click: effect of choice -> fireball or snowball"}],"text":""}'
+          - '{"extra":[{"bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"dark_purple","text":"
+          Right Click: Channeling spell 5 sec which is the [Effect Choice]"}],"text":""}'
+          - '{"extra":[{"bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"green","text":"
+          You can only select 1 effect of choice"},{"italic":false,"color":"black","text":"140"}],"text":""}'
+          - '{"extra":[{"bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"dark_aqua","text":"
+          (2 mins cooldown after channeling a spell)"}],"text":""}'
+        custom-model-data: 4
+        enchants:
+          Grimoire: 1
+    Title: Mystery Book
+    Duration: 450
+    Count: 20
+  - ==: me.jaymar921.kumandraseconomy.datahandlers.QuestData
+    ExpReward: 0
+    Type: VILLAGER
+    Task: KILL_SPIDER
+    Message:
+      - Kill 80 spiders to obtain the Boss Egg
+    RewardType: ITEM
+    ItemReward:
+      ==: org.bukkit.inventory.ItemStack
+      v: 2730
+      type: EGG
+      meta:
+        ==: ItemMeta
+        meta-type: UNSPECIFIC
+        display-name: '{"extra":[{"bold":true,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"yellow","text":"[SPIDER
+          BOSS]"}],"text":""}'
+        lore:
+          - '{"extra":[{"bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"green","text":">Right
+          click to use"},{"italic":false,"color":"black","text":"-356585995"}],"text":""}'
+        enchants:
+          Telepathy: 1
+    Title: Spider Egg
+    Duration: 1200
+    Count: 80
+  - ==: me.jaymar921.kumandraseconomy.datahandlers.QuestData
+    ExpReward: 0
+    Type: VILLAGER
+    Task: KILL_CREEPER
+    Message:
+      - Kill 100 creepers to obtain the Boss Egg
+    RewardType: ITEM
+    ItemReward:
+      ==: org.bukkit.inventory.ItemStack
+      v: 2730
+      type: EGG
+      meta:
+        ==: ItemMeta
+        meta-type: UNSPECIFIC
+        display-name: '{"extra":[{"bold":true,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"yellow","text":"[CREEPER
+          BOSS]"}],"text":""}'
+        lore:
+          - '{"extra":[{"bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"green","text":">Right
+          click to use"},{"italic":false,"color":"black","text":"-371671823"}],"text":""}'
+        enchants:
+          Telepathy: 1
+    Title: Creeper Egg
+    Duration: 1200
+    Count: 100
+  - ==: me.jaymar921.kumandraseconomy.datahandlers.QuestData
+    ExpReward: 0
+    Type: VILLAGER
+    Task: KILL_ZOMBIE
+    Message:
+      - Kill 200 zombies to obtain the Boss Egg
+    RewardType: ITEM
+    ItemReward:
+      ==: org.bukkit.inventory.ItemStack
+      v: 2730
+      type: EGG
+      meta:
+        ==: ItemMeta
+        meta-type: UNSPECIFIC
+        display-name: '{"extra":[{"bold":true,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"yellow","text":"[ZOMBOSS]"}],"text":""}'
+        lore:
+          - '{"extra":[{"bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"green","text":">Right
+          click to use"},{"italic":false,"color":"black","text":"-2056259403"}],"text":""}'
+        enchants:
+          Telepathy: 1
+    Title: Zomboss Egg
+    Duration: 1200
+    Count: 200
+  - ==: me.jaymar921.kumandraseconomy.datahandlers.QuestData
+    ExpReward: 0
+    Type: VILLAGER
+    Task: KILL_ZOMBIE
+    Message:
+      - Kill 200 zombies to obtain the Boss Egg
+    RewardType: ITEM
+    ItemReward:
+      ==: org.bukkit.inventory.ItemStack
+      v: 2730
+      type: EGG
+      meta:
+        ==: ItemMeta
+        meta-type: UNSPECIFIC
+        display-name: '{"extra":[{"bold":true,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"yellow","text":"[ZOMBOSS]"}],"text":""}'
+        lore:
+          - '{"extra":[{"bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"green","text":">Right
+          click to use"},{"italic":false,"color":"black","text":"-2056259403"}],"text":""}'
+        enchants:
+          Telepathy: 1
+    Title: Zomboss Egg
+    Duration: 1200
+    Count: 200
+  - ==: me.jaymar921.kumandraseconomy.datahandlers.QuestData
+    ExpReward: 0
+    Type: VILLAGER
+    Task: KILL_ZOMBIE
+    Message:
+      - Kill 100 zombies for a sword
+    RewardType: ITEM
+    ItemReward:
+      ==: org.bukkit.inventory.ItemStack
+      v: 2730
+      type: STONE_SWORD
+      meta:
+        ==: ItemMeta
+        meta-type: UNSPECIFIC
+        display-name: '{"extra":[{"bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"red","text":"SWORD
+          OF THE DEAD"}],"text":""}'
+        lore:
+          - '{"extra":[{"bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"gray","text":"Sword
+          Status ⚔"}],"text":""}'
+          - '{"extra":[{"bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"gray","text":""}],"text":""}'
+          - '{"extra":[{"bold":true,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"gray","text":"Base
+          Dmg:    8hp"}],"text":""}'
+          - '{"extra":[{"bold":true,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"gray","text":"Crit
+          Chance: 5%"}],"text":""}'
+          - '{"extra":[{"bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"gray","text":""}],"text":""}'
+          - '{"extra":[{"bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"yellow","text":"Enchantments:
+          "}],"text":""}'
+          - '{"extra":[{"bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"dark_red","text":"Bleed"}],"text":""}'
+        enchants:
+          Bleed: 1
+        ItemFlags:
+          - HIDE_ENCHANTS
+          - HIDE_ATTRIBUTES
+        PublicBukkitValues:
+          customenchantments:swordstatus: '[B;-84B,-19B,0B,5B,115B,114B,0B,49B,109B,101B,46B,74B,97B,121B,77B,97B,114B,57B,50B,49B,46B,67B,117B,115B,116B,111B,109B,69B,110B,99B,104B,97B,110B,116B,109B,101B,110B,116B,46B,101B,120B,116B,114B,97B,115B,46B,83B,119B,111B,114B,100B,83B,116B,97B,116B,117B,115B,0B,0B,0B,0B,0B,0B,0B,1B,2B,0B,3B,68B,0B,11B,99B,114B,105B,116B,95B,99B,104B,97B,110B,99B,101B,73B,0B,6B,100B,97B,109B,97B,103B,101B,76B,0B,5B,111B,119B,110B,101B,114B,116B,0B,18B,76B,106B,97B,118B,97B,47B,108B,97B,110B,103B,47B,83B,116B,114B,105B,110B,103B,59B,120B,112B,63B,-87B,-103B,-103B,-103B,-103B,-103B,-102B,0B,0B,0B,8B,116B,0B,17B,83B,119B,111B,114B,100B,32B,111B,102B,32B,116B,104B,101B,32B,100B,101B,97B,100B]'
+    Title: Sword of Undead?
+    Duration: 600
+    Count: 100
+  - ==: me.jaymar921.kumandraseconomy.datahandlers.QuestData
+    ExpReward: 0
+    Type: VILLAGER
+    Task: MINE_COAL_ORE
+    Message:
+      - Mine 120 Coal ores for a sword
+    RewardType: ITEM
+    ItemReward:
+      ==: org.bukkit.inventory.ItemStack
+      v: 2730
+      type: STONE_SWORD
+      meta:
+        ==: ItemMeta
+        meta-type: UNSPECIFIC
+        display-name: '{"extra":[{"bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"red","text":"SWORD
+          OF THE DEAD"}],"text":""}'
+        lore:
+          - '{"extra":[{"bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"gray","text":"Sword
+          Status ⚔"}],"text":""}'
+          - '{"extra":[{"bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"gray","text":""}],"text":""}'
+          - '{"extra":[{"bold":true,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"gray","text":"Base
+          Dmg:    8hp"}],"text":""}'
+          - '{"extra":[{"bold":true,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"gray","text":"Crit
+          Chance: 5%"}],"text":""}'
+          - '{"extra":[{"bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"gray","text":""}],"text":""}'
+          - '{"extra":[{"bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"yellow","text":"Enchantments:
+          "}],"text":""}'
+          - '{"extra":[{"bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"dark_red","text":"Bleed"}],"text":""}'
+        enchants:
+          Bleed: 1
+        ItemFlags:
+          - HIDE_ENCHANTS
+          - HIDE_ATTRIBUTES
+        PublicBukkitValues:
+          customenchantments:swordstatus: '[B;-84B,-19B,0B,5B,115B,114B,0B,49B,109B,101B,46B,74B,97B,121B,77B,97B,114B,57B,50B,49B,46B,67B,117B,115B,116B,111B,109B,69B,110B,99B,104B,97B,110B,116B,109B,101B,110B,116B,46B,101B,120B,116B,114B,97B,115B,46B,83B,119B,111B,114B,100B,83B,116B,97B,116B,117B,115B,0B,0B,0B,0B,0B,0B,0B,1B,2B,0B,3B,68B,0B,11B,99B,114B,105B,116B,95B,99B,104B,97B,110B,99B,101B,73B,0B,6B,100B,97B,109B,97B,103B,101B,76B,0B,5B,111B,119B,110B,101B,114B,116B,0B,18B,76B,106B,97B,118B,97B,47B,108B,97B,110B,103B,47B,83B,116B,114B,105B,110B,103B,59B,120B,112B,63B,-87B,-103B,-103B,-103B,-103B,-103B,-102B,0B,0B,0B,8B,116B,0B,17B,83B,119B,111B,114B,100B,32B,111B,102B,32B,116B,104B,101B,32B,100B,101B,97B,100B]'
+    Title: Arrrr.. Pirate Sword
+    Duration: 300
+    Count: 120
+  - ==: me.jaymar921.kumandraseconomy.datahandlers.QuestData
+    ExpReward: 0
+    Type: VILLAGER
+    Task: CRAFT_MAP
+    Message:
+      - I need 20 maps for exploration
+    RewardType: ITEM
+    ItemReward:
+      ==: org.bukkit.inventory.ItemStack
+      v: 2730
+      type: NETHERITE_SWORD
+      meta:
+        ==: ItemMeta
+        meta-type: UNSPECIFIC
+        display-name: '{"extra":[{"bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"gold","text":"Fallen
+          Sword"}],"text":""}'
+        lore:
+          - '{"extra":[{"bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"gray","text":"Sword
+          Status ⚔"}],"text":""}'
+          - '{"extra":[{"bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"gray","text":""}],"text":""}'
+          - '{"extra":[{"bold":true,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"gray","text":"Base
+          Dmg:    15hp"}],"text":""}'
+          - '{"extra":[{"bold":true,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"gray","text":"Crit
+          Chance: 23%"}],"text":""}'
+          - '{"extra":[{"bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"gray","text":""}],"text":""}'
+          - '{"extra":[{"bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"yellow","text":"Enchantments:
+          "}],"text":""}'
+          - '{"extra":[{"bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"gray","text":"Sharpness
+          V"}],"text":""}'
+        enchants:
+          DAMAGE_ALL: 5
+        ItemFlags:
+          - HIDE_ENCHANTS
+          - HIDE_ATTRIBUTES
+        PublicBukkitValues:
+          customenchantments:swordstatus: '[B;-84B,-19B,0B,5B,115B,114B,0B,49B,109B,101B,46B,74B,97B,121B,77B,97B,114B,57B,50B,49B,46B,67B,117B,115B,116B,111B,109B,69B,110B,99B,104B,97B,110B,116B,109B,101B,110B,116B,46B,101B,120B,116B,114B,97B,115B,46B,83B,119B,111B,114B,100B,83B,116B,97B,116B,117B,115B,0B,0B,0B,0B,0B,0B,0B,1B,2B,0B,3B,68B,0B,11B,99B,114B,105B,116B,95B,99B,104B,97B,110B,99B,101B,73B,0B,6B,100B,97B,109B,97B,103B,101B,76B,0B,5B,111B,119B,110B,101B,114B,116B,0B,18B,76B,106B,97B,118B,97B,47B,108B,97B,110B,103B,47B,83B,116B,114B,105B,110B,103B,59B,120B,112B,63B,-51B,112B,-93B,-41B,10B,61B,113B,0B,0B,0B,15B,116B,0B,12B,70B,97B,108B,108B,101B,110B,32B,83B,119B,111B,114B,100B]'
+    Title: Fallen Kingdom
+    Duration: 320
+    Count: 20
+  - ==: me.jaymar921.kumandraseconomy.datahandlers.QuestData
+    ExpReward: 0
+    Type: VILLAGER
+    Task: CRAFT_BOOK
+    Message:
+      - I need 60 books for my research
+    RewardType: ITEM
+    ItemReward:
+      ==: org.bukkit.inventory.ItemStack
+      v: 2730
+      type: GOLDEN_SWORD
+      meta:
+        ==: ItemMeta
+        meta-type: UNSPECIFIC
+        display-name: '{"extra":[{"bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"gold","text":"Epic
+          Golden Sword"}],"text":""}'
+        lore:
+          - '{"extra":[{"bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"gray","text":"Sword
+          Status ⚔"}],"text":""}'
+          - '{"extra":[{"bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"gray","text":""}],"text":""}'
+          - '{"extra":[{"bold":true,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"gray","text":"Base
+          Dmg:    15hp"}],"text":""}'
+          - '{"extra":[{"bold":true,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"gray","text":"Crit
+          Chance: 45%"}],"text":""}'
+          - '{"extra":[{"bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"gray","text":""}],"text":""}'
+          - '{"extra":[{"bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"yellow","text":"Enchantments:
+          "}],"text":""}'
+          - '{"extra":[{"bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"gray","text":"Sharpness
+          IV"}],"text":""}'
+        enchants:
+          DAMAGE_ALL: 4
+        ItemFlags:
+          - HIDE_ENCHANTS
+          - HIDE_ATTRIBUTES
+        PublicBukkitValues:
+          customenchantments:swordstatus: '[B;-84B,-19B,0B,5B,115B,114B,0B,49B,109B,101B,46B,74B,97B,121B,77B,97B,114B,57B,50B,49B,46B,67B,117B,115B,116B,111B,109B,69B,110B,99B,104B,97B,110B,116B,109B,101B,110B,116B,46B,101B,120B,116B,114B,97B,115B,46B,83B,119B,111B,114B,100B,83B,116B,97B,116B,117B,115B,0B,0B,0B,0B,0B,0B,0B,1B,2B,0B,3B,68B,0B,11B,99B,114B,105B,116B,95B,99B,104B,97B,110B,99B,101B,73B,0B,6B,100B,97B,109B,97B,103B,101B,76B,0B,5B,111B,119B,110B,101B,114B,116B,0B,18B,76B,106B,97B,118B,97B,47B,108B,97B,110B,103B,47B,83B,116B,114B,105B,110B,103B,59B,120B,112B,63B,-36B,-52B,-52B,-52B,-52B,-52B,-51B,0B,0B,0B,15B,116B,0B,17B,69B,112B,105B,99B,32B,71B,111B,108B,100B,101B,110B,32B,83B,119B,111B,114B,100B]'
+    Title: A lot o' Books
+    Duration: 320
+    Count: 60
+  - ==: me.jaymar921.kumandraseconomy.datahandlers.QuestData
+    ExpReward: 0
+    Type: VILLAGER
+    Task: MINE_GOLD_ORE
+    Message:
+      - Can you mine 25 Gold ores?
+    RewardType: ITEM
+    ItemReward:
+      ==: org.bukkit.inventory.ItemStack
+      v: 2730
+      type: DIAMOND_AXE
+      meta:
+        ==: ItemMeta
+        meta-type: UNSPECIFIC
+        display-name: '{"extra":[{"bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"red","text":"DEMON
+          SLAYER"}],"text":""}'
+        lore:
+          - '{"extra":[{"bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"gray","text":"Axe
+          Status ⚔"}],"text":""}'
+          - '{"extra":[{"bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"gray","text":""}],"text":""}'
+          - '{"extra":[{"bold":true,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"gray","text":"Base
+          Dmg:    12hp"}],"text":""}'
+          - '{"extra":[{"bold":true,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"gray","text":"Crit
+          Chance: 15%"}],"text":""}'
+          - '{"extra":[{"bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"gray","text":""}],"text":""}'
+          - '{"extra":[{"bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"yellow","text":"Enchantments:
+          "}],"text":""}'
+          - '{"extra":[{"bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"dark_red","text":"Bleed"}],"text":""}'
+        enchants:
+          Bleed: 1
+        ItemFlags:
+          - HIDE_ENCHANTS
+          - HIDE_ATTRIBUTES
+        PublicBukkitValues:
+          customenchantments:swordstatus: '[B;-84B,-19B,0B,5B,115B,114B,0B,49B,109B,101B,46B,74B,97B,121B,77B,97B,114B,57B,50B,49B,46B,67B,117B,115B,116B,111B,109B,69B,110B,99B,104B,97B,110B,116B,109B,101B,110B,116B,46B,101B,120B,116B,114B,97B,115B,46B,83B,119B,111B,114B,100B,83B,116B,97B,116B,117B,115B,0B,0B,0B,0B,0B,0B,0B,1B,2B,0B,3B,68B,0B,11B,99B,114B,105B,116B,95B,99B,104B,97B,110B,99B,101B,73B,0B,6B,100B,97B,109B,97B,103B,101B,76B,0B,5B,111B,119B,110B,101B,114B,116B,0B,18B,76B,106B,97B,118B,97B,47B,108B,97B,110B,103B,47B,83B,116B,114B,105B,110B,103B,59B,120B,112B,63B,-61B,51B,51B,51B,51B,51B,51B,0B,0B,0B,12B,116B,0B,12B,68B,69B,77B,79B,78B,32B,83B,76B,65B,89B,69B,82B]'
+    Title: Gold Mine!
+    Duration: 620
+    Count: 25
+  - ==: me.jaymar921.kumandraseconomy.datahandlers.QuestData
+    ExpReward: 0
+    Type: VILLAGER
+    Task: MINE_IRON_ORE
+    Message:
+      - Can you mine 50 Iron ores?
+    RewardType: ITEM
+    ItemReward:
+      ==: org.bukkit.inventory.ItemStack
+      v: 2730
+      type: GOLDEN_SWORD
+      meta:
+        ==: ItemMeta
+        meta-type: UNSPECIFIC
+        display-name: '{"extra":[{"bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"light_purple","text":"Enchanted
+          Sword"}],"text":""}'
+        lore:
+          - '{"extra":[{"bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"gray","text":"Sword
+          Status ⚔"}],"text":""}'
+          - '{"extra":[{"bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"gray","text":""}],"text":""}'
+          - '{"extra":[{"bold":true,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"gray","text":"Base
+          Dmg:    12hp"}],"text":""}'
+          - '{"extra":[{"bold":true,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"gray","text":"Crit
+          Chance: 95%"}],"text":""}'
+          - '{"extra":[{"bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"gray","text":""}],"text":""}'
+          - '{"extra":[{"bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"yellow","text":"Enchantments:
+          "}],"text":""}'
+          - '{"extra":[{"bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"dark_red","text":"Critical
+          II"}],"text":""}'
+        enchants:
+          Critical: 2
+        ItemFlags:
+          - HIDE_ENCHANTS
+          - HIDE_ATTRIBUTES
+        PublicBukkitValues:
+          customenchantments:swordstatus: '[B;-84B,-19B,0B,5B,115B,114B,0B,49B,109B,101B,46B,74B,97B,121B,77B,97B,114B,57B,50B,49B,46B,67B,117B,115B,116B,111B,109B,69B,110B,99B,104B,97B,110B,116B,109B,101B,110B,116B,46B,101B,120B,116B,114B,97B,115B,46B,83B,119B,111B,114B,100B,83B,116B,97B,116B,117B,115B,0B,0B,0B,0B,0B,0B,0B,1B,2B,0B,3B,68B,0B,11B,99B,114B,105B,116B,95B,99B,104B,97B,110B,99B,101B,73B,0B,6B,100B,97B,109B,97B,103B,101B,76B,0B,5B,111B,119B,110B,101B,114B,116B,0B,18B,76B,106B,97B,118B,97B,47B,108B,97B,110B,103B,47B,83B,116B,114B,105B,110B,103B,59B,120B,112B,63B,-18B,102B,102B,102B,102B,102B,102B,0B,0B,0B,12B,116B,0B,15B,69B,110B,99B,104B,97B,110B,116B,101B,100B,32B,83B,119B,111B,114B,100B]'
+    Title: Iron Mine!
+    Duration: 620
+    Count: 50
+  - ==: me.jaymar921.kumandraseconomy.datahandlers.QuestData
+    ExpReward: 0
+    Type: VILLAGER
+    Task: MINE_LOG
+    Message:
+      - Can you chop 320 logs?
+    RewardType: ITEM
+    ItemReward:
+      ==: org.bukkit.inventory.ItemStack
+      v: 2730
+      type: PAPER
+      meta:
+        ==: ItemMeta
+        meta-type: UNSPECIFIC
+        display-name: '{"extra":[{"bold":false,"italic":false,"underlined":true,"strikethrough":false,"obfuscated":false,"color":"light_purple","text":"[20
+          LEVELS]"}],"text":""}'
+        lore:
+          - '{"extra":[{"bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"green","text":">Right
+          click to use"},{"italic":false,"color":"black","text":"1364987588"}],"text":""}'
+        enchants:
+          Levelsce: 20
+    Title: Logging
+    Duration: 520
+    Count: 320
+  - ==: me.jaymar921.kumandraseconomy.datahandlers.QuestData
+    ExpReward: 0
+    Type: VILLAGER
+    Task: PLACE_SAPLING
+    Message:
+      - Plant 35 saplings
+    RewardType: ITEM
+    ItemReward:
+      ==: org.bukkit.inventory.ItemStack
+      v: 2730
+      type: GOLDEN_SWORD
+      meta:
+        ==: ItemMeta
+        meta-type: UNSPECIFIC
+        display-name: '{"extra":[{"bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"light_purple","text":"Enchanted
+          Sword"}],"text":""}'
+        lore:
+          - '{"extra":[{"bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"gray","text":"Sword
+          Status ⚔"}],"text":""}'
+          - '{"extra":[{"italic":false,"color":"black","text":"id220"}],"text":""}'
+          - '{"extra":[{"bold":true,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"gray","text":"Base
+          Dmg:    12hp"}],"text":""}'
+          - '{"extra":[{"bold":true,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"gray","text":"Crit
+          Chance: 95%"}],"text":""}'
+          - '{"extra":[{"italic":false,"color":"black","text":"id956"}],"text":""}'
+          - '{"extra":[{"bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"yellow","text":"Enchantments:
+          "}],"text":""}'
+          - '{"extra":[{"bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"dark_red","text":"Critical
+          II"}],"text":""}'
+        enchants:
+          Critical: 2
+        ItemFlags:
+          - HIDE_ENCHANTS
+          - HIDE_ATTRIBUTES
+        PublicBukkitValues:
+          customenchantments:swordstatus: '[B;-84B,-19B,0B,5B,115B,114B,0B,49B,109B,101B,46B,74B,97B,121B,77B,97B,114B,57B,50B,49B,46B,67B,117B,115B,116B,111B,109B,69B,110B,99B,104B,97B,110B,116B,109B,101B,110B,116B,46B,101B,120B,116B,114B,97B,115B,46B,83B,119B,111B,114B,100B,83B,116B,97B,116B,117B,115B,0B,0B,0B,0B,0B,0B,0B,1B,2B,0B,3B,68B,0B,11B,99B,114B,105B,116B,95B,99B,104B,97B,110B,99B,101B,73B,0B,6B,100B,97B,109B,97B,103B,101B,76B,0B,5B,111B,119B,110B,101B,114B,116B,0B,18B,76B,106B,97B,118B,97B,47B,108B,97B,110B,103B,47B,83B,116B,114B,105B,110B,103B,59B,120B,112B,63B,-18B,102B,102B,102B,102B,102B,102B,0B,0B,0B,12B,116B,0B,15B,69B,110B,99B,104B,97B,110B,116B,101B,100B,32B,83B,119B,111B,114B,100B]'
+    Title: Save Nature
+    Duration: 520
+    Count: 35
+  - ==: me.jaymar921.kumandraseconomy.datahandlers.QuestData
+    ExpReward: 0
+    Type: VILLAGER
+    Task: PLACE_BEACON
+    Message:
+      - Can you place a beacon? we need buff
+    RewardType: ITEM
+    ItemReward:
+      ==: org.bukkit.inventory.ItemStack
+      v: 2730
+      type: DIAMOND_SWORD
+      meta:
+        ==: ItemMeta
+        meta-type: UNSPECIFIC
+        display-name: '{"extra":[{"bold":true,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"gold","text":"RAID
+          "},{"bold":true,"italic":false,"color":"yellow","text":"SWORD"}],"text":""}'
+        lore:
+          - '{"extra":[{"bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"gray","text":"Sword
+          Status ⚔"}],"text":""}'
+          - '{"extra":[{"italic":false,"color":"black","text":"id1508"}],"text":""}'
+          - '{"extra":[{"bold":true,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"gray","text":"Base
+          Dmg:    32hp"}],"text":""}'
+          - '{"extra":[{"bold":true,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"gray","text":"Crit
+          Chance: 27%"}],"text":""}'
+          - '{"extra":[{"italic":false,"color":"black","text":"id761"}],"text":""}'
+          - '{"extra":[{"bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"yellow","text":"Enchantments:
+          "}],"text":""}'
+          - '{"extra":[{"bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"gray","text":"Sharpness
+          X"}],"text":""}'
+          - '{"extra":[{"bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"gray","text":"Knockback
+          II"}],"text":""}'
+          - '{"extra":[{"bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"dark_gray","text":"[CE]
+          Unbreaking IV"}],"text":""}'
+          - '{"extra":[{"bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"white","text":"L"},{"italic":false,"color":"gray","text":"i"},{"italic":false,"color":"white","text":"g"},{"italic":false,"color":"gray","text":"h"},{"italic":false,"color":"white","text":"t
+          "},{"italic":false,"color":"gray","text":"S"},{"italic":false,"color":"white","text":"p"},{"italic":false,"color":"gray","text":"i"},{"italic":false,"color":"white","text":"r"},{"italic":false,"color":"gray","text":"i"},{"italic":false,"color":"white","text":"t
+          "},{"italic":false,"color":"dark_purple","text":"II"}],"text":""}'
+          - '{"extra":[{"bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"dark_red","text":"Burning"}],"text":""}'
+        enchants:
+          Burning: 1
+          KNOCKBACK: 2
+          LightSpirit: 2
+          DAMAGE_ALL: 10
+          DURABILITY: 7
+        ItemFlags:
+          - HIDE_ENCHANTS
+          - HIDE_ATTRIBUTES
+        PublicBukkitValues:
+          customenchantments:swordstatus: '[B;-84B,-19B,0B,5B,115B,114B,0B,49B,109B,101B,46B,74B,97B,121B,77B,97B,114B,57B,50B,49B,46B,67B,117B,115B,116B,111B,109B,69B,110B,99B,104B,97B,110B,116B,109B,101B,110B,116B,46B,101B,120B,116B,114B,97B,115B,46B,83B,119B,111B,114B,100B,83B,116B,97B,116B,117B,115B,0B,0B,0B,0B,0B,0B,0B,1B,2B,0B,3B,68B,0B,11B,99B,114B,105B,116B,95B,99B,104B,97B,110B,99B,101B,73B,0B,6B,100B,97B,109B,97B,103B,101B,76B,0B,5B,111B,119B,110B,101B,114B,116B,0B,18B,76B,106B,97B,118B,97B,47B,108B,97B,110B,103B,47B,83B,116B,114B,105B,110B,103B,59B,120B,112B,63B,-47B,71B,-82B,20B,122B,-31B,72B,0B,0B,0B,32B,116B,0B,10B,82B,97B,105B,100B,32B,83B,119B,111B,114B,100B]'
+    Title: Beacon's Buff
+    Duration: 920
+    Count: 1
+  - ==: me.jaymar921.kumandraseconomy.datahandlers.QuestData
+    ExpReward: 0
+    Type: VILLAGER
+    Task: PLACE_BEACON
+    Message:
+      - Can you place a beacon? we need buff
+    RewardType: ITEM
+    ItemReward:
+      ==: org.bukkit.inventory.ItemStack
+      v: 2730
+      type: BOW
+      meta:
+        ==: ItemMeta
+        meta-type: UNSPECIFIC
+        display-name: '{"extra":[{"bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"gold","text":"RAID
+          "},{"italic":false,"color":"yellow","text":"BOW"}],"text":""}'
+        lore:
+          - '{"extra":[{"bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"gray","text":"Bow
+          Status 🏹"}],"text":""}'
+          - '{"extra":[{"italic":false,"color":"black","text":"id1015"}],"text":""}'
+          - '{"extra":[{"bold":true,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"gray","text":"Bow
+          Damage: 31hp"}],"text":""}'
+          - '{"extra":[{"bold":true,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"gray","text":"Pen.
+          Chance: 28%"}],"text":""}'
+          - '{"extra":[{"bold":true,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"gray","text":"Pen.
+          Damage: 25hp"}],"text":""}'
+          - '{"extra":[{"italic":false,"color":"black","text":"id49"}],"text":""}'
+          - '{"extra":[{"bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"yellow","text":"Enchantments:
+          "}],"text":""}'
+          - '{"extra":[{"bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"white","text":"Lightning
+          "},{"italic":false,"color":"gray","text":"II"}],"text":""}'
+        enchants:
+          ARROW_FIRE: 4
+          ARROW_INFINITE: 1
+          Lightning: 2
+          ARROW_DAMAGE: 13
+          DURABILITY: 5
+        ItemFlags:
+          - HIDE_ENCHANTS
+          - HIDE_ATTRIBUTES
+        PublicBukkitValues:
+          customenchantments:bowstatus: '[B;-84B,-19B,0B,5B,115B,114B,0B,47B,109B,101B,46B,74B,97B,121B,77B,97B,114B,57B,50B,49B,46B,67B,117B,115B,116B,111B,109B,69B,110B,99B,104B,97B,110B,116B,109B,101B,110B,116B,46B,101B,120B,116B,114B,97B,115B,46B,66B,111B,119B,83B,116B,97B,116B,117B,115B,0B,0B,0B,0B,0B,0B,0B,1B,2B,0B,3B,73B,0B,6B,100B,97B,109B,97B,103B,101B,68B,0B,10B,112B,101B,110B,95B,99B,104B,97B,110B,99B,101B,73B,0B,10B,112B,101B,110B,95B,100B,97B,109B,97B,103B,101B,120B,112B,0B,0B,0B,31B,63B,-47B,-21B,-123B,30B,-72B,81B,-20B,0B,0B,0B,25B]'
+    Title: Beacon's Buff
+    Duration: 920
+    Count: 1
+  - ==: me.jaymar921.kumandraseconomy.datahandlers.QuestData
+    ExpReward: 0
+    Type: VILLAGER
+    Task: MINE_ANCIENT_DEBRIS
+    Message:
+      - I need 25 ancient debrish for my research
+    RewardType: ITEM
+    ItemReward:
+      ==: org.bukkit.inventory.ItemStack
+      v: 2730
+      type: DIAMOND_SWORD
+      meta:
+        ==: ItemMeta
+        meta-type: UNSPECIFIC
+        display-name: '{"extra":[{"bold":true,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"gold","text":"["},{"bold":true,"italic":false,"color":"light_purple","text":"Witch
+          Sword"},{"bold":true,"italic":false,"color":"gold","text":"]"}],"text":""}'
+        lore:
+          - '{"extra":[{"bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"gray","text":"Sword
+          Status ⚔"}],"text":""}'
+          - '{"extra":[{"italic":false,"color":"black","text":"id508"}],"text":""}'
+          - '{"extra":[{"bold":true,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"gray","text":"Base
+          Dmg:    30hp"}],"text":""}'
+          - '{"extra":[{"bold":true,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"gray","text":"Crit
+          Chance: 30%"}],"text":""}'
+          - '{"extra":[{"italic":false,"color":"black","text":"id365"}],"text":""}'
+          - '{"extra":[{"bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"yellow","text":"Enchantments:
+          "}],"text":""}'
+          - '{"extra":[{"bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"gray","text":"Sharpness
+          IX"}],"text":""}'
+          - '{"extra":[{"bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"dark_gray","text":"[CE]
+          Unbreaking I"}],"text":""}'
+          - '{"extra":[{"bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"dark_purple","text":"Critical
+          III"}],"text":""}'
+        enchants:
+          Critical: 3
+          DAMAGE_ALL: 9
+          DURABILITY: 4
+          Unbreakingce: 1
+        ItemFlags:
+          - HIDE_ENCHANTS
+          - HIDE_ATTRIBUTES
+        PublicBukkitValues:
+          customenchantments:swordstatus: '[B;-84B,-19B,0B,5B,115B,114B,0B,49B,109B,101B,46B,74B,97B,121B,77B,97B,114B,57B,50B,49B,46B,67B,117B,115B,116B,111B,109B,69B,110B,99B,104B,97B,110B,116B,109B,101B,110B,116B,46B,101B,120B,116B,114B,97B,115B,46B,83B,119B,111B,114B,100B,83B,116B,97B,116B,117B,115B,0B,0B,0B,0B,0B,0B,0B,1B,2B,0B,3B,68B,0B,11B,99B,114B,105B,116B,95B,99B,104B,97B,110B,99B,101B,73B,0B,6B,100B,97B,109B,97B,103B,101B,76B,0B,5B,111B,119B,110B,101B,114B,116B,0B,18B,76B,106B,97B,118B,97B,47B,108B,97B,110B,103B,47B,83B,116B,114B,105B,110B,103B,59B,120B,112B,63B,-45B,51B,51B,51B,51B,51B,51B,0B,0B,0B,30B,116B,0B,11B,87B,105B,116B,99B,104B,32B,83B,119B,111B,114B,100B]'
+    Title: Challenge Accepted
+    Duration: 1220
+    Count: 25
+  - ==: me.jaymar921.kumandraseconomy.datahandlers.QuestData
+    ExpReward: 0
+    Type: VILLAGER
+    Task: MINE_ANCIENT_DEBRIS
+    Message:
+      - I need 250 ancient debrish for my research
+    RewardType: ITEM
+    ItemReward:
+      ==: org.bukkit.inventory.ItemStack
+      v: 2730
+      type: ENCHANTED_BOOK
+      meta:
+        ==: ItemMeta
+        meta-type: ENCHANTED
+        display-name: '{"extra":[{"bold":true,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"gold","text":"["},{"bold":true,"italic":false,"color":"light_purple","text":"Grimoire
+          of death"},{"bold":true,"italic":false,"color":"gold","text":"]"}],"text":""}'
+        lore:
+          - '{"extra":[{"bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"red","text":"The
+          power of death is within this book"}],"text":""}'
+          - '{"extra":[{"bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"light_purple","text":"Charge
+          the spell of death for 10s"}],"text":""}'
+          - '{"extra":[{"bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"light_purple","text":"the
+          player cannot move while charging."}],"text":""}'
+          - '{"extra":[{"bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"dark_red","text":"NOTE:
+          "},{"italic":false,"color":"red","text":"Never use this spell at your base"}],"text":""}'
+          - '{"extra":[{"bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"gold","text":"["},{"italic":false,"color":"dark_green","text":"Storm
+          Ally players wont get affected"},{"italic":false,"color":"gold","text":"]"}],"text":""}'
+          - '{"extra":[{"bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"green","text":"[HOLD
+          RIGHT CLICK TO USE]"}],"text":""}'
+        ItemFlags:
+          - HIDE_ENCHANTS
+          - HIDE_ATTRIBUTES
+        PublicBukkitValues:
+          customenchantments:itemdata: 11139i
+    Title: 250 Debris?
+    Duration: 1920
+    Count: 250
+  - ==: me.jaymar921.kumandraseconomy.datahandlers.QuestData
+    ExpReward: 0
+    Type: VILLAGER
+    Task: MINE_EMERALD_ORE
+    Message:
+      - Can you mine 25 emerald ores?
+    RewardType: ITEM
+    ItemReward:
+      ==: org.bukkit.inventory.ItemStack
+      v: 2730
+      type: GOLDEN_SWORD
+      meta:
+        ==: ItemMeta
+        meta-type: UNSPECIFIC
+        display-name: '{"extra":[{"bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"gold","text":"King''s
+          Sword"}],"text":""}'
+        lore:
+          - '{"extra":[{"bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"gray","text":"Sword
+          Status ⚔"}],"text":""}'
+          - '{"extra":[{"italic":false,"color":"black","text":"id1049"}],"text":""}'
+          - '{"extra":[{"bold":true,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"gray","text":"Base
+          Dmg:    18hp"}],"text":""}'
+          - '{"extra":[{"bold":true,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"gray","text":"Crit
+          Chance: 35%"}],"text":""}'
+          - '{"extra":[{"italic":false,"color":"black","text":"id356"}],"text":""}'
+          - '{"extra":[{"bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"yellow","text":"Enchantments:
+          "}],"text":""}'
+          - '{"extra":[{"bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"gray","text":"Sharpness
+          V"}],"text":""}'
+        enchants:
+          DAMAGE_ALL: 5
+        ItemFlags:
+          - HIDE_ENCHANTS
+          - HIDE_ATTRIBUTES
+        PublicBukkitValues:
+          customenchantments:swordstatus: '[B;-84B,-19B,0B,5B,115B,114B,0B,49B,109B,101B,46B,74B,97B,121B,77B,97B,114B,57B,50B,49B,46B,67B,117B,115B,116B,111B,109B,69B,110B,99B,104B,97B,110B,116B,109B,101B,110B,116B,46B,101B,120B,116B,114B,97B,115B,46B,83B,119B,111B,114B,100B,83B,116B,97B,116B,117B,115B,0B,0B,0B,0B,0B,0B,0B,1B,2B,0B,3B,68B,0B,11B,99B,114B,105B,116B,95B,99B,104B,97B,110B,99B,101B,73B,0B,6B,100B,97B,109B,97B,103B,101B,76B,0B,5B,111B,119B,110B,101B,114B,116B,0B,18B,76B,106B,97B,118B,97B,47B,108B,97B,110B,103B,47B,83B,116B,114B,105B,110B,103B,59B,120B,112B,63B,-42B,102B,102B,102B,102B,102B,102B,0B,0B,0B,18B,116B,0B,12B,75B,105B,110B,103B,39B,115B,32B,83B,119B,111B,114B,100B]'
+    Title: Finding Emeralds
+    Duration: 820
+    Count: 25
+  - ==: me.jaymar921.kumandraseconomy.datahandlers.QuestData
+    ExpReward: 0
+    Type: VILLAGER
+    Task: KILL_SKELETON
+    Message:
+      - Kill 170 Skeletons
+    RewardType: ITEM
+    ItemReward:
+      ==: org.bukkit.inventory.ItemStack
+      v: 2730
+      type: DIAMOND_SWORD
+      meta:
+        ==: ItemMeta
+        meta-type: UNSPECIFIC
+        display-name: '{"extra":[{"bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"dark_purple","text":"Unknown
+          Sword"}],"text":""}'
+        lore:
+          - '{"extra":[{"bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"gray","text":"Sword
+          Status ⚔"}],"text":""}'
+          - '{"extra":[{"italic":false,"color":"black","text":"id527"}],"text":""}'
+          - '{"extra":[{"bold":true,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"gray","text":"Base
+          Dmg:    13hp"}],"text":""}'
+          - '{"extra":[{"bold":true,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"gray","text":"Crit
+          Chance: 14%"}],"text":""}'
+          - '{"extra":[{"italic":false,"color":"black","text":"id674"}],"text":""}'
+          - '{"extra":[{"bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"yellow","text":"Enchantments:
+          "}],"text":""}'
+          - '{"extra":[{"bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"gray","text":"Sharpness
+          V"}],"text":""}'
+        enchants:
+          DAMAGE_ALL: 5
+        ItemFlags:
+          - HIDE_ENCHANTS
+          - HIDE_ATTRIBUTES
+        PublicBukkitValues:
+          customenchantments:swordstatus: '[B;-84B,-19B,0B,5B,115B,114B,0B,49B,109B,101B,46B,74B,97B,121B,77B,97B,114B,57B,50B,49B,46B,67B,117B,115B,116B,111B,109B,69B,110B,99B,104B,97B,110B,116B,109B,101B,110B,116B,46B,101B,120B,116B,114B,97B,115B,46B,83B,119B,111B,114B,100B,83B,116B,97B,116B,117B,115B,0B,0B,0B,0B,0B,0B,0B,1B,2B,0B,3B,68B,0B,11B,99B,114B,105B,116B,95B,99B,104B,97B,110B,99B,101B,73B,0B,6B,100B,97B,109B,97B,103B,101B,76B,0B,5B,111B,119B,110B,101B,114B,116B,0B,18B,76B,106B,97B,118B,97B,47B,108B,97B,110B,103B,47B,83B,116B,114B,105B,110B,103B,59B,120B,112B,0B,0B,0B,0B,0B,0B,0B,0B,0B,0B,0B,13B,116B,0B,13B,85B,110B,107B,110B,111B,119B,110B,32B,83B,119B,111B,114B,100B]'
+    Title: Skeleton Crusher
+    Duration: 820
+    Count: 170
