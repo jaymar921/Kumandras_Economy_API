@@ -1065,7 +1065,7 @@ QUESTS:
     Type: VILLAGER
     Task: MINE_ANCIENT_DEBRIS
     Message:
-      - I need 250 ancient debrish for my research
+      - I need 50 ancient debrish for my research
     RewardType: ITEM
     ItemReward:
       ==: org.bukkit.inventory.ItemStack
@@ -1094,7 +1094,7 @@ QUESTS:
           - HIDE_ATTRIBUTES
         PublicBukkitValues:
           customenchantments:itemdata: 11139i
-    Title: 250 Debris?
+    Title: 50 Debris?
     Duration: 1920
     Count: 250
   - ==: me.jaymar921.kumandraseconomy.datahandlers.QuestData
