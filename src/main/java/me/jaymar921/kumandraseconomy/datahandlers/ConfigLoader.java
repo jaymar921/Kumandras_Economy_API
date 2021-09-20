@@ -209,7 +209,7 @@ public class ConfigLoader {
                 plugin.getLogger().info("\u001B[32mInfo at: \u001B[34m"+plugin.getDescription().getWebsite());
                 plugin.getLogger().info("\u001B[32mSupport the developer :)");
                 plugin.getLogger().info("\u001B[32mYoutube: \u001B[34mhttps://www.youtube.com/c/jaymar921/");
-                plugin.getLogger().info("\u001B[33m-----------------------------------------");
+                plugin.getLogger().info("\u001B[33m-----------------------------------------"+"\u001B[35m]");
             } else {
                 plugin.getLogger().info("\u001B[35m----------[Kumandra's Economy]----------");
                 plugin.getLogger().info("\u001B[35mYou are currently using [\u001B[31m"+plugin.getDescription().getVersion()+"\u001B[35m]");
@@ -217,7 +217,7 @@ public class ConfigLoader {
                 plugin.getLogger().info("\u001B[35mLink: \u001B[32m"+plugin.getDescription().getWebsite());
                 plugin.getLogger().info("\u001B[35mSupport the developer :)");
                 plugin.getLogger().info("\u001B[35mYoutube: \u001B[32mhttps://www.youtube.com/c/jaymar921/");
-                plugin.getLogger().info("\u001B[35m-----------------------------------------");
+                plugin.getLogger().info("\u001B[35m-----------------------------------------"+"\u001B[35m]");
 
                 plugin.getRegistryConfiguration().newVersion = version;
                 plugin.getRegistryConfiguration().newVersionRelease = true;

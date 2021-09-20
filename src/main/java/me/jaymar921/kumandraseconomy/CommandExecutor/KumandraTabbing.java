@@ -17,7 +17,7 @@ public class KumandraTabbing implements TabCompleter {
     public List<String> onTabComplete(CommandSender sender, Command cmd, String label, String[] args){
         if(arguments.isEmpty()){
                 arguments.add("Balance");
-                arguments.add("Deposit");
+                arguments.add("Economy");
                 arguments.add("Pay");
                 arguments.add("Trade");
                 arguments.add("Deliver");
@@ -31,8 +31,8 @@ public class KumandraTabbing implements TabCompleter {
                      if (args1.equalsIgnoreCase("Balance"))
                          if (!sender.hasPermission("kumandraseconomy.kumandra.balance"))
                              continue;
-                     if (args1.equalsIgnoreCase("Deposit"))
-                         if (!sender.hasPermission("kumandraseconomy.kumandra.deposit"))
+                     if (args1.equalsIgnoreCase("Economy"))
+                         if (!sender.hasPermission("kumandraseconomy.kumandra.economy"))
                              continue;
                      if (args1.equalsIgnoreCase("Pay"))
                          if (!sender.hasPermission("kumandraseconomy.kumandra.pay"))
@@ -54,16 +54,27 @@ public class KumandraTabbing implements TabCompleter {
              }
         }
         if(args.length == 2){
-            if(args[0].equalsIgnoreCase("deposit")){
+            if(args[0].equalsIgnoreCase("economy")){
                 for(String args1 : players())
                     if(args1.toLowerCase().startsWith(args[1].toLowerCase()))
                         result.add(args1);
             }
         }
         if(args.length == 3){
-            if(args[0].equalsIgnoreCase("deposit")) {
-                if("amount".toLowerCase().startsWith(args[2].toLowerCase()))
-                    result.add("amount");
+            if(args[0].equalsIgnoreCase("economy")) {
+                if("deposit".toLowerCase().startsWith(args[2].toLowerCase()))
+                    result.add("deposit");
+                if("deduct".toLowerCase().startsWith(args[2].toLowerCase()))
+                    result.add("deduct");
+                if("reset".toLowerCase().startsWith(args[2].toLowerCase()))
+                    result.add("reset");
+            }
+        }
+        if(args.length == 4){
+            if(args[0].equalsIgnoreCase("economy")) {
+                if(!"reset".toLowerCase().startsWith(args[2].toLowerCase()))
+                    if("amount".toLowerCase().startsWith(args[3].toLowerCase()))
+                        result.add("amount");
             }
         }
         if(args.length == 2){

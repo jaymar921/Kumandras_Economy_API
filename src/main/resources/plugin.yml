@@ -25,7 +25,7 @@ permissions:
         children:
             kumandraseconomy.kumandra.balance: true
             kumandraseconomy.kumandra.pay: true
-            kumandraseconomy.kumandra.deposit: false
+            kumandraseconomy.kumandra.economy: false
             kumandraseconomy.kumandra.trade: true
             kumandraseconomy.kumandra.deliver: true
             kumandraseconomy.kumandra.job: true
@@ -36,8 +36,8 @@ permissions:
         description: Show the player's account
         default: true
 
-    kumandraseconomy.kumandra.deposit:
-        description: Add money to a player's account
+    kumandraseconomy.kumandra.economy:
+        description: Add or remove money from player
         default: op
 
     kumandraseconomy.kumandra.pay:

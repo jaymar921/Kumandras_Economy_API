@@ -20,14 +20,17 @@ public class QuestDataHandler {
     public QuestDataHandler(KumandrasEconomy main){
         questData = new LinkedList<>();
         questConfiguration = new QuestConfiguration(main);
-        main.getLogger().info(ChatColor.GREEN+"Loaded ["+loadData()+ "] Kumandra's Economy Quests");
-
-        loadQuests();
-        if(Bukkit.getServer().getPluginManager().getPlugin("CustomEnchantments")!=null){
-            if(!Bukkit.getServer().getPluginManager().getPlugin("CustomEnchantments").getDescription().getAuthors().contains("JayMar921"))
-                return;
-            customQuest = new CustomQuest(main);
-            main.getLogger().info(ChatColor.GREEN+"Loaded ["+loadCustomQuest()+ "] Quests from Custom Enchantments");
+        if(main.getVersion().support_1_17()){
+            main.getLogger().info(ChatColor.GREEN+"Loaded ["+loadData()+ "] Kumandra's Economy Quests");
+            loadQuests();
+            if(Bukkit.getServer().getPluginManager().getPlugin("CustomEnchantments")!=null){
+                if(!Bukkit.getServer().getPluginManager().getPlugin("CustomEnchantments").getDescription().getAuthors().contains("JayMar921"))
+                    return;
+                customQuest = new CustomQuest(main);
+                main.getLogger().info(ChatColor.GREEN+"Loaded ["+loadCustomQuest()+ "] Quests from Custom Enchantments");
+            }
+        }else{
+            main.getLogger().info(ChatColor.GREEN+"Quests only support 1.17");
         }
     }
     public void loadQuests(){

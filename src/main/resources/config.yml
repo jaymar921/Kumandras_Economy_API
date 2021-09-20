@@ -18,7 +18,7 @@ Separate_Economy: true
 # [Currency only works if Separate_Economy is true]
 # Currency, it is the medium for exchange of money
 # 1 Currency of your main economy plugin is equal to 'Currency' of Kumandra's Economy
-Currency: 0.23
+Currency: 0.12
 Currency_Prefix: 'Kd'
 #
 #--------------------------------------------------------------------------#

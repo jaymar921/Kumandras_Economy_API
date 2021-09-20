@@ -52,77 +52,216 @@ public class KumandraCommand implements CommandExecutor {
                                 player.openInventory(inventory);
                                 return true;
                             }
-                        }else if(args[0].equalsIgnoreCase("deposit")){
-                            if(player.hasPermission("kumandraseconomy.kumandra.deposit")){
+                        }else if(args[0].equalsIgnoreCase("economy")){
+                            if(player.hasPermission("kumandraseconomy.kumandra.economy")){
                                 //player.sendMessage("You just opened your balance");
                                 if(args.length>1){
                                     String playername = args[1];
                                     if(args.length>2){
-                                        double amount = 0;
-                                        try{
-                                            amount = Double.parseDouble(args[2]);
-                                        }catch (Exception e){player.sendMessage(ChatColor.RED+"Invalid Amount");return true;}
 
-                                        String uuid = "";
-                                        boolean found=false;
-                                        for(Player offP : Bukkit.getServer().getOnlinePlayers()){
-                                            if(offP!=null){
-                                                if(offP.getName().equals(playername)){
-                                                    uuid = offP.getUniqueId().toString();
-                                                    found = true;
-                                                    if(plugin.getDataHandler().getStatusHolder().containsKey(uuid)){
-                                                        PlayerStatus status = plugin.getDataHandler().getStatusHolder().get(uuid);
-                                                        double balance = status.getBalance() + amount;
-                                                        status.setBalance(balance);
-                                                        plugin.getDataHandler().getStatusHolder().replace(uuid, status);
-                                                    }else{
-                                                        PlayerStatus status = new PlayerStatus(uuid, amount);
-                                                        plugin.getDataHandler().getStatusHolder().put(uuid, status);
-                                                        player.sendMessage(ChatColor.AQUA+playername+"'s account has been created, added "+ChatColor.GOLD+fmt.format(amount)+plugin.getRegistryConfiguration().currency_prefix);
+                                        if(args[2].equalsIgnoreCase("deposit")){
+                                            if(args.length>3){
+                                                double amount = 0;
+                                                try{
+                                                    amount = Double.parseDouble(args[3]);
+                                                }catch (Exception e){player.sendMessage(ChatColor.RED+"Invalid Amount");return true;}
+
+                                                String uuid = "";
+                                                boolean found=false;
+                                                for(Player offP : Bukkit.getServer().getOnlinePlayers()){
+                                                    if(offP!=null){
+                                                        if(offP.getName().equals(playername)){
+                                                            uuid = offP.getUniqueId().toString();
+                                                            found = true;
+                                                            if(plugin.getDataHandler().getStatusHolder().containsKey(uuid)){
+                                                                PlayerStatus status = plugin.getDataHandler().getStatusHolder().get(uuid);
+                                                                double balance = status.getBalance() + amount;
+                                                                status.setBalance(balance);
+                                                                plugin.getDataHandler().getStatusHolder().replace(uuid, status);
+                                                            }else{
+                                                                PlayerStatus status = new PlayerStatus(uuid, amount);
+                                                                plugin.getDataHandler().getStatusHolder().put(uuid, status);
+                                                                player.sendMessage(ChatColor.AQUA+playername+"'s account has been created, added "+ChatColor.GOLD+fmt.format(amount)+plugin.getRegistryConfiguration().currency_prefix);
+                                                            }
+                                                            for(Player receiver: Bukkit.getServer().getOnlinePlayers())
+                                                                if(receiver.getUniqueId().toString().equals(uuid))
+                                                                    receiver.sendMessage(ChatColor.GREEN+""+player.getName()+" had deposited "+ChatColor.GOLD+fmt.format(amount)+plugin.getRegistryConfiguration().currency_prefix+ChatColor.GREEN+" to your account");
+                                                            player.sendMessage(ChatColor.GREEN+"You have added "+ChatColor.GOLD+fmt.format(amount)+plugin.getRegistryConfiguration().currency_prefix+ChatColor.GREEN+ " to "+playername+"'s account");
+
+                                                            return true;
+                                                        }
                                                     }
-                                                    for(Player receiver: Bukkit.getServer().getOnlinePlayers())
-                                                        if(receiver.getUniqueId().toString().equals(uuid))
-                                                            receiver.sendMessage(ChatColor.GREEN+""+player.getName()+" had deposited "+ChatColor.GOLD+fmt.format(amount)+plugin.getRegistryConfiguration().currency_prefix+ChatColor.GREEN+" to your account");
-                                                    player.sendMessage(ChatColor.GREEN+"You have added "+ChatColor.GOLD+fmt.format(amount)+plugin.getRegistryConfiguration().currency_prefix+ChatColor.GREEN+ " to "+playername+"'s account");
+                                                }
+                                                if(!found){
+                                                    for(OfflinePlayer offP : Bukkit.getServer().getOfflinePlayers()){
+                                                        if(offP!=null){
+                                                            if(offP.getName().equals(playername)){
+                                                                uuid = offP.getUniqueId().toString();
+                                                                found = true;
+                                                                if(plugin.getDataHandler().getStatusHolder().containsKey(uuid)){
+                                                                    PlayerStatus status = plugin.getDataHandler().getStatusHolder().get(uuid);
+                                                                    double balance = status.getBalance() + amount;
+                                                                    status.setBalance(balance);
+                                                                    plugin.getDataHandler().getStatusHolder().replace(uuid, status);
+                                                                }else{
+                                                                    PlayerStatus status = new PlayerStatus(uuid, amount);
+                                                                    plugin.getDataHandler().getStatusHolder().put(uuid, status);
+                                                                    player.sendMessage(ChatColor.AQUA+playername+"'s account has been created, added "+ChatColor.GOLD+fmt.format(amount)+plugin.getRegistryConfiguration().currency_prefix);
+                                                                }
+                                                                for(Player receiver: Bukkit.getServer().getOnlinePlayers())
+                                                                    if(receiver.getUniqueId().toString().equals(uuid))
+                                                                        receiver.sendMessage(ChatColor.GREEN+""+player.getName()+" had deposited "+ChatColor.GOLD+fmt.format(amount)+plugin.getRegistryConfiguration().currency_prefix+ChatColor.GREEN+" to your account");
+                                                                player.sendMessage(ChatColor.GREEN+"You have added "+ChatColor.GOLD+fmt.format(amount)+plugin.getRegistryConfiguration().currency_prefix+ChatColor.GREEN+ " to "+playername+"'s account");
 
+                                                                return true;
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                                if(uuid.equals("")){
+                                                    player.sendMessage(ChatColor.RED+"Could not find "+playername);
                                                     return true;
                                                 }
+                                            }else{
+                                                player.sendMessage(ChatColor.RED+"Please specify the amount");
+                                                return true;
                                             }
                                         }
-                                        if(!found){
-                                            for(OfflinePlayer offP : Bukkit.getServer().getOfflinePlayers()){
+                                        if(args[2].equalsIgnoreCase("deduct")){
+                                            if(args.length>3){
+                                                double amount = 0;
+                                                try{
+                                                    amount = -Double.parseDouble(args[3]);
+                                                }catch (Exception e){player.sendMessage(ChatColor.RED+"Invalid Amount");return true;}
+
+                                                String uuid = "";
+                                                boolean found=false;
+                                                for(Player offP : Bukkit.getServer().getOnlinePlayers()){
+                                                    if(offP!=null){
+                                                        if(offP.getName().equals(playername)){
+                                                            uuid = offP.getUniqueId().toString();
+                                                            found = true;
+                                                            if(plugin.getDataHandler().getStatusHolder().containsKey(uuid)){
+                                                                PlayerStatus status = plugin.getDataHandler().getStatusHolder().get(uuid);
+                                                                double balance = status.getBalance() + amount;
+                                                                if(balance<=0)
+                                                                    balance = 0;
+                                                                status.setBalance(balance);
+                                                                plugin.getDataHandler().getStatusHolder().replace(uuid, status);
+                                                            }else{
+                                                                PlayerStatus status = new PlayerStatus(uuid, 0);
+                                                                plugin.getDataHandler().getStatusHolder().put(uuid, status);
+                                                                player.sendMessage(ChatColor.AQUA+playername+"'s account has been created, set "+ChatColor.GOLD+fmt.format(0)+plugin.getRegistryConfiguration().currency_prefix);
+                                                            }
+                                                            for(Player receiver: Bukkit.getServer().getOnlinePlayers())
+                                                                if(receiver.getUniqueId().toString().equals(uuid))
+                                                                    receiver.sendMessage(ChatColor.GREEN+""+player.getName()+" had deducted "+ChatColor.GOLD+fmt.format(+amount)+plugin.getRegistryConfiguration().currency_prefix+ChatColor.GREEN+" to your account");
+                                                            player.sendMessage(ChatColor.GREEN+"You have deducted "+ChatColor.GOLD+fmt.format(+amount)+plugin.getRegistryConfiguration().currency_prefix+ChatColor.GREEN+ " to "+playername+"'s account");
+
+                                                            return true;
+                                                        }
+                                                    }
+                                                }
+                                                if(!found){
+                                                    for(OfflinePlayer offP : Bukkit.getServer().getOfflinePlayers()){
+                                                        if(offP!=null){
+                                                            if(offP.getName().equals(playername)){
+                                                                uuid = offP.getUniqueId().toString();
+                                                                found = true;
+                                                                if(plugin.getDataHandler().getStatusHolder().containsKey(uuid)){
+                                                                    PlayerStatus status = plugin.getDataHandler().getStatusHolder().get(uuid);
+                                                                    double balance = status.getBalance() + amount;
+                                                                    if(balance<=-0)
+                                                                        balance = 0;
+                                                                    status.setBalance(balance);
+                                                                    plugin.getDataHandler().getStatusHolder().replace(uuid, status);
+                                                                }else{
+                                                                    PlayerStatus status = new PlayerStatus(uuid, 0);
+                                                                    plugin.getDataHandler().getStatusHolder().put(uuid, status);
+                                                                    player.sendMessage(ChatColor.AQUA+playername+"'s account has been created, set "+ChatColor.GOLD+fmt.format(0)+plugin.getRegistryConfiguration().currency_prefix);
+                                                                }
+                                                                for(Player receiver: Bukkit.getServer().getOnlinePlayers())
+                                                                    if(receiver.getUniqueId().toString().equals(uuid))
+                                                                        receiver.sendMessage(ChatColor.GREEN+""+player.getName()+" had deducted "+ChatColor.GOLD+fmt.format(+amount)+plugin.getRegistryConfiguration().currency_prefix+ChatColor.GREEN+" to your account");
+                                                                player.sendMessage(ChatColor.GREEN+"You have deducted "+ChatColor.GOLD+fmt.format(+amount)+plugin.getRegistryConfiguration().currency_prefix+ChatColor.GREEN+ " to "+playername+"'s account");
+
+                                                                return true;
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                                if(uuid.equals("")){
+                                                    player.sendMessage(ChatColor.RED+"Could not find "+playername);
+                                                    return true;
+                                                }
+                                            }else{
+                                                player.sendMessage(ChatColor.RED+"Please specify the amount");
+                                                return true;
+                                            }
+                                        }
+                                        if(args[2].equalsIgnoreCase("reset")){
+
+                                            String uuid = "";
+                                            boolean found=false;
+                                            for(Player offP : Bukkit.getServer().getOnlinePlayers()){
                                                 if(offP!=null){
                                                     if(offP.getName().equals(playername)){
                                                         uuid = offP.getUniqueId().toString();
                                                         found = true;
                                                         if(plugin.getDataHandler().getStatusHolder().containsKey(uuid)){
                                                             PlayerStatus status = plugin.getDataHandler().getStatusHolder().get(uuid);
-                                                            double balance = status.getBalance() + amount;
+                                                            double balance = 0;
                                                             status.setBalance(balance);
                                                             plugin.getDataHandler().getStatusHolder().replace(uuid, status);
                                                         }else{
-                                                            PlayerStatus status = new PlayerStatus(uuid, amount);
+                                                            PlayerStatus status = new PlayerStatus(uuid, 0);
                                                             plugin.getDataHandler().getStatusHolder().put(uuid, status);
-                                                            player.sendMessage(ChatColor.AQUA+playername+"'s account has been created, added "+ChatColor.GOLD+fmt.format(amount)+plugin.getRegistryConfiguration().currency_prefix);
+                                                            player.sendMessage(ChatColor.AQUA+playername+"'s account has been created, set "+ChatColor.GOLD+fmt.format(0)+plugin.getRegistryConfiguration().currency_prefix);
                                                         }
                                                         for(Player receiver: Bukkit.getServer().getOnlinePlayers())
                                                             if(receiver.getUniqueId().toString().equals(uuid))
-                                                                receiver.sendMessage(ChatColor.GREEN+""+player.getName()+" had deposited "+ChatColor.GOLD+fmt.format(amount)+plugin.getRegistryConfiguration().currency_prefix+ChatColor.GREEN+" to your account");
-                                                        player.sendMessage(ChatColor.GREEN+"You have added "+ChatColor.GOLD+fmt.format(amount)+plugin.getRegistryConfiguration().currency_prefix+ChatColor.GREEN+ " to "+playername+"'s account");
+                                                                receiver.sendMessage(ChatColor.GREEN+""+player.getName()+" had set "+ChatColor.GOLD+fmt.format(0)+plugin.getRegistryConfiguration().currency_prefix+ChatColor.GREEN+" to your account");
+                                                        player.sendMessage(ChatColor.GREEN+"You have set "+ChatColor.GOLD+fmt.format(0)+plugin.getRegistryConfiguration().currency_prefix+ChatColor.GREEN+ " to "+playername+"'s account");
 
                                                         return true;
                                                     }
                                                 }
                                             }
-                                        }
-                                        if(uuid.equals("")){
-                                            player.sendMessage(ChatColor.RED+"Could not find "+playername);
+                                            if(!found){
+                                                for(OfflinePlayer offP : Bukkit.getServer().getOfflinePlayers()){
+                                                    if(offP!=null){
+                                                        if(offP.getName().equals(playername)){
+                                                            uuid = offP.getUniqueId().toString();
+                                                            found = true;
+                                                            if(plugin.getDataHandler().getStatusHolder().containsKey(uuid)){
+                                                                PlayerStatus status = plugin.getDataHandler().getStatusHolder().get(uuid);
+                                                                double balance = 0;
+                                                                status.setBalance(balance);
+                                                                plugin.getDataHandler().getStatusHolder().replace(uuid, status);
+                                                            }else{
+                                                                PlayerStatus status = new PlayerStatus(uuid, 0);
+                                                                plugin.getDataHandler().getStatusHolder().put(uuid, status);
+                                                                player.sendMessage(ChatColor.AQUA+playername+"'s account has been created, set "+ChatColor.GOLD+fmt.format(0)+plugin.getRegistryConfiguration().currency_prefix);
+                                                            }
+                                                            for(Player receiver: Bukkit.getServer().getOnlinePlayers())
+                                                                if(receiver.getUniqueId().toString().equals(uuid))
+                                                                    receiver.sendMessage(ChatColor.GREEN+""+player.getName()+" had set "+ChatColor.GOLD+fmt.format(0)+plugin.getRegistryConfiguration().currency_prefix+ChatColor.GREEN+" to your account");
+                                                            player.sendMessage(ChatColor.GREEN+"You have set "+ChatColor.GOLD+fmt.format(0)+plugin.getRegistryConfiguration().currency_prefix+ChatColor.GREEN+ " to "+playername+"'s account");
+
+                                                            return true;
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                            if(uuid.equals("")){
+                                                player.sendMessage(ChatColor.RED+"Could not find "+playername);
+                                                return true;
+                                            }
                                             return true;
                                         }
 
-
                                     }else{
-                                        player.sendMessage(ChatColor.RED+"You need to specify the amount");
+                                        player.sendMessage(ChatColor.RED+"invalid command argument");
                                         return true;
                                     }
                                 }else{
@@ -390,7 +529,19 @@ public class KumandraCommand implements CommandExecutor {
                                     return true;
                                 }
                                 }else{
-                                    //player.sendMessage(ChatColor.RED+"You need to specify the arguments");
+                                    if(plugin.getShopDataHandler().getShopLocation().size()>0){
+                                        for(String shopName : plugin.getShopDataHandler().getShopLocation().keySet()){
+                                            int x = plugin.getShopDataHandler().getShopLocation().get(shopName).getBlockX();
+                                            int y = plugin.getShopDataHandler().getShopLocation().get(shopName).getBlockY();
+                                            int z = plugin.getShopDataHandler().getShopLocation().get(shopName).getBlockZ();
+                                            String distance = "";
+                                            if(plugin.getShopDataHandler().getShopLocation().get(shopName).getWorld().equals(player.getWorld()))
+                                                distance = ""+fmt.format(plugin.getShopDataHandler().getShopLocation().get(shopName).distance(player.getLocation()))+" blocks";
+                                            else
+                                                distance = "Too far";
+                                            player.sendMessage(ChatColor.GREEN+"Shop: "+ChatColor.YELLOW+shopName+ChatColor.GREEN+" ["+ChatColor.AQUA+x+","+y+","+z+ChatColor.WHITE+" - distance: "+distance+ChatColor.GREEN+"]");
+                                        }
+                                    }
                                     return true;
                                 }
                             }else{
