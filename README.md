@@ -2,7 +2,7 @@
 
 ### by JayMar921
 
-> Plugin Version: 1.0
+> Plugin Version: 1.0 (Base Version)
 
 ### Description
 
