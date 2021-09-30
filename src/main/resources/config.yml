@@ -5,8 +5,13 @@ Version: '${project.version}'
 #
 # YouTube: JayMar921
 #
-# [Configuration]
+# Is this plugin 'fits' in a world of free resources?
+# This plugin may not be always free in the future, if you wish
+# to make this plugin free forever, then why not support the developer?
+# If you cannot donate, then just subscribe to his channel :D
 #
+# [Configuration]
+# [Primary / Secondary Economy]
 # If any of these plugins are present, leave it as Separate_Economy to true
 # you only need to set it to false if you want to use this plugin as your
 # main economy plugin
@@ -94,6 +99,13 @@ LuckyFisherman: 0.35
 #---------------------------------------------------------------------------#
 AllowQuest: true
 # Quest chance per {interval} minutes
-# Default is 0.3 which is [0.3*100%] = 30%
-QuestChance: 0.3
+# Default is 0.15 which is [0.15*100%] = 15%
+QuestChance: 0.15
 QuestInterval: 5
+#
+#---------------------------------------------------------------------------#
+#    [MYSQL DATABASE]                                                       #
+#    More information at Database.yml                                       #
+#---------------------------------------------------------------------------#
+#
+# [END OF CONFIGURATION :D]

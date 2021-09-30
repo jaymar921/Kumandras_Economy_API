@@ -1,0 +1,32 @@
+# MySQL Database Connection
+# Implementing MySQL Connector /J >> 8.0.26
+# Developer: JayMar921
+EnableDatabase: false
+# If you have a knowledge about sql databases, you can
+# use this as an alternative for storing player status
+# in cloud, it is useful for backups in-case you lose
+# data such as deleted the plugin's folder accidentally.
+#
+# There are many popular Databases out there such as
+# OracleDB, MySQL, Druid, MongoDB and more...
+#
+# In this plugin, I'm using MySQL Connector.
+# You can use XAMPP or WAMP for hosting a local database
+# for your server, or you can try free sql database hosting
+# https://www.freesqldatabase.com/
+#
+# For the URL, it should be in this format
+# "jdbc:mysql://192.168.1.1:3307/" or
+# "jdbc:mysql://sql6.freesqldatabase.com:3306/"
+# Once successfully connected, this plugin will create a
+# database called "kumandra_database" <- you can change the name.
+# Then it will create a player_data table where player data
+# are stored.
+# If your Database needs authentication, you have to provide the
+# User and the Password to connect. If you are using XAMPP or WAMP
+# then "root" will be the default username, and no password.
+URL: "jdbc:mysql://localhost:3307/"
+Database: "kumandra_database"
+User: "root"
+Password: ""
+# END OF DATABASE CONFIGURATION

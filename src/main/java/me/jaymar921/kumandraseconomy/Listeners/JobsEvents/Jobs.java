@@ -51,7 +51,7 @@ public abstract class Jobs {
                     PlantingStat(player);
                 }
             }
-        }.runTaskTimer(main,10,2);
+        }.runTaskTimer(main,10,1);
     }
     private static void blockedLocationCounterRunnable(){
         new BukkitRunnable(){

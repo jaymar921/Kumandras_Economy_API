@@ -20,6 +20,10 @@ public class dataHandlerLoader {
 
     @SuppressWarnings("unchecked")
     public void loadData(){
+        if(plugin.getMySQLConfig().getConfig().contains("EnableDatabase"))
+            if(plugin.getMySQLConfig().getConfig().getBoolean("EnableDatabase"))
+                if(MySQLHandler.loadData(plugin))
+                    return;
         //load Status Holder
         if(playerData.getConfig().contains("PlayerData")){
             List<Map<?,?>> DATA = playerData.getConfig().getMapList("PlayerData");
@@ -29,6 +33,10 @@ public class dataHandlerLoader {
     }
 
     public void saveData(){
+        if(plugin.getMySQLConfig().getConfig().contains("EnableDatabase"))
+            if(plugin.getMySQLConfig().getConfig().getBoolean("EnableDatabase"))
+                if(MySQLHandler.saveData(plugin))
+                    return;
         //save Status Holder
         List<Map<String, PlayerStatus>> DATA = new ArrayList<>();
         DATA.add(plugin.getDataHandler().getStatusHolder());

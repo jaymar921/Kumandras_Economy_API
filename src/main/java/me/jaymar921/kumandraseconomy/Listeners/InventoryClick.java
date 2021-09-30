@@ -15,6 +15,7 @@ import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,6 +24,7 @@ public class InventoryClick implements Listener {
     KumandrasEconomy plugin;
     private final String foreign_economy;
     private final String kumandras_prefix;
+    private final DecimalFormat format = new DecimalFormat("#,###,###,###.##");
     public InventoryClick(KumandrasEconomy plugin){
         this.plugin = plugin;
         foreign_economy = plugin.getRegistryConfiguration().foreign_economy;
@@ -73,7 +75,7 @@ public class InventoryClick implements Listener {
                             if(vault.economy.getBalance(player)>=foreign_money){
                                 vault.economy.withdrawPlayer(player, foreign_money);
                                 playerStatus.setBalance(playerStatus.getBalance()+kumandras_money);
-                                player.sendMessage(ChatColor.GREEN+"You have successfully exchanged "+ChatColor.GOLD + "$" +foreign_money+" "+ChatColor.DARK_AQUA+foreign_economy + ChatColor.GREEN + " for "+ChatColor.GOLD + kumandras_money + ChatColor.DARK_AQUA + kumandras_prefix);
+                                player.sendMessage(ChatColor.GREEN+"You have successfully exchanged "+ChatColor.GOLD + "$" +format.format(foreign_money)+" "+ChatColor.DARK_AQUA+foreign_economy + ChatColor.GREEN + " for "+ChatColor.GOLD + format.format(kumandras_money) + ChatColor.DARK_AQUA + kumandras_prefix);
                             }else{
                                 player.sendMessage(ChatColor.RED+"You do not have enough "+foreign_economy+" balance for exchange");
                             }
@@ -87,9 +89,9 @@ public class InventoryClick implements Listener {
                             if(playerStatus.getBalance()>=kumandras_money){
                                 vault.economy.depositPlayer(player, foreign_money);
                                 playerStatus.setBalance(playerStatus.getBalance()-kumandras_money);
-                                player.sendMessage(ChatColor.GREEN+"You have successfully exchanged "+ChatColor.GOLD +kumandras_money+ChatColor.DARK_AQUA+kumandras_prefix + ChatColor.GREEN + " for "+ChatColor.GOLD + foreign_money + " "+ ChatColor.DARK_AQUA + foreign_economy);
+                                player.sendMessage(ChatColor.GREEN+"You have successfully exchanged "+ChatColor.GOLD +format.format(kumandras_money)+ChatColor.DARK_AQUA+kumandras_prefix + ChatColor.GREEN + " for "+ChatColor.GOLD + format.format(foreign_money) + " "+ ChatColor.DARK_AQUA + foreign_economy);
                             }else{
-                                player.sendMessage(ChatColor.RED+"You do not have enough "+kumandras_money+kumandras_prefix+" balance for exchange");
+                                player.sendMessage(ChatColor.RED+"You do not have enough "+format.format(kumandras_money)+kumandras_prefix+" balance for exchange");
                             }
                         }
                         break;
@@ -101,7 +103,7 @@ public class InventoryClick implements Listener {
                             if(vault.economy.getBalance(player)>=foreign_money){
                                 vault.economy.withdrawPlayer(player, foreign_money);
                                 playerStatus.setBalance(playerStatus.getBalance()+kumandras_money);
-                                player.sendMessage(ChatColor.GREEN+"You have successfully exchanged "+ChatColor.GOLD + "$" +foreign_money+" "+ChatColor.DARK_AQUA+foreign_economy + ChatColor.GREEN + " for "+ChatColor.GOLD + kumandras_money + ChatColor.DARK_AQUA + kumandras_prefix);
+                                player.sendMessage(ChatColor.GREEN+"You have successfully exchanged "+ChatColor.GOLD + "$" +format.format(foreign_money)+" "+ChatColor.DARK_AQUA+foreign_economy + ChatColor.GREEN + " for "+ChatColor.GOLD + format.format(kumandras_money) + ChatColor.DARK_AQUA + kumandras_prefix);
                             }else{
                                 player.sendMessage(ChatColor.RED+"You do not have enough "+foreign_economy+" balance for exchange");
                             }
@@ -115,9 +117,9 @@ public class InventoryClick implements Listener {
                             if(playerStatus.getBalance()>=kumandras_money){
                                 vault.economy.depositPlayer(player, foreign_money);
                                 playerStatus.setBalance(playerStatus.getBalance()-kumandras_money);
-                                player.sendMessage(ChatColor.GREEN+"You have successfully exchanged "+ChatColor.GOLD +kumandras_money+ChatColor.DARK_AQUA+kumandras_prefix + ChatColor.GREEN + " for "+ChatColor.GOLD + foreign_money + " "+ ChatColor.DARK_AQUA + foreign_economy);
+                                player.sendMessage(ChatColor.GREEN+"You have successfully exchanged "+ChatColor.GOLD +format.format(kumandras_money)+ChatColor.DARK_AQUA+kumandras_prefix + ChatColor.GREEN + " for "+ChatColor.GOLD + format.format(foreign_money) + " "+ ChatColor.DARK_AQUA + foreign_economy);
                             }else{
-                                player.sendMessage(ChatColor.RED+"You do not have enough "+kumandras_money+kumandras_prefix+" balance for exchange");
+                                player.sendMessage(ChatColor.RED+"You do not have enough "+format.format(kumandras_money)+kumandras_prefix+" balance for exchange");
                             }
                         }
                         break;
@@ -129,7 +131,7 @@ public class InventoryClick implements Listener {
                             if(vault.economy.getBalance(player)>=foreign_money){
                                 vault.economy.withdrawPlayer(player, foreign_money);
                                 playerStatus.setBalance(playerStatus.getBalance()+kumandras_money);
-                                player.sendMessage(ChatColor.GREEN+"You have successfully exchanged "+ChatColor.GOLD + "$" +foreign_money+" "+ChatColor.DARK_AQUA+foreign_economy + ChatColor.GREEN + " for "+ChatColor.GOLD + kumandras_money + ChatColor.DARK_AQUA + kumandras_prefix);
+                                player.sendMessage(ChatColor.GREEN+"You have successfully exchanged "+ChatColor.GOLD + "$" +format.format(foreign_money)+" "+ChatColor.DARK_AQUA+foreign_economy + ChatColor.GREEN + " for "+ChatColor.GOLD + format.format(kumandras_money) + ChatColor.DARK_AQUA + kumandras_prefix);
                             }else{
                                 player.sendMessage(ChatColor.RED+"You do not have enough "+foreign_economy+" balance for exchange");
                             }
@@ -143,9 +145,9 @@ public class InventoryClick implements Listener {
                             if(playerStatus.getBalance()>=kumandras_money){
                                 vault.economy.depositPlayer(player, foreign_money);
                                 playerStatus.setBalance(playerStatus.getBalance()-kumandras_money);
-                                player.sendMessage(ChatColor.GREEN+"You have successfully exchanged "+ChatColor.GOLD +kumandras_money+ChatColor.DARK_AQUA+kumandras_prefix + ChatColor.GREEN + " for "+ChatColor.GOLD + foreign_money + " "+ ChatColor.DARK_AQUA + foreign_economy);
+                                player.sendMessage(ChatColor.GREEN+"You have successfully exchanged "+ChatColor.GOLD +format.format(kumandras_money)+ChatColor.DARK_AQUA+kumandras_prefix + ChatColor.GREEN + " for "+ChatColor.GOLD + format.format(foreign_money) + " "+ ChatColor.DARK_AQUA + foreign_economy);
                             }else{
-                                player.sendMessage(ChatColor.RED+"You do not have enough "+kumandras_money+kumandras_prefix+" balance for exchange");
+                                player.sendMessage(ChatColor.RED+"You do not have enough "+format.format(kumandras_money)+kumandras_prefix+" balance for exchange");
                             }
                         }
                         break;
@@ -157,7 +159,7 @@ public class InventoryClick implements Listener {
                             if(vault.economy.getBalance(player)>=foreign_money){
                                 vault.economy.withdrawPlayer(player, foreign_money);
                                 playerStatus.setBalance(playerStatus.getBalance()+kumandras_money);
-                                player.sendMessage(ChatColor.GREEN+"You have successfully exchanged "+ChatColor.GOLD + "$" +foreign_money+" "+ChatColor.DARK_AQUA+foreign_economy + ChatColor.GREEN + " for "+ChatColor.GOLD + kumandras_money + ChatColor.DARK_AQUA + kumandras_prefix);
+                                player.sendMessage(ChatColor.GREEN+"You have successfully exchanged "+ChatColor.GOLD + "$" +format.format(foreign_money)+" "+ChatColor.DARK_AQUA+foreign_economy + ChatColor.GREEN + " for "+ChatColor.GOLD + format.format(kumandras_money) + ChatColor.DARK_AQUA + kumandras_prefix);
                             }else{
                                 player.sendMessage(ChatColor.RED+"You do not have enough "+foreign_economy+" balance for exchange");
                             }
@@ -171,9 +173,9 @@ public class InventoryClick implements Listener {
                             if(playerStatus.getBalance()>=kumandras_money){
                                 vault.economy.depositPlayer(player, foreign_money);
                                 playerStatus.setBalance(playerStatus.getBalance()-kumandras_money);
-                                player.sendMessage(ChatColor.GREEN+"You have successfully exchanged "+ChatColor.GOLD +kumandras_money+ChatColor.DARK_AQUA+kumandras_prefix + ChatColor.GREEN + " for "+ChatColor.GOLD + foreign_money + " "+ ChatColor.DARK_AQUA + foreign_economy);
+                                player.sendMessage(ChatColor.GREEN+"You have successfully exchanged "+ChatColor.GOLD +format.format(kumandras_money)+ChatColor.DARK_AQUA+kumandras_prefix + ChatColor.GREEN + " for "+ChatColor.GOLD + format.format(foreign_money) + " "+ ChatColor.DARK_AQUA + foreign_economy);
                             }else{
-                                player.sendMessage(ChatColor.RED+"You do not have enough "+kumandras_money+kumandras_prefix+" balance for exchange");
+                                player.sendMessage(ChatColor.RED+"You do not have enough "+format.format(kumandras_money)+kumandras_prefix+" balance for exchange");
                             }
                         }
                         break;

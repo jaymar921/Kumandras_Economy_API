@@ -12,6 +12,7 @@ import me.jaymar921.kumandraseconomy.Vault.VaultLoader;
 import me.jaymar921.kumandraseconomy.Vault.VaultSupport;
 import me.jaymar921.kumandraseconomy.Version.VersionChecker;
 import me.jaymar921.kumandraseconomy.datahandlers.*;
+import me.jaymar921.kumandraseconomy.datahandlers.Configurations.MySQLConfig;
 import me.jaymar921.kumandraseconomy.economy.DeliveryHandler;
 import me.jaymar921.kumandraseconomy.economy.PlayerStatus;
 import me.jaymar921.kumandraseconomy.economy.TradingHandler;
@@ -36,6 +37,7 @@ public final class KumandrasEconomy extends JavaPlugin {
     private Inventory supporters;
     private VersionChecker version;
     private QuestEvent questEvent;
+    private MySQLConfig mySQLConfig;
 
     private RegistryConfiguration registryConfiguration;
 
@@ -53,6 +55,7 @@ public final class KumandrasEconomy extends JavaPlugin {
 
         //load handlers
         dataHandler = new dataHandler();
+        mySQLConfig = new MySQLConfig(this);
         dataHandlerLoader = new dataHandlerLoader(this);
         tradingHandler = new TradingHandler(this);
         shopDataHandler = new ShopDataHandler(this);
@@ -142,6 +145,8 @@ public final class KumandrasEconomy extends JavaPlugin {
     public QuestEvent getQuestEvent() {return  questEvent;}
 
     public VersionChecker getVersion(){return version;}
+
+    public MySQLConfig getMySQLConfig(){return mySQLConfig;}
 
     public void setRegistryConfiguration(RegistryConfiguration registryConfiguration){this.registryConfiguration =registryConfiguration;}
 }

@@ -544,6 +544,61 @@ QUESTS:
     Duration: 320
     Count: 3
   - ==: me.jaymar921.kumandraseconomy.datahandlers.QuestData
+    ExpReward: 3
+    Type: VILLAGER
+    Task: CRAFT_BOW
+    Message:
+      - Can you craft me a bow?
+    RewardType: MONEY
+    ItemReward: null
+    Title: I want a bow
+    Duration: 320
+    Count: 1
+  - ==: me.jaymar921.kumandraseconomy.datahandlers.QuestData
+    ExpReward: 2
+    Type: VILLAGER
+    Task: CRAFT_GOLD_NUGGET
+    Message:
+      - I need 5 gold nuggets
+    RewardType: MONEY
+    ItemReward: null
+    Title: Nuggets
+    Duration: 320
+    Count: 5
+  - ==: me.jaymar921.kumandraseconomy.datahandlers.QuestData
+    ExpReward: 5
+    Type: VILLAGER
+    Task: CRAFT_STICK
+    Message:
+      - I need 20 sticks for a fence
+    RewardType: MONEY
+    ItemReward: null
+    Title: Sticks
+    Duration: 320
+    Count: 20
+  - ==: me.jaymar921.kumandraseconomy.datahandlers.QuestData
+    ExpReward: 17
+    Type: VILLAGER
+    Task: MINE_SAND
+    Message:
+      - Can you mine 120 sands?
+    RewardType: MONEY
+    ItemReward: null
+    Title: Glass Factory
+    Duration: 320
+    Count: 120
+  - ==: me.jaymar921.kumandraseconomy.datahandlers.QuestData
+    ExpReward: 38
+    Type: VILLAGER
+    Task: MINE_TERRACOTTA
+    Message:
+      - Can you mine a stack of terracotta?
+    RewardType: MONEY
+    ItemReward: null
+    Title: Terracotta Factory
+    Duration: 320
+    Count: 64
+  - ==: me.jaymar921.kumandraseconomy.datahandlers.QuestData
     ExpReward: 19
     Type: VILLAGER
     Task: CRAFT_RABBIT

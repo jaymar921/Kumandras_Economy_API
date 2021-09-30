@@ -3,7 +3,8 @@ version: ${project.version}
 main: me.jaymar921.kumandraseconomy.KumandrasEconomy
 api-version: 1.16
 authors: [ JayMar921 ]
-softdepend: [Vault,CustomEnchantments]
+depend: [Vault]
+softdepend: [CustomEnchantments]
 website: https://www.spigotmc.org/resources/authors/jaymar921.1073076/
 
 commands:
