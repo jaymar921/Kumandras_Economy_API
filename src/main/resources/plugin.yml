@@ -5,7 +5,7 @@ api-version: 1.16
 authors: [ JayMar921 ]
 depend: [Vault]
 softdepend: [CustomEnchantments]
-website: https://www.spigotmc.org/resources/authors/jaymar921.1073076/
+website: https://www.spigotmc.org/resources/96466/
 
 commands:
 

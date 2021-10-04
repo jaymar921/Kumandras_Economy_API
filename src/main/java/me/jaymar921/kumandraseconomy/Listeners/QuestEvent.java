@@ -61,6 +61,11 @@ public class QuestEvent implements Listener {
     }
 
     private void CreateQuestRunnable(){
+        if(!main.getRegistryConfiguration().QuestAllowed) {
+            main.getLogger().info(ChatColor.DARK_AQUA + "[Disabling Quests :>]");
+            return;
+        }
+        main.getLogger().info(ChatColor.DARK_AQUA + "[Enabling Quests :>]");
         new BukkitRunnable(){
             public void run(){
                 flush();

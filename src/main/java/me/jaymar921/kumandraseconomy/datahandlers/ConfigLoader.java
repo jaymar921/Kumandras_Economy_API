@@ -2,6 +2,7 @@ package me.jaymar921.kumandraseconomy.datahandlers;
 
 import me.jaymar921.kumandraseconomy.KumandrasEconomy;
 import me.jaymar921.kumandraseconomy.Version.UpdateChecker;
+import me.jaymar921.kumandraseconomy.datahandlers.Configurations.DataConfigUpdater;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 
@@ -221,8 +222,27 @@ public class ConfigLoader {
 
                 plugin.getRegistryConfiguration().newVersion = version;
                 plugin.getRegistryConfiguration().newVersionRelease = true;
+
             }
         });
+        plugin.reloadConfig();
+        if(plugin.getConfig().contains("Version")) {
+            updateConfig(plugin.getConfig().getString("Version"), plugin.getDescription().getVersion());
+        }
+    }
+
+    //Update Config
+    private void updateConfig(String version, String compared_version){
+        if(!version.equals(compared_version)){
+            DataConfigUpdater configUpdater = new DataConfigUpdater();
+            configUpdater.getBackup(plugin.getDescription().getName(),"config.yml");
+            plugin.saveResource("config.yml",true);
+            configUpdater.loadConfig(plugin.getDescription().getName(),"config.yml");
+            plugin.getLogger().info(ChatColor.DARK_AQUA+"[Config.yml has been updated :>]");
+        }else{
+            plugin.getLogger().info(ChatColor.DARK_AQUA+"[Config.yml is up to date :>]");
+        }
+        //plugin.getLogger().info(version+ "   "+compared_version);
     }
 
 
