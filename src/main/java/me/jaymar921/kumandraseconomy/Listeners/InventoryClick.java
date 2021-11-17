@@ -6,6 +6,7 @@ import me.jaymar921.kumandraseconomy.Vault.VaultSupport;
 import me.jaymar921.kumandraseconomy.datahandlers.DeliveryDataHandler;
 import me.jaymar921.kumandraseconomy.economy.PlayerStatus;
 import me.jaymar921.kumandraseconomy.entity.DeliveryType;
+import me.jaymar921.kumandraseconomy.utility.LangParse;
 import org.bukkit.ChatColor;
 import org.bukkit.Sound;
 import org.bukkit.entity.Player;
@@ -18,6 +19,7 @@ import org.bukkit.inventory.ItemStack;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 public class InventoryClick implements Listener {
 
@@ -25,8 +27,10 @@ public class InventoryClick implements Listener {
     private final String foreign_economy;
     private final String kumandras_prefix;
     private final DecimalFormat format = new DecimalFormat("#,###,###,###.##");
+    private final Map<String,String> lang;
     public InventoryClick(KumandrasEconomy plugin){
         this.plugin = plugin;
+        lang = plugin.getDataHandler().getLanguageData();
         foreign_economy = plugin.getRegistryConfiguration().foreign_economy;
         kumandras_prefix = plugin.getRegistryConfiguration().currency_prefix;
     }
@@ -75,9 +79,9 @@ public class InventoryClick implements Listener {
                             if(vault.economy.getBalance(player)>=foreign_money){
                                 vault.economy.withdrawPlayer(player, foreign_money);
                                 playerStatus.setBalance(playerStatus.getBalance()+kumandras_money);
-                                player.sendMessage(ChatColor.GREEN+"You have successfully exchanged "+ChatColor.GOLD + "$" +format.format(foreign_money)+" "+ChatColor.DARK_AQUA+foreign_economy + ChatColor.GREEN + " for "+ChatColor.GOLD + format.format(kumandras_money) + ChatColor.DARK_AQUA + kumandras_prefix);
+                                player.sendMessage(ChatColor.GREEN+lang.get("successExchange")+" "+ChatColor.GOLD + "$" +format.format(foreign_money)+" "+ChatColor.DARK_AQUA+foreign_economy + ChatColor.GREEN + " for "+ChatColor.GOLD + format.format(kumandras_money) + ChatColor.DARK_AQUA + kumandras_prefix);
                             }else{
-                                player.sendMessage(ChatColor.RED+"You do not have enough "+foreign_economy+" balance for exchange");
+                                player.sendMessage(ChatColor.RED+ LangParse.string(lang.get("notEnoughMoney"),foreign_economy));
                             }
                         }
                         break;
@@ -89,7 +93,7 @@ public class InventoryClick implements Listener {
                             if(playerStatus.getBalance()>=kumandras_money){
                                 vault.economy.depositPlayer(player, foreign_money);
                                 playerStatus.setBalance(playerStatus.getBalance()-kumandras_money);
-                                player.sendMessage(ChatColor.GREEN+"You have successfully exchanged "+ChatColor.GOLD +format.format(kumandras_money)+ChatColor.DARK_AQUA+kumandras_prefix + ChatColor.GREEN + " for "+ChatColor.GOLD + format.format(foreign_money) + " "+ ChatColor.DARK_AQUA + foreign_economy);
+                                player.sendMessage(ChatColor.GREEN+lang.get("successExchange")+" "+ChatColor.GOLD +format.format(kumandras_money)+ChatColor.DARK_AQUA+kumandras_prefix + ChatColor.GREEN + " for "+ChatColor.GOLD + format.format(foreign_money) + " "+ ChatColor.DARK_AQUA + foreign_economy);
                             }else{
                                 player.sendMessage(ChatColor.RED+"You do not have enough "+format.format(kumandras_money)+kumandras_prefix+" balance for exchange");
                             }
@@ -103,9 +107,9 @@ public class InventoryClick implements Listener {
                             if(vault.economy.getBalance(player)>=foreign_money){
                                 vault.economy.withdrawPlayer(player, foreign_money);
                                 playerStatus.setBalance(playerStatus.getBalance()+kumandras_money);
-                                player.sendMessage(ChatColor.GREEN+"You have successfully exchanged "+ChatColor.GOLD + "$" +format.format(foreign_money)+" "+ChatColor.DARK_AQUA+foreign_economy + ChatColor.GREEN + " for "+ChatColor.GOLD + format.format(kumandras_money) + ChatColor.DARK_AQUA + kumandras_prefix);
+                                player.sendMessage(ChatColor.GREEN+lang.get("successExchange")+" "+ChatColor.GOLD + "$" +format.format(foreign_money)+" "+ChatColor.DARK_AQUA+foreign_economy + ChatColor.GREEN + " for "+ChatColor.GOLD + format.format(kumandras_money) + ChatColor.DARK_AQUA + kumandras_prefix);
                             }else{
-                                player.sendMessage(ChatColor.RED+"You do not have enough "+foreign_economy+" balance for exchange");
+                                player.sendMessage(ChatColor.RED+LangParse.string(lang.get("notEnoughMoney"),foreign_economy));
                             }
                         }
                         break;
@@ -117,7 +121,7 @@ public class InventoryClick implements Listener {
                             if(playerStatus.getBalance()>=kumandras_money){
                                 vault.economy.depositPlayer(player, foreign_money);
                                 playerStatus.setBalance(playerStatus.getBalance()-kumandras_money);
-                                player.sendMessage(ChatColor.GREEN+"You have successfully exchanged "+ChatColor.GOLD +format.format(kumandras_money)+ChatColor.DARK_AQUA+kumandras_prefix + ChatColor.GREEN + " for "+ChatColor.GOLD + format.format(foreign_money) + " "+ ChatColor.DARK_AQUA + foreign_economy);
+                                player.sendMessage(ChatColor.GREEN+lang.get("successExchange")+" "+ChatColor.GOLD +format.format(kumandras_money)+ChatColor.DARK_AQUA+kumandras_prefix + ChatColor.GREEN + " for "+ChatColor.GOLD + format.format(foreign_money) + " "+ ChatColor.DARK_AQUA + foreign_economy);
                             }else{
                                 player.sendMessage(ChatColor.RED+"You do not have enough "+format.format(kumandras_money)+kumandras_prefix+" balance for exchange");
                             }
@@ -131,9 +135,9 @@ public class InventoryClick implements Listener {
                             if(vault.economy.getBalance(player)>=foreign_money){
                                 vault.economy.withdrawPlayer(player, foreign_money);
                                 playerStatus.setBalance(playerStatus.getBalance()+kumandras_money);
-                                player.sendMessage(ChatColor.GREEN+"You have successfully exchanged "+ChatColor.GOLD + "$" +format.format(foreign_money)+" "+ChatColor.DARK_AQUA+foreign_economy + ChatColor.GREEN + " for "+ChatColor.GOLD + format.format(kumandras_money) + ChatColor.DARK_AQUA + kumandras_prefix);
+                                player.sendMessage(ChatColor.GREEN+lang.get("successExchange")+" "+ChatColor.GOLD + "$" +format.format(foreign_money)+" "+ChatColor.DARK_AQUA+foreign_economy + ChatColor.GREEN + " for "+ChatColor.GOLD + format.format(kumandras_money) + ChatColor.DARK_AQUA + kumandras_prefix);
                             }else{
-                                player.sendMessage(ChatColor.RED+"You do not have enough "+foreign_economy+" balance for exchange");
+                                player.sendMessage(ChatColor.RED+LangParse.string(lang.get("notEnoughMoney"),foreign_economy));
                             }
                         }
                         break;
@@ -145,7 +149,7 @@ public class InventoryClick implements Listener {
                             if(playerStatus.getBalance()>=kumandras_money){
                                 vault.economy.depositPlayer(player, foreign_money);
                                 playerStatus.setBalance(playerStatus.getBalance()-kumandras_money);
-                                player.sendMessage(ChatColor.GREEN+"You have successfully exchanged "+ChatColor.GOLD +format.format(kumandras_money)+ChatColor.DARK_AQUA+kumandras_prefix + ChatColor.GREEN + " for "+ChatColor.GOLD + format.format(foreign_money) + " "+ ChatColor.DARK_AQUA + foreign_economy);
+                                player.sendMessage(ChatColor.GREEN+lang.get("successExchange")+" "+ChatColor.GOLD +format.format(kumandras_money)+ChatColor.DARK_AQUA+kumandras_prefix + ChatColor.GREEN + " for "+ChatColor.GOLD + format.format(foreign_money) + " "+ ChatColor.DARK_AQUA + foreign_economy);
                             }else{
                                 player.sendMessage(ChatColor.RED+"You do not have enough "+format.format(kumandras_money)+kumandras_prefix+" balance for exchange");
                             }
@@ -159,9 +163,9 @@ public class InventoryClick implements Listener {
                             if(vault.economy.getBalance(player)>=foreign_money){
                                 vault.economy.withdrawPlayer(player, foreign_money);
                                 playerStatus.setBalance(playerStatus.getBalance()+kumandras_money);
-                                player.sendMessage(ChatColor.GREEN+"You have successfully exchanged "+ChatColor.GOLD + "$" +format.format(foreign_money)+" "+ChatColor.DARK_AQUA+foreign_economy + ChatColor.GREEN + " for "+ChatColor.GOLD + format.format(kumandras_money) + ChatColor.DARK_AQUA + kumandras_prefix);
+                                player.sendMessage(ChatColor.GREEN+lang.get("successExchange")+" "+ChatColor.GOLD + "$" +format.format(foreign_money)+" "+ChatColor.DARK_AQUA+foreign_economy + ChatColor.GREEN + " for "+ChatColor.GOLD + format.format(kumandras_money) + ChatColor.DARK_AQUA + kumandras_prefix);
                             }else{
-                                player.sendMessage(ChatColor.RED+"You do not have enough "+foreign_economy+" balance for exchange");
+                                player.sendMessage(ChatColor.RED+LangParse.string(lang.get("notEnoughMoney"),foreign_economy));
                             }
                         }
                         break;
@@ -173,7 +177,7 @@ public class InventoryClick implements Listener {
                             if(playerStatus.getBalance()>=kumandras_money){
                                 vault.economy.depositPlayer(player, foreign_money);
                                 playerStatus.setBalance(playerStatus.getBalance()-kumandras_money);
-                                player.sendMessage(ChatColor.GREEN+"You have successfully exchanged "+ChatColor.GOLD +format.format(kumandras_money)+ChatColor.DARK_AQUA+kumandras_prefix + ChatColor.GREEN + " for "+ChatColor.GOLD + format.format(foreign_money) + " "+ ChatColor.DARK_AQUA + foreign_economy);
+                                player.sendMessage(ChatColor.GREEN+lang.get("successExchange")+" "+ChatColor.GOLD +format.format(kumandras_money)+ChatColor.DARK_AQUA+kumandras_prefix + ChatColor.GREEN + " for "+ChatColor.GOLD + format.format(foreign_money) + " "+ ChatColor.DARK_AQUA + foreign_economy);
                             }else{
                                 player.sendMessage(ChatColor.RED+"You do not have enough "+format.format(kumandras_money)+kumandras_prefix+" balance for exchange");
                             }
@@ -295,13 +299,13 @@ public class InventoryClick implements Listener {
                         if(event.getCurrentItem()!=null)
                         if(event.getCurrentItem().hasItemMeta())
                             if(event.getCurrentItem().getItemMeta().getDisplayName()!=null)
-                                if(event.getCurrentItem().getItemMeta().getDisplayName().contains("Send items")){
+                                if(event.getCurrentItem().getItemMeta().getDisplayName().contains(lang.get("SendTo"))){
                                     if(plugin.getDeliveryHandler().getScheduleDelivery().containsKey(player)) {
                                         plugin.getDeliveryHandler().startDelivery(deliveryType, key, player);
-                                        player.sendMessage(ChatColor.GREEN+"You have sent the delivery");
+                                        player.sendMessage(ChatColor.GREEN+lang.get("youSentDelivery"));
                                         player.closeInventory();
                                     }else{
-                                        player.sendMessage(ChatColor.RED+"You have not booked any delivery");
+                                        player.sendMessage(ChatColor.RED+lang.get("noBooked"));
                                         player.closeInventory();
                                     }
                                 }else if(event.getCurrentItem().getItemMeta().getDisplayName().contains(ChatColor.YELLOW+"[Accept]")){
@@ -320,10 +324,10 @@ public class InventoryClick implements Listener {
                                             player.getInventory().addItem(itemStack);
                                     }
                                     for(Player p : plugin.getDeliveryHandler().getId_delivery().get(key)){
-                                        p.sendMessage(ChatColor.GREEN+""+key+" was received");
+                                        p.sendMessage(ChatColor.GREEN+""+key+" "+lang.get("wasReceived"));
                                     }
 
-                                    player.sendMessage(ChatColor.GREEN+"You have received the delivery");
+                                    player.sendMessage(ChatColor.GREEN+lang.get("yourReceived"));
                                     plugin.getDeliveryHandler().deliveryAccepted(key);
                                     player.closeInventory();
                                 }
@@ -336,13 +340,13 @@ public class InventoryClick implements Listener {
                         if(event.getCurrentItem()!=null)
                             if(event.getCurrentItem().hasItemMeta())
                                 if(event.getCurrentItem().getItemMeta().getDisplayName()!=null)
-                                    if(event.getCurrentItem().getItemMeta().getDisplayName().contains("Send items")){
+                                    if(event.getCurrentItem().getItemMeta().getDisplayName().contains(lang.get("SendTo"))){
                                         if(plugin.getDeliveryHandler().getScheduleDelivery().containsKey(player)) {
                                             plugin.getDeliveryHandler().startDelivery(deliveryType, key, player);
-                                            player.sendMessage(ChatColor.GREEN+"You have sent the delivery");
+                                            player.sendMessage(ChatColor.GREEN+lang.get("youSentDelivery"));
                                             player.closeInventory();
                                         }else{
-                                            player.sendMessage(ChatColor.RED+"You have not booked any delivery");
+                                            player.sendMessage(ChatColor.RED+lang.get("noBooked"));
                                             player.closeInventory();
                                         }
                                     }else if(event.getCurrentItem().getItemMeta().getDisplayName().contains(ChatColor.YELLOW+"[Accept]")){
@@ -363,10 +367,10 @@ public class InventoryClick implements Listener {
                                                 player.getInventory().addItem(itemStack);
                                         }
                                         for(Player p : plugin.getDeliveryHandler().getId_delivery().get(key)){
-                                            p.sendMessage(ChatColor.GREEN+""+key+" was received");
+                                            p.sendMessage(ChatColor.GREEN+""+key+" "+lang.get("wasReceived"));
                                         }
 
-                                        player.sendMessage(ChatColor.GREEN+"You have received the delivery");
+                                        player.sendMessage(ChatColor.GREEN+lang.get("yourReceived"));
                                         plugin.getDeliveryHandler().deliveryAccepted(key);
                                         player.closeInventory();
                                     }
@@ -380,13 +384,13 @@ public class InventoryClick implements Listener {
                         if(event.getCurrentItem()!=null)
                             if(event.getCurrentItem().hasItemMeta())
                                 if(event.getCurrentItem().getItemMeta().getDisplayName()!=null)
-                                    if(event.getCurrentItem().getItemMeta().getDisplayName().contains("Send items")){
+                                    if(event.getCurrentItem().getItemMeta().getDisplayName().contains(lang.get("SendTo"))){
                                         if(plugin.getDeliveryHandler().getScheduleDelivery().containsKey(player)) {
                                             plugin.getDeliveryHandler().startDelivery(deliveryType, key, player);
-                                            player.sendMessage(ChatColor.GREEN+"You have sent the delivery");
+                                            player.sendMessage(ChatColor.GREEN+lang.get("youSentDelivery"));
                                             player.closeInventory();
                                         }else{
-                                            player.sendMessage(ChatColor.RED+"You have not booked any delivery");
+                                            player.sendMessage(ChatColor.RED+lang.get("noBooked"));
                                             player.closeInventory();
                                         }
                                     }else if(event.getCurrentItem().getItemMeta().getDisplayName().contains(ChatColor.YELLOW+"[Accept]")){
@@ -409,10 +413,10 @@ public class InventoryClick implements Listener {
                                                 player.getInventory().addItem(itemStack);
                                         }
                                         for(Player p : plugin.getDeliveryHandler().getId_delivery().get(key)){
-                                            p.sendMessage(ChatColor.GREEN+""+key+" was received");
+                                            p.sendMessage(ChatColor.GREEN+""+key+" "+lang.get("wasReceived"));
                                         }
 
-                                        player.sendMessage(ChatColor.GREEN+"You have received the delivery");
+                                        player.sendMessage(ChatColor.GREEN+lang.get("yourReceived"));
                                         plugin.getDeliveryHandler().deliveryAccepted(key);
                                         player.closeInventory();
                                     }

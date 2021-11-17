@@ -10,12 +10,12 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.logging.Level;
 
-public class MySQLConfig {
-    private final KumandrasEconomy plugin;
+public class LanguageConfig {
+    private KumandrasEconomy plugin;
     private FileConfiguration dataConfig = null;
     private File configFile = null;
 
-    public MySQLConfig(KumandrasEconomy plugin) {
+    public LanguageConfig(KumandrasEconomy plugin) {
         this.plugin = plugin;
         //save / initialize the config
         saveDefaultConfig();
@@ -23,11 +23,11 @@ public class MySQLConfig {
 
     public void reloadConfig() {
         if(this.configFile == null)
-            this.configFile = new File(this.plugin.getDataFolder(), "Database.yml");
+            this.configFile = new File(this.plugin.getDataFolder(), "lang.yml");
 
         this.dataConfig = YamlConfiguration.loadConfiguration(this.configFile);
 
-        InputStream defaultStream = this.plugin.getResource("Database.yml");
+        InputStream defaultStream = this.plugin.getResource("lang.yml");
         if(defaultStream != null) {
             YamlConfiguration defaultConfig = YamlConfiguration.loadConfiguration(new InputStreamReader(defaultStream));
             this.dataConfig.setDefaults(defaultConfig);
@@ -54,10 +54,10 @@ public class MySQLConfig {
 
     public void saveDefaultConfig() {
         if(this.configFile == null)
-            this.configFile = new File(this.plugin.getDataFolder(), "Database.yml");
+            this.configFile = new File(this.plugin.getDataFolder(), "lang.yml");
 
         if(!this.configFile.exists()) {
-            this.plugin.saveResource("Database.yml", false);
+            this.plugin.saveResource("lang.yml", false);
         }
     }
 }

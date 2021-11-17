@@ -4,7 +4,7 @@ main: me.jaymar921.kumandraseconomy.KumandrasEconomy
 api-version: 1.16
 authors: [ JayMar921 ]
 depend: [Vault]
-softdepend: [CustomEnchantments]
+softdepend: [ CustomEnchantments, EssentialsX, CraftConomy3, GemsEconomy ]
 website: https://www.spigotmc.org/resources/96466/
 
 commands:

@@ -4,8 +4,8 @@ import me.jaymar921.kumandraseconomy.InventoryGUI.DeliveryGUI;
 import me.jaymar921.kumandraseconomy.KumandrasEconomy;
 import me.jaymar921.kumandraseconomy.entity.DeliveryType;
 import me.jaymar921.kumandraseconomy.entity.mobs.*;
+import me.jaymar921.kumandraseconomy.utility.LangParse;
 import org.bukkit.*;
-import org.bukkit.entity.Entity;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
@@ -21,7 +21,7 @@ public class DeliveryHandler {
     Map<Player, Player> scheduleDelivery;
     Map<String, List<Player>> id_delivery;
     Map<String, LivingEntity> entityDelivery;
-
+    Map<String, String> lang;
     KumandrasEconomy plugin;
     public DeliveryHandler(KumandrasEconomy plugin){
         this.plugin = plugin;
@@ -30,6 +30,7 @@ public class DeliveryHandler {
         deliveryType = new HashMap<>();
         entityDelivery = new HashMap<>();
         id_delivery = new HashMap<>();
+        lang = plugin.getDataHandler().getLanguageData();
     }
 
     public void createDelivery(DeliveryType type, Player fromPlayer, Player toPlayer){
@@ -60,24 +61,24 @@ public class DeliveryHandler {
         String d_id = player.getName()+"'s Delivery - ID: "+new Random().nextInt(200);
         if(type.equals(DeliveryType.CHEAP)){
             entityDelivery.put(d_id,new ChickenEntity().spawnEntity(player.getLocation(),d_id));
-            player.sendMessage(ChatColor.AQUA+"A delivery Chicken has arrived, right click to add items");
+            player.sendMessage(ChatColor.AQUA+lang.get("deliveryChicken"));
         }
         if(type.equals(DeliveryType.REGULAR)){
             entityDelivery.put(d_id,new PigEntity().spawnEntity(player.getLocation(),d_id));
-            player.sendMessage(ChatColor.AQUA+"A delivery Pig has arrived, right click to add items");
+            player.sendMessage(ChatColor.AQUA+lang.get("deliveryPig"));
         }
         if(type.equals(DeliveryType.FAST)){
             if(Math.random() <= 0.5){
                 entityDelivery.put(d_id,new SheepEntity().spawnEntity(player.getLocation(),d_id));
-                player.sendMessage(ChatColor.AQUA+"A delivery Sheep has arrived, right click to add items");
+                player.sendMessage(ChatColor.AQUA+lang.get("deliverySheep"));
             }else{
                 entityDelivery.put(d_id,new CowEntity().spawnEntity(player.getLocation(),d_id));
-                player.sendMessage(ChatColor.AQUA+"A delivery Cow has arrived, right click to add items");
+                player.sendMessage(ChatColor.AQUA+lang.get("deliveryCow"));
             }
         }
         if(type.equals(DeliveryType.PRIORITY)){
             entityDelivery.put(d_id,new ParrotEntity().spawnEntity(player.getLocation(),d_id));
-            player.sendMessage(ChatColor.AQUA+"A delivery Parrot has arrived, right click to add items");
+            player.sendMessage(ChatColor.AQUA+lang.get("deliveryParrot"));
         }
         return d_id;
     }
@@ -86,24 +87,27 @@ public class DeliveryHandler {
 
         Inventory inventory = deliveryInventory.get(id);
 
-        ItemMeta meta = null;
+        ItemMeta meta;
 
         switch (type.getValue()){
             case 1:
-                meta = inventory.getItem(8).getItemMeta();
+                meta = Objects.requireNonNull(inventory.getItem(8)).getItemMeta();
+                assert meta != null;
                 meta.setDisplayName(ChatColor.YELLOW+"[Accept]");
-                inventory.getItem(8).setItemMeta(meta);
+                Objects.requireNonNull(inventory.getItem(8)).setItemMeta(meta);
                 break;
             case 2:
             case 3:
-                meta = inventory.getItem(17).getItemMeta();
+                meta = Objects.requireNonNull(inventory.getItem(17)).getItemMeta();
+                assert meta != null;
                 meta.setDisplayName(ChatColor.YELLOW+"[Accept]");
-                inventory.getItem(17).setItemMeta(meta);
+                Objects.requireNonNull(inventory.getItem(17)).setItemMeta(meta);
                 break;
             case 4:
-                meta = inventory.getItem(17).getItemMeta();
+                meta = Objects.requireNonNull(inventory.getItem(17)).getItemMeta();
+                assert meta != null;
                 meta.setDisplayName(ChatColor.YELLOW+"[Accept]");
-                inventory.getItem(26).setItemMeta(meta);
+                Objects.requireNonNull(inventory.getItem(26)).setItemMeta(meta);
         }
 
 
@@ -125,7 +129,7 @@ public class DeliveryHandler {
             public void run(){
                 if(entityDelivery.get(delivery_id).isDead() || !entityDelivery.get(delivery_id).isValid()){
                     cancel();
-                    origin.sendMessage(ChatColor.DARK_AQUA+"Your delivery has been cancelled, the delivery entity got killed");
+                    origin.sendMessage(ChatColor.DARK_AQUA+lang.get("entityKilled"));
                     return;
                 }
                 Location location = entityDelivery.get(delivery_id).getLocation();
@@ -137,7 +141,7 @@ public class DeliveryHandler {
                     entityDelivery.get(delivery_id).setInvisible(true);
                     travelSetupLand(type,destination,delivery_id);
                     String area = ChatColor.YELLOW+""+destination.getLocation().getBlockX()+", "+destination.getLocation().getBlockY()+", "+destination.getLocation().getBlockZ();
-                    destination.sendMessage(ChatColor.DARK_AQUA+"You have a delivery coming at your location ["+area+ChatColor.DARK_AQUA+"]");
+                    destination.sendMessage(ChatColor.DARK_AQUA+lang.get("comingDelivery")+" ["+area+ChatColor.DARK_AQUA+"]");
                 }
             }
         }.runTaskTimer(plugin,0,1);
@@ -174,7 +178,7 @@ public class DeliveryHandler {
             public void run(){
                 if(entityDelivery.get(delivery_id).isDead() || !entityDelivery.get(delivery_id).isValid()){
                     cancel();
-                    destination.sendMessage(ChatColor.DARK_AQUA+"Your delivery has been cancelled, the delivery entity got killed");
+                    destination.sendMessage(ChatColor.DARK_AQUA+lang.get("entityKilled"));
                     return;
                 }
                 if(entityDelivery.get(delivery_id).isInvisible())
@@ -189,7 +193,7 @@ public class DeliveryHandler {
                     cancel();
                     entityDelivery.get(delivery_id).getWorld().spawnParticle(Particle.CLOUD, entityDelivery.get(delivery_id).getLocation(), 20);
                     entityDelivery.get(delivery_id).getWorld().playSound(entityDelivery.get(delivery_id).getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 2.0f, 2.0f);
-                    destination.sendMessage(ChatColor.DARK_AQUA+"Your delivery has arrived, don't forget to click "+ChatColor.YELLOW+"accept"+ChatColor.DARK_AQUA+" to notify the sender");
+                    destination.sendMessage(ChatColor.DARK_AQUA+ LangParse.string(lang.get("deliverArrive"),ChatColor.YELLOW+"accept"+ChatColor.DARK_AQUA));
                     plugin.getLogger().info(ChatColor.YELLOW+delivery_id+" has arrived, waiting for pickup. "+ChatColor.RED+"Do not reload the server!");
                 }
             }

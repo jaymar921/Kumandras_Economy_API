@@ -17,13 +17,15 @@ import org.bukkit.inventory.meta.ItemMeta;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 public class ExchangeGUI {
-    private static final DecimalFormat df2 = new DecimalFormat("#.##");
+    private static final DecimalFormat df2 = new DecimalFormat("###,###,###.##");
     private final String currency_prefix = KumandrasEconomy.getPlugin(KumandrasEconomy.class).getRegistryConfiguration().currency_prefix;
     private final String foreign_economy = KumandrasEconomy.getPlugin(KumandrasEconomy.class).getRegistryConfiguration().foreign_economy;
+    private final Map<String,String> lang = KumandrasEconomy.getPlugin(KumandrasEconomy.class).getDataHandler().getLanguageData();
     public Inventory getExchangeGUI(Player player, PlayerStatus status){
-        Inventory gui = Bukkit.createInventory(null, 54, ChatColor.BLUE+""+ChatColor.BOLD+"Currency Exchange");
+        Inventory gui = Bukkit.createInventory(null, 54, ChatColor.BLUE+""+ChatColor.BOLD+lang.get("CurrencyExchange"));
 
         ItemStack item = new ItemStack(Material.GREEN_STAINED_GLASS_PANE);
         ItemMeta meta = item.getItemMeta();
@@ -70,14 +72,14 @@ public class ExchangeGUI {
         item = new PlayerHeads().getPlayerHead(player);
         meta = item.getItemMeta();
         assert meta != null;
-        meta.setDisplayName(ChatColor.LIGHT_PURPLE+""+ChatColor.BOLD+currency_prefix+" Economy Account");
+        meta.setDisplayName(ChatColor.LIGHT_PURPLE+""+ChatColor.BOLD+currency_prefix+" "+lang.get("EconomyAccount"));
         meta.addEnchant(Enchantment.DURABILITY, 1, true);
         meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
         meta.addItemFlags(ItemFlag.HIDE_ATTRIBUTES);
         List<String> lore = new ArrayList<>();
-        lore.add(ChatColor.GREEN+""+ChatColor.BOLD+"Account Name: "+ChatColor.GOLD+""+ChatColor.BOLD+player.getName());
-        lore.add(ChatColor.GREEN+""+ChatColor.BOLD+"Balance: "+ChatColor.GOLD+"$"+ChatColor.BOLD+status.getBalance());
-        lore.add(ChatColor.GREEN+""+ChatColor.BOLD+"Player Level: "+ChatColor.GOLD+""+ChatColor.BOLD+player.getLevel());
+        lore.add(ChatColor.GREEN+""+ChatColor.BOLD+lang.get("AccName")+" "+ChatColor.GOLD+""+ChatColor.BOLD+player.getName());
+        lore.add(ChatColor.GREEN+""+ChatColor.BOLD+lang.get("Bal")+" "+ChatColor.GOLD+"$"+ChatColor.BOLD+status.getBalance());
+        lore.add(ChatColor.GREEN+""+ChatColor.BOLD+lang.get("PlayerLevel")+" "+ChatColor.GOLD+""+ChatColor.BOLD+player.getLevel());
         meta.setLore(lore);
         item.setItemMeta(meta);
 
@@ -93,16 +95,16 @@ public class ExchangeGUI {
         meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
         meta.addItemFlags(ItemFlag.HIDE_ATTRIBUTES);
         meta.addEnchant(Enchantment.DURABILITY, 1, true);
-        meta.setDisplayName(ChatColor.LIGHT_PURPLE+""+ChatColor.BOLD+"Exchange");
+        meta.setDisplayName(ChatColor.LIGHT_PURPLE+""+ChatColor.BOLD+lang.get("Exchange"));
         lore = new ArrayList<>();
-        lore.add(ChatColor.GREEN+""+ChatColor.BOLD+foreign_economy+" Currency -> "+currency_prefix);
+        lore.add(ChatColor.GREEN+""+ChatColor.BOLD+foreign_economy+" "+lang.get("Currency")+" -> "+currency_prefix);
 
         currency = KumandrasEconomy.getPlugin(KumandrasEconomy.class).getRegistryConfiguration().currency_economy;
         kumandras_money = 50;
         foreign_money = kumandras_money/currency;
 
-        lore.add(ChatColor.GOLD+""+df2.format(foreign_money)+" "+foreign_economy+" Currency = "+ kumandras_money+ currency_prefix);
-        lore.add(ChatColor.AQUA+"Click to convert");
+        lore.add(ChatColor.GOLD+""+df2.format(foreign_money)+" "+foreign_economy+" "+lang.get("Currency")+" = "+ kumandras_money+ currency_prefix);
+        lore.add(ChatColor.AQUA+lang.get("Convert"));
         meta.setLore(lore);
         item.setItemMeta(meta);
 
@@ -114,16 +116,16 @@ public class ExchangeGUI {
         meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
         meta.addItemFlags(ItemFlag.HIDE_ATTRIBUTES);
         meta.addEnchant(Enchantment.DURABILITY, 1, true);
-        meta.setDisplayName(ChatColor.LIGHT_PURPLE+""+ChatColor.BOLD+"Exchange");
+        meta.setDisplayName(ChatColor.LIGHT_PURPLE+""+ChatColor.BOLD+lang.get("Exchange"));
         lore = new ArrayList<>();
-        lore.add(ChatColor.GREEN+""+ChatColor.BOLD+currency_prefix+" Currency -> "+foreign_economy);
+        lore.add(ChatColor.GREEN+""+ChatColor.BOLD+currency_prefix+" "+lang.get("Currency")+" -> "+foreign_economy);
 
         currency = KumandrasEconomy.getPlugin(KumandrasEconomy.class).getRegistryConfiguration().currency_economy;
         kumandras_money = 50*currency;
         foreign_money = 50;
 
-        lore.add(ChatColor.GOLD+""+df2.format(kumandras_money)+" "+currency_prefix+" Currency = "+ foreign_money+ " "+ foreign_economy);
-        lore.add(ChatColor.AQUA+"Click to convert");
+        lore.add(ChatColor.GOLD+""+df2.format(kumandras_money)+" "+currency_prefix+" "+lang.get("Currency")+" = "+ foreign_money+ " "+ foreign_economy);
+        lore.add(ChatColor.AQUA+lang.get("Convert"));
         meta.setLore(lore);
         item.setItemMeta(meta);
 
@@ -135,16 +137,16 @@ public class ExchangeGUI {
         meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
         meta.addItemFlags(ItemFlag.HIDE_ATTRIBUTES);
         meta.addEnchant(Enchantment.DURABILITY, 1, true);
-        meta.setDisplayName(ChatColor.LIGHT_PURPLE+""+ChatColor.BOLD+"Exchange");
+        meta.setDisplayName(ChatColor.LIGHT_PURPLE+""+ChatColor.BOLD+lang.get("Exchange"));
         lore = new ArrayList<>();
-        lore.add(ChatColor.GREEN+""+ChatColor.BOLD+foreign_economy+" Currency -> "+currency_prefix);
+        lore.add(ChatColor.GREEN+""+ChatColor.BOLD+foreign_economy+" "+lang.get("Currency")+" -> "+currency_prefix);
 
         currency = KumandrasEconomy.getPlugin(KumandrasEconomy.class).getRegistryConfiguration().currency_economy;
         kumandras_money = 100;
         foreign_money = kumandras_money/currency;
 
-        lore.add(ChatColor.GOLD+""+df2.format(foreign_money)+" "+foreign_economy+" Currency = "+ kumandras_money+ currency_prefix);
-        lore.add(ChatColor.AQUA+"Click to convert");
+        lore.add(ChatColor.GOLD+""+df2.format(foreign_money)+" "+foreign_economy+" "+lang.get("Currency")+" = "+ kumandras_money+ currency_prefix);
+        lore.add(ChatColor.AQUA+lang.get("Convert"));
         meta.setLore(lore);
         item.setItemMeta(meta);
 
@@ -156,16 +158,16 @@ public class ExchangeGUI {
         meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
         meta.addItemFlags(ItemFlag.HIDE_ATTRIBUTES);
         meta.addEnchant(Enchantment.DURABILITY, 1, true);
-        meta.setDisplayName(ChatColor.LIGHT_PURPLE+""+ChatColor.BOLD+"Exchange");
+        meta.setDisplayName(ChatColor.LIGHT_PURPLE+""+ChatColor.BOLD+lang.get("Exchange"));
         lore = new ArrayList<>();
-        lore.add(ChatColor.GREEN+""+ChatColor.BOLD+currency_prefix+" Currency -> "+foreign_economy);
+        lore.add(ChatColor.GREEN+""+ChatColor.BOLD+currency_prefix+" "+lang.get("Currency")+" -> "+foreign_economy);
 
         currency = KumandrasEconomy.getPlugin(KumandrasEconomy.class).getRegistryConfiguration().currency_economy;
         kumandras_money = 100*currency;
         foreign_money = 100;
 
-        lore.add(ChatColor.GOLD+""+df2.format(kumandras_money)+" "+currency_prefix+" Currency = "+ foreign_money+ " "+ foreign_economy);
-        lore.add(ChatColor.AQUA+"Click to convert");
+        lore.add(ChatColor.GOLD+""+df2.format(kumandras_money)+" "+currency_prefix+" "+lang.get("Currency")+" = "+ foreign_money+ " "+ foreign_economy);
+        lore.add(ChatColor.AQUA+lang.get("Convert"));
         meta.setLore(lore);
         item.setItemMeta(meta);
 
@@ -177,16 +179,16 @@ public class ExchangeGUI {
         meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
         meta.addItemFlags(ItemFlag.HIDE_ATTRIBUTES);
         meta.addEnchant(Enchantment.DURABILITY, 1, true);
-        meta.setDisplayName(ChatColor.LIGHT_PURPLE+""+ChatColor.BOLD+"Exchange");
+        meta.setDisplayName(ChatColor.LIGHT_PURPLE+""+ChatColor.BOLD+lang.get("Exchange"));
         lore = new ArrayList<>();
-        lore.add(ChatColor.GREEN+""+ChatColor.BOLD+foreign_economy+" Currency -> "+currency_prefix);
+        lore.add(ChatColor.GREEN+""+ChatColor.BOLD+foreign_economy+" "+lang.get("Currency")+" -> "+currency_prefix);
 
         currency = KumandrasEconomy.getPlugin(KumandrasEconomy.class).getRegistryConfiguration().currency_economy;
         kumandras_money = 500;
         foreign_money = kumandras_money/currency;
 
-        lore.add(ChatColor.GOLD+""+df2.format(foreign_money)+" "+foreign_economy+" Currency = "+ kumandras_money+ currency_prefix);
-        lore.add(ChatColor.AQUA+"Click to convert");
+        lore.add(ChatColor.GOLD+""+df2.format(foreign_money)+" "+foreign_economy+" "+lang.get("Currency")+" = "+ kumandras_money+ currency_prefix);
+        lore.add(ChatColor.AQUA+lang.get("Convert"));
         meta.setLore(lore);
         item.setItemMeta(meta);
 
@@ -198,16 +200,16 @@ public class ExchangeGUI {
         meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
         meta.addItemFlags(ItemFlag.HIDE_ATTRIBUTES);
         meta.addEnchant(Enchantment.DURABILITY, 1, true);
-        meta.setDisplayName(ChatColor.LIGHT_PURPLE+""+ChatColor.BOLD+"Exchange");
+        meta.setDisplayName(ChatColor.LIGHT_PURPLE+""+ChatColor.BOLD+lang.get("Exchange"));
         lore = new ArrayList<>();
-        lore.add(ChatColor.GREEN+""+ChatColor.BOLD+currency_prefix+" Currency -> "+foreign_economy);
+        lore.add(ChatColor.GREEN+""+ChatColor.BOLD+currency_prefix+" "+lang.get("Currency")+" -> "+foreign_economy);
 
         currency = KumandrasEconomy.getPlugin(KumandrasEconomy.class).getRegistryConfiguration().currency_economy;
         kumandras_money = 500*currency;
         foreign_money = 500;
 
-        lore.add(ChatColor.GOLD+""+df2.format(kumandras_money)+" "+currency_prefix+" Currency = "+ foreign_money+ " "+ foreign_economy);
-        lore.add(ChatColor.AQUA+"Click to convert");
+        lore.add(ChatColor.GOLD+""+df2.format(kumandras_money)+" "+currency_prefix+" "+lang.get("Currency")+" = "+ foreign_money+ " "+ foreign_economy);
+        lore.add(ChatColor.AQUA+lang.get("Convert"));
         meta.setLore(lore);
         item.setItemMeta(meta);
 
@@ -219,16 +221,16 @@ public class ExchangeGUI {
         meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
         meta.addItemFlags(ItemFlag.HIDE_ATTRIBUTES);
         meta.addEnchant(Enchantment.DURABILITY, 1, true);
-        meta.setDisplayName(ChatColor.LIGHT_PURPLE+""+ChatColor.BOLD+"Exchange");
+        meta.setDisplayName(ChatColor.LIGHT_PURPLE+""+ChatColor.BOLD+lang.get("Exchange"));
         lore = new ArrayList<>();
-        lore.add(ChatColor.GREEN+""+ChatColor.BOLD+foreign_economy+" Currency -> "+currency_prefix);
+        lore.add(ChatColor.GREEN+""+ChatColor.BOLD+foreign_economy+" "+lang.get("Currency")+" -> "+currency_prefix);
 
         currency = KumandrasEconomy.getPlugin(KumandrasEconomy.class).getRegistryConfiguration().currency_economy;
         kumandras_money = 1000;
         foreign_money = kumandras_money/currency;
 
-        lore.add(ChatColor.GOLD+""+df2.format(foreign_money)+" "+foreign_economy+" Currency = "+ kumandras_money+ currency_prefix);
-        lore.add(ChatColor.AQUA+"Click to convert");
+        lore.add(ChatColor.GOLD+""+df2.format(foreign_money)+" "+foreign_economy+" "+lang.get("Currency")+" = "+ kumandras_money+ currency_prefix);
+        lore.add(ChatColor.AQUA+lang.get("Convert"));
         meta.setLore(lore);
         item.setItemMeta(meta);
 
@@ -240,16 +242,16 @@ public class ExchangeGUI {
         meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
         meta.addItemFlags(ItemFlag.HIDE_ATTRIBUTES);
         meta.addEnchant(Enchantment.DURABILITY, 1, true);
-        meta.setDisplayName(ChatColor.LIGHT_PURPLE+""+ChatColor.BOLD+"Exchange");
+        meta.setDisplayName(ChatColor.LIGHT_PURPLE+""+ChatColor.BOLD+lang.get("Exchange"));
         lore = new ArrayList<>();
-        lore.add(ChatColor.GREEN+""+ChatColor.BOLD+currency_prefix+" Currency -> "+foreign_economy);
+        lore.add(ChatColor.GREEN+""+ChatColor.BOLD+currency_prefix+" "+lang.get("Currency")+" -> "+foreign_economy);
 
         currency = KumandrasEconomy.getPlugin(KumandrasEconomy.class).getRegistryConfiguration().currency_economy;
         kumandras_money = 1000*currency;
         foreign_money = 1000;
 
-        lore.add(ChatColor.GOLD+""+df2.format(kumandras_money)+" "+currency_prefix+" Currency = "+ foreign_money+ " "+ foreign_economy);
-        lore.add(ChatColor.AQUA+"Click to convert");
+        lore.add(ChatColor.GOLD+""+df2.format(kumandras_money)+" "+currency_prefix+" "+lang.get("Currency")+" = "+ foreign_money+ " "+ foreign_economy);
+        lore.add(ChatColor.AQUA+lang.get("Convert"));
         meta.setLore(lore);
         item.setItemMeta(meta);
 
@@ -259,7 +261,7 @@ public class ExchangeGUI {
         meta = item.getItemMeta();
         assert meta != null;
         meta.addEnchant(Enchantment.DURABILITY, 1, true);
-        meta.setDisplayName(ChatColor.YELLOW+""+ChatColor.BOLD+"[EXIT]");
+        meta.setDisplayName(ChatColor.YELLOW+""+ChatColor.BOLD+"["+lang.get("Exit")+"]");
         meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
         meta.addItemFlags(ItemFlag.HIDE_ATTRIBUTES);
         item.setItemMeta(meta);

@@ -41,6 +41,7 @@ public class VaultSupport {
             else
                 EconomyName = "Foreign";
             plugin.getDataHandler().getPluginsRegistered().add(eco.getPlugin().getName());
+            plugin.getLogger().info(ChatColor.GREEN+"Primary Economy: "+ChatColor.YELLOW+EconomyName);
         }
         return (economy!=null);
     }

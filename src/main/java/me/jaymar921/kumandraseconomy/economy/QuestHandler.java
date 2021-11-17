@@ -21,10 +21,12 @@ public class QuestHandler {
     QuestList questList;
     //Entity Map with Bucket Task
     Map<Entity, BukkitTask> questEntity;
+    private final Map<String,String> lang;
 
     KumandrasEconomy main;
     public QuestHandler(KumandrasEconomy main){
         this.main = main;
+        lang = main.getDataHandler().getLanguageData();
         questList = new QuestList();
         questEntity = new HashMap<>();
         //start Runnable
@@ -69,11 +71,11 @@ public class QuestHandler {
     private GenerateQuest Quest(){
         return (p, q) -> {
             if(questList.addQuest(q)) {
-                p.sendMessage(ChatColor.LIGHT_PURPLE + "You accepted the Quest " + ChatColor.GREEN
+                p.sendMessage(ChatColor.LIGHT_PURPLE + lang.get("acceptQuest")+" " + ChatColor.GREEN
                         + ">> " + ChatColor.YELLOW + "" + ChatColor.BOLD + q.getQuestTitle());
                 for(String msg : q.getQuestMessage())
                     p.sendMessage(ChatColor.GREEN+msg);
-                p.sendMessage(ChatColor.GRAY + "[for feeding quest, only mobs with heart particles are counted]");
+                p.sendMessage(ChatColor.GRAY + lang.get("feedingQuest"));
                 main.getLogger().info(ChatColor.YELLOW + "Quest on going [" + q.getQuestTitle() + "]"+ChatColor.RED+" "+questList.size()+" quest/s pending");
             }else
                 main.getLogger().info(ChatColor.RED+"Could not add quest ["+q.getQuestTitle()+"]");
@@ -94,13 +96,13 @@ public class QuestHandler {
             switch (reward.getId()){
                 case 0:
                     int exp = (int) quest.getQuestRewards().getReward();
-                    p.sendMessage(ChatColor.LIGHT_PURPLE+"Reward: "+ChatColor.YELLOW+""+exp+" exp");
+                    p.sendMessage(ChatColor.LIGHT_PURPLE+lang.get("reward")+": "+ChatColor.YELLOW+""+exp+" exp");
                     p.giveExp(exp);
                     p.playSound(p.getLocation(), Sound.ENTITY_PLAYER_LEVELUP,2.0f,2.0f);
                     break;
                 case 1:
                     int money = (int) quest.getQuestRewards().getReward();
-                    p.sendMessage(ChatColor.LIGHT_PURPLE+"Reward: "+ChatColor.YELLOW+""+money+main.getRegistryConfiguration().currency_prefix);
+                    p.sendMessage(ChatColor.LIGHT_PURPLE+lang.get("reward")+": "+ChatColor.YELLOW+""+money+main.getRegistryConfiguration().currency_prefix);
                     double balance = main.getDataHandler().getStatusHolder().get(p.getUniqueId().toString()).getBalance();
                     main.getDataHandler().getStatusHolder().get(p.getUniqueId().toString()).setBalance(balance+money);
                     p.playSound(p.getLocation(), Sound.ENTITY_PLAYER_LEVELUP,2.0f,2.0f);
@@ -113,9 +115,9 @@ public class QuestHandler {
                         p.getInventory().addItem(item);
                     if(item.getItemMeta()!=null) {
                         if (item.getItemMeta().getDisplayName().length() > 0)
-                            p.sendMessage(ChatColor.LIGHT_PURPLE + "Reward: " + ChatColor.YELLOW + "" + item.getItemMeta().getDisplayName());
+                            p.sendMessage(ChatColor.LIGHT_PURPLE + lang.get("reward") +": " + ChatColor.YELLOW + "" + item.getItemMeta().getDisplayName());
                     }else
-                        p.sendMessage(ChatColor.LIGHT_PURPLE + "Reward: " + ChatColor.YELLOW + "" + item.getType().toString());
+                        p.sendMessage(ChatColor.LIGHT_PURPLE + lang.get("reward") + ": " + ChatColor.YELLOW + "" + item.getType().toString());
                     p.playSound(p.getLocation(), Sound.ENTITY_PLAYER_LEVELUP,2.0f,2.0f);
             }
             return quest;
@@ -126,7 +128,7 @@ public class QuestHandler {
         return (q) -> {
             for(Player players : Bukkit.getServer().getOnlinePlayers())
                 if(q.getPlayerUuid().equals(players.getUniqueId().toString()))
-                    players.sendMessage(ChatColor.RED+"Your quest "+ChatColor.YELLOW+""+ChatColor.BOLD+q.getQuestTitle()+ChatColor.RED+" has expired!");
+                    players.sendMessage(ChatColor.RED+lang.get("yourQuest")+" "+ChatColor.YELLOW+""+ChatColor.BOLD+q.getQuestTitle()+ChatColor.RED+" "+lang.get("hasExpired"));
             questList.removeQuest(q);
             if(questList.size()>0)
                 main.getLogger().info(ChatColor.AQUA + "Failed Quest [" + q.getQuestTitle() + "]"+ChatColor.RED+" "+questList.size()+" quest/s pending");
@@ -142,7 +144,7 @@ public class QuestHandler {
         if((quest.getQuestDuration()-System.currentTimeMillis())/1000 == 10 && (quest.getQuestDuration()-System.currentTimeMillis())/1000 > 9)
             for(Player player : Bukkit.getServer().getOnlinePlayers())
                 if(quest.getPlayerUuid().equals(player.getUniqueId().toString()))
-                    player.sendMessage(ChatColor.RED+"Your quest "+ChatColor.YELLOW+""+ChatColor.BOLD+quest.getQuestTitle()+ChatColor.RED+" is about to end in 10s");
+                    player.sendMessage(ChatColor.RED+lang.get("yourQuest")+" "+ChatColor.YELLOW+""+ChatColor.BOLD+quest.getQuestTitle()+ChatColor.RED+" "+lang.get("aboutToExpire"));
     }
 
     private void checkQuestSuccess(PlayerQuest quest){
@@ -175,7 +177,7 @@ public class QuestHandler {
         //adding Persistent data to the entity
         NamespacedKey namespacedKey = new NamespacedKey(main,"QuestEntity");
         entity.getPersistentDataContainer().set(namespacedKey, PersistentDataType.STRING, "ID"+new Random().nextInt());
-        entity.setCustomName(ChatColor.GREEN+""+ChatColor.BOLD+">>"+ChatColor.YELLOW+""+ChatColor.BOLD+"Quest Request"+ChatColor.GREEN+""+ChatColor.BOLD+"<<");
+        entity.setCustomName(ChatColor.GREEN+""+ChatColor.BOLD+">>"+ChatColor.YELLOW+""+ChatColor.BOLD+lang.get("questRequest")+ChatColor.GREEN+""+ChatColor.BOLD+"<<");
         questEntity.put(entity, new BukkitRunnable(){
             public void run(){
                 if(!entity.isValid() || entity.isDead())

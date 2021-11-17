@@ -38,7 +38,7 @@ public class Supporters {
 
         ui.setItem(12,createSkull("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNDMxNWM0NjQ0ZjkxYWY5NGZhYWZjZjU4NWFlMmIzMTYyMDg1ZjYxMjk4NTAzOGM5ZTkzYzc4MzMzZTczY2FhNiJ9fX0","MikaPikaChu", "Supporter"));
 
-        ui.setItem(13,createSkull("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYmVmODg5MjJjYmJjNjBjODNkMmM4ZmMxYjgwYzE3NmJjYmRmODNmODliMTdmMDMzMDE5Y2VkOTI2YWZlYTY0YSJ9fX0","JhonoBrine", "Supporter"));
+        ui.setItem(13,createSkull("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYmVmODg5MjJjYmJjNjBjODNkMmM4ZmMxYjgwYzE3NmJjYmRmODNmODliMTdmMDMzMDE5Y2VkOTI2YWZlYTY0YSJ9fX0","JhonoBrine", "Supporter","A 'Special' Person that you can blame for the Phoenix/Stella"));
 
         ui.setItem(14,createSkull("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNTAwNDhlODQ3MGM0MTYxMjI2OWZmZmU1ZTkyODI4MmI3NjlmYjVhNzU1ZDkyNzg5Njk0NjA5Y2EzNWQwZWU2NyJ9fX0","Eliteleonidus", "Supporter"));
 
@@ -46,11 +46,15 @@ public class Supporters {
 
         ui.setItem(16,createSkull("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNTAwNDhlODQ3MGM0MTYxMjI2OWZmZmU1ZTkyODI4MmI3NjlmYjVhNzU1ZDkyNzg5Njk0NjA5Y2EzNWQwZWU2NyJ9fX0","Sekai47", "Developer"));
 
-        ui.setItem(19,createSkull("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZmI5NTIwOWQzNmM1YWExYmY2YzZmMzA3ZjA5YjE2ZDkwNTg4NDRhYzU2MDM0MGM4OGY4Mzk0NjgyZWY1N2EwYSJ9fX0", "Playeruan TV", "Supporter"));
+        ui.setItem(19,createSkull("eyJ0aW1lc3RhbXAiOjE1ODcyOTkyOTczNDYsInByb2ZpbGVJZCI6ImQ2MGYzNDczNmExMjQ3YTI5YjgyY2M3MTViMDA0OGRiIiwicHJvZmlsZU5hbWUiOiJCSl9EYW5pZWwiLCJzaWduYXR1cmVSZXF1aXJlZCI6dHJ1ZSwidGV4dHVyZXMiOnsiU0tJTiI6eyJ1cmwiOiJodHRwOi8vdGV4dHVyZXMubWluZWNyYWZ0Lm5ldC90ZXh0dXJlLzMxYjlhODYxOGY3Yjc4ZTdlMDgxMDk2MTZlMDdjN2Q5MWRmYjRlZWE3NmI2NDQ3MjZhMzQxMTJlNWE0MjJmZGYifX19", "Playeruan", "Supporter","Discord: "+ChatColor.LIGHT_PURPLE+"discord.gg/Mm4DYJvMBW"));
 
         ui.setItem(20,createSkull("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNTAwNDhlODQ3MGM0MTYxMjI2OWZmZmU1ZTkyODI4MmI3NjlmYjVhNzU1ZDkyNzg5Njk0NjA5Y2EzNWQwZWU2NyJ9fX0", "Amiz", "Supporter"));
 
         ui.setItem(21,createSkull("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZmI5NTIwOWQzNmM1YWExYmY2YzZmMzA3ZjA5YjE2ZDkwNTg4NDRhYzU2MDM0MGM4OGY4Mzk0NjgyZWY1N2EwYSJ9fX0", "Jay Gameplay", "Supporter"));
+
+        ui.setItem(22,createSkull("ewogICJ0aW1lc3RhbXAiIDogMTU5ODIyMTk0NDIxOCwKICAicHJvZmlsZUlkIiA6ICIwZjczMDA3NjEyNGU0NGM3YWYxMTE1NDY5YzQ5OTY3OSIsCiAgInByb2ZpbGVOYW1lIiA6ICJPcmVfTWluZXIxMjMiLAogICJzaWduYXR1cmVSZXF1aXJlZCIgOiB0cnVlLAogICJ0ZXh0dXJlcyIgOiB7CiAgICAiU0tJTiIgOiB7CiAgICAgICJ1cmwiIDogImh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNzAyZDQ1MDNlMDk0MDZhZmZmYjk3ODY3NjI2MjM1Yjg3OTM5ZDJhYTM5NWM2ZWRhZjA0MTQ4ZDcxNTdkMjk5OCIKICAgIH0KICB9Cn0=", "DeadeyeSkunk", "Supporter"));
+
+        ui.setItem(23,createSkull("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNTAwNDhlODQ3MGM0MTYxMjI2OWZmZmU1ZTkyODI4MmI3NjlmYjVhNzU1ZDkyNzg5Njk0NjA5Y2EzNWQwZWU2NyJ9fX0=", "Tattoodude72614", "Supporter (Roger Turley's partner)","Discord: "+ChatColor.LIGHT_PURPLE+"discord.gg/DpT3QVPGxZ"));
 
         ItemStack item = new ItemStack(Material.DARK_OAK_SIGN);
         ItemMeta meta = item.getItemMeta();

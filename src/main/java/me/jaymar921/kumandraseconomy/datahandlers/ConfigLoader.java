@@ -3,12 +3,12 @@ package me.jaymar921.kumandraseconomy.datahandlers;
 import me.jaymar921.kumandraseconomy.KumandrasEconomy;
 import me.jaymar921.kumandraseconomy.Version.UpdateChecker;
 import me.jaymar921.kumandraseconomy.datahandlers.Configurations.DataConfigUpdater;
+import me.jaymar921.kumandraseconomy.datahandlers.Configurations.LanguageConfig;
+import me.jaymar921.kumandraseconomy.utility.TranslateParser;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 
-import java.util.EnumSet;
-import java.util.List;
-import java.util.Vector;
+import java.util.*;
 
 public class ConfigLoader {
 
@@ -16,6 +16,7 @@ public class ConfigLoader {
     RegistryConfiguration registryConfiguration;
     public ConfigLoader(KumandrasEconomy main){
         plugin = main;
+        loadLanguage();
         LoadConfiguration();
         registerConfiguration();
         checkForUpdate();
@@ -227,7 +228,7 @@ public class ConfigLoader {
         });
         plugin.reloadConfig();
         if(plugin.getConfig().contains("Version")) {
-            updateConfig(plugin.getConfig().getString("Version"), plugin.getDescription().getVersion());
+            updateConfig(Objects.requireNonNull(plugin.getConfig().getString("Version")), plugin.getDescription().getVersion());
         }
     }
 
@@ -243,6 +244,37 @@ public class ConfigLoader {
             plugin.getLogger().info(ChatColor.DARK_AQUA+"[Config.yml is up to date :>]");
         }
         //plugin.getLogger().info(version+ "   "+compared_version);
+    }
+
+    public void loadLanguage(){
+        LanguageConfig config = new LanguageConfig(plugin);
+
+        Map<String,String> lang = new HashMap<>();
+        String version = config.getConfig().getString("Version");
+        List<String> data = config.getConfig().getStringList("Translate");
+
+        if(version!=null){
+            if(version.equals("1.0"))
+                plugin.getLogger().info("Lang.yml is updated");
+        }
+
+        for(String language : data){
+            String[] translated = parse().getTranslate(language);
+            if(translated!=null)
+                lang.put(translated[0].trim(),translated[1].trim());
+        }
+
+        plugin.getDataHandler().setLanguageData(lang);
+    }
+
+    public TranslateParser parse(){
+        return (data) -> {
+            String[] obj = data.split("~");
+            if(obj.length!=2)
+                return null;
+            else
+                return obj;
+        };
     }
 
 

@@ -16,14 +16,16 @@ import org.bukkit.inventory.meta.ItemMeta;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 public class BalanceGUI {
 
     private final String currency_prefix = KumandrasEconomy.getPlugin(KumandrasEconomy.class).getRegistryConfiguration().currency_prefix;
     private final DecimalFormat fmt = new DecimalFormat("###,###,###,###.##");
+    private final Map<String,String> lang = KumandrasEconomy.getPlugin(KumandrasEconomy.class).getDataHandler().getLanguageData();
 
     public Inventory BalanceInventory(Player player, PlayerStatus status, List<String> plugins){
-        Inventory gui = Bukkit.createInventory(null, 27, ChatColor.BLUE+""+ChatColor.BOLD+player.getName()+"'s Account");
+        Inventory gui = Bukkit.createInventory(null, 27, ChatColor.BLUE+""+ChatColor.BOLD+player.getName()+"'s "+lang.get("Account"));
 
         ItemStack item = new ItemStack(Material.GREEN_STAINED_GLASS_PANE);
         ItemMeta meta = item.getItemMeta();
@@ -40,18 +42,18 @@ public class BalanceGUI {
         item = new PlayerHeads().getPlayerHead(player);
         meta = item.getItemMeta();
         assert meta != null;
-        meta.setDisplayName(ChatColor.LIGHT_PURPLE+""+ChatColor.BOLD+"Kumandra's Economy Account");
+        meta.setDisplayName(ChatColor.LIGHT_PURPLE+""+ChatColor.BOLD+lang.get("KDAccount"));
         meta.addEnchant(Enchantment.DURABILITY, 1, true);
         meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
         meta.addItemFlags(ItemFlag.HIDE_ATTRIBUTES);
         List<String> lore = new ArrayList<>();
-        lore.add(ChatColor.GREEN+""+ChatColor.BOLD+"Account Name: "+ChatColor.GOLD+""+ChatColor.BOLD+player.getName());
-        lore.add(ChatColor.GREEN+""+ChatColor.BOLD+"Balance: "+ChatColor.GOLD+ChatColor.BOLD+fmt.format(status.getBalance())+currency_prefix);
-        lore.add(ChatColor.GREEN+""+ChatColor.BOLD+"Player Level: "+ChatColor.GOLD+""+ChatColor.BOLD+player.getLevel());
+        lore.add(ChatColor.GREEN+""+ChatColor.BOLD+lang.get("AccName")+ChatColor.GOLD+" "+ChatColor.BOLD+player.getName());
+        lore.add(ChatColor.GREEN+""+ChatColor.BOLD+lang.get("Bal")+" "+ChatColor.GOLD+ChatColor.BOLD+fmt.format(status.getBalance())+currency_prefix);
+        lore.add(ChatColor.GREEN+""+ChatColor.BOLD+lang.get("PlayerLevel")+ChatColor.GOLD+" "+ChatColor.BOLD+player.getLevel());
         lore.add(ChatColor.GRAY+"┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄");
-        lore.add(ChatColor.AQUA+"Jobs");
+        lore.add(ChatColor.AQUA+lang.get("Jobs"));
         if(status.getJobs().size()==0)
-            lore.add(ChatColor.RED+"-NITWIT");
+            lore.add(ChatColor.RED+"-"+lang.get("NoJob"));
         else
             for(String jobs : status.getJobs())
                 lore.add(ChatColor.YELLOW+"-"+jobs);
@@ -67,12 +69,12 @@ public class BalanceGUI {
             meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
             meta.addItemFlags(ItemFlag.HIDE_ATTRIBUTES);
             meta.addEnchant(Enchantment.DURABILITY, 1, true);
-            meta.setDisplayName(ChatColor.LIGHT_PURPLE + "" + ChatColor.BOLD + "Exchange");
+            meta.setDisplayName(ChatColor.LIGHT_PURPLE + "" + ChatColor.BOLD + lang.get("Exchange"));
             lore = new ArrayList<>();
-            lore.add(ChatColor.GREEN + "" + ChatColor.BOLD + "Currency status");
-            lore.add(ChatColor.GOLD + "" + ChatColor.BOLD + "‣1.00 "+KumandrasEconomy.getPlugin(KumandrasEconomy.class).getRegistryConfiguration().foreign_economy+" Money");
+            lore.add(ChatColor.GREEN + "" + ChatColor.BOLD + lang.get("CurrencyStatus"));
+            lore.add(ChatColor.GOLD + "" + ChatColor.BOLD + "‣1.00 "+KumandrasEconomy.getPlugin(KumandrasEconomy.class).getRegistryConfiguration().foreign_economy+" "+lang.get("Money"));
             lore.add(ChatColor.YELLOW + "" + ChatColor.BOLD + "    ↓");
-            lore.add(ChatColor.GOLD + "" + ChatColor.BOLD + "‣"+KumandrasEconomy.getPlugin(KumandrasEconomy.class).getRegistryConfiguration().currency_economy + " Kumandra's Economy" + " Money");
+            lore.add(ChatColor.GOLD + "" + ChatColor.BOLD + "‣"+KumandrasEconomy.getPlugin(KumandrasEconomy.class).getRegistryConfiguration().currency_economy + " "+ lang.get("KDEco") + " "+lang.get("Money"));
             meta.setLore(lore);
             item.setItemMeta(meta);
 
@@ -87,13 +89,13 @@ public class BalanceGUI {
         meta.addEnchant(Enchantment.DURABILITY, 1, true);
         meta.setDisplayName(ChatColor.LIGHT_PURPLE+""+ChatColor.BOLD+"Plugin Supports");
         lore = new ArrayList<>();
-        lore.add(ChatColor.GOLD+"Supported Plugins");
+        lore.add(ChatColor.GOLD+lang.get("SupportedPlugins"));
         lore.add(" ");
         if(!plugins.isEmpty()) {
             for (String p_names : plugins)
                 lore.add(ChatColor.DARK_GREEN + "" + p_names);
         }else{
-            lore.add(ChatColor.RED+"None --");
+            lore.add(ChatColor.RED+lang.get("None")+" --");
         }
         meta.setLore(lore);
         item.setItemMeta(meta);

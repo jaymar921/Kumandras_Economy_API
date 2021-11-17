@@ -1,9 +1,12 @@
 package me.jaymar921.kumandraseconomy;
 
+import me.jaymar921.kumandraseconomy.InventoryGUI.enums.JobList;
 import me.jaymar921.kumandraseconomy.economy.PlayerStatus;
 import org.bukkit.entity.Player;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+
+import java.util.List;
 
 public class KumandrasAPI {
 
@@ -16,7 +19,6 @@ public class KumandrasAPI {
     @Nullable
     public Double getBalance(@NotNull Player player){
         String uuid = player.getUniqueId().toString();
-        double balance = 0;
         if(plugin.getDataHandler().getStatusHolder().containsKey(uuid)){
             PlayerStatus status = plugin.getDataHandler().getStatusHolder().get(uuid);
             return status.getBalance();
@@ -52,5 +54,19 @@ public class KumandrasAPI {
     public boolean RegisterPlugin(@NotNull String pluginName){
         plugin.getDataHandler().getPluginsRegistered().add(pluginName);
         return true;
+    }
+
+    public boolean primaryEconomy(){
+        return !plugin.getRegistryConfiguration().separate_economy;
+    }
+
+    public JobList[] getJobs(@NotNull Player player){
+        List<String> jobs = plugin.getDataHandler().getStatusHolder().get(player.getUniqueId().toString()).getJobs();
+        JobList[] jobsList = new JobList[jobs.size()];
+        int iterate = 0;
+        for(String job : jobs){
+            jobsList[iterate++] = JobList.valueOf(job);
+        }
+        return jobsList;
     }
 }

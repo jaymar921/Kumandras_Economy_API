@@ -18,11 +18,14 @@ import org.bukkit.inventory.Inventory;
 
 import java.text.DecimalFormat;
 import java.util.List;
+import java.util.Locale;
+import java.util.Map;
 
 public class KumandraCommand implements CommandExecutor {
 
     static KumandrasEconomy plugin;
     private final DecimalFormat fmt = new DecimalFormat("###,###,###,###.##");
+    private final Map<String,String> lang = KumandrasEconomy.getPlugin(KumandrasEconomy.class).getDataHandler().getLanguageData();
     public KumandraCommand(KumandrasEconomy main){
         plugin = main;
     }
@@ -64,7 +67,7 @@ public class KumandraCommand implements CommandExecutor {
                                                 double amount = 0;
                                                 try{
                                                     amount = Double.parseDouble(args[3]);
-                                                }catch (Exception e){player.sendMessage(ChatColor.RED+"Invalid Amount");return true;}
+                                                }catch (Exception e){player.sendMessage(ChatColor.RED+lang.get("InvalidAMT"));return true;}
 
                                                 String uuid = "";
                                                 boolean found=false;
@@ -81,12 +84,12 @@ public class KumandraCommand implements CommandExecutor {
                                                             }else{
                                                                 PlayerStatus status = new PlayerStatus(uuid, amount);
                                                                 plugin.getDataHandler().getStatusHolder().put(uuid, status);
-                                                                player.sendMessage(ChatColor.AQUA+playername+"'s account has been created, added "+ChatColor.GOLD+fmt.format(amount)+plugin.getRegistryConfiguration().currency_prefix);
+                                                                player.sendMessage(ChatColor.AQUA+playername+"'s "+lang.get("AccCreated")+" "+ChatColor.GOLD+fmt.format(amount)+plugin.getRegistryConfiguration().currency_prefix);
                                                             }
                                                             for(Player receiver: Bukkit.getServer().getOnlinePlayers())
                                                                 if(receiver.getUniqueId().toString().equals(uuid))
-                                                                    receiver.sendMessage(ChatColor.GREEN+""+player.getName()+" had deposited "+ChatColor.GOLD+fmt.format(amount)+plugin.getRegistryConfiguration().currency_prefix+ChatColor.GREEN+" to your account");
-                                                            player.sendMessage(ChatColor.GREEN+"You have added "+ChatColor.GOLD+fmt.format(amount)+plugin.getRegistryConfiguration().currency_prefix+ChatColor.GREEN+ " to "+playername+"'s account");
+                                                                    receiver.sendMessage(ChatColor.GREEN+""+player.getName()+" "+lang.get("hadDeposit")+" "+ChatColor.GOLD+fmt.format(amount)+plugin.getRegistryConfiguration().currency_prefix+ChatColor.GREEN+" "+lang.get("YourAcc"));
+                                                            player.sendMessage(ChatColor.GREEN+lang.get("YouAdded")+" "+ChatColor.GOLD+fmt.format(amount)+plugin.getRegistryConfiguration().currency_prefix+ChatColor.GREEN+ " "+lang.get("To")+" "+playername+"'s "+lang.get("Account").toLowerCase());
 
                                                             return true;
                                                         }
@@ -106,12 +109,12 @@ public class KumandraCommand implements CommandExecutor {
                                                                 }else{
                                                                     PlayerStatus status = new PlayerStatus(uuid, amount);
                                                                     plugin.getDataHandler().getStatusHolder().put(uuid, status);
-                                                                    player.sendMessage(ChatColor.AQUA+playername+"'s account has been created, added "+ChatColor.GOLD+fmt.format(amount)+plugin.getRegistryConfiguration().currency_prefix);
+                                                                    player.sendMessage(ChatColor.AQUA+playername+"'s "+lang.get("AccCreated")+" "+ChatColor.GOLD+fmt.format(amount)+plugin.getRegistryConfiguration().currency_prefix);
                                                                 }
                                                                 for(Player receiver: Bukkit.getServer().getOnlinePlayers())
                                                                     if(receiver.getUniqueId().toString().equals(uuid))
-                                                                        receiver.sendMessage(ChatColor.GREEN+""+player.getName()+" had deposited "+ChatColor.GOLD+fmt.format(amount)+plugin.getRegistryConfiguration().currency_prefix+ChatColor.GREEN+" to your account");
-                                                                player.sendMessage(ChatColor.GREEN+"You have added "+ChatColor.GOLD+fmt.format(amount)+plugin.getRegistryConfiguration().currency_prefix+ChatColor.GREEN+ " to "+playername+"'s account");
+                                                                        receiver.sendMessage(ChatColor.GREEN+""+player.getName()+" "+lang.get("hadDeposit")+" "+ChatColor.GOLD+fmt.format(amount)+plugin.getRegistryConfiguration().currency_prefix+ChatColor.GREEN+" "+lang.get("YourAcc"));
+                                                                player.sendMessage(ChatColor.GREEN+lang.get("YouAdded")+" "+ChatColor.GOLD+fmt.format(amount)+plugin.getRegistryConfiguration().currency_prefix+ChatColor.GREEN+ " "+lang.get("To")+" "+playername+"'s "+lang.get("Account").toLowerCase());
 
                                                                 return true;
                                                             }
@@ -119,11 +122,11 @@ public class KumandraCommand implements CommandExecutor {
                                                     }
                                                 }
                                                 if(uuid.equals("")){
-                                                    player.sendMessage(ChatColor.RED+"Could not find "+playername);
+                                                    player.sendMessage(ChatColor.RED+lang.get("CouldNotFind")+" "+playername);
                                                     return true;
                                                 }
                                             }else{
-                                                player.sendMessage(ChatColor.RED+"Please specify the amount");
+                                                player.sendMessage(ChatColor.RED+lang.get("SpecifyAMT"));
                                                 return true;
                                             }
                                         }
@@ -132,7 +135,7 @@ public class KumandraCommand implements CommandExecutor {
                                                 double amount = 0;
                                                 try{
                                                     amount = -Double.parseDouble(args[3]);
-                                                }catch (Exception e){player.sendMessage(ChatColor.RED+"Invalid Amount");return true;}
+                                                }catch (Exception e){player.sendMessage(ChatColor.RED+lang.get("InvalidAMT"));return true;}
 
                                                 String uuid = "";
                                                 boolean found=false;
@@ -151,12 +154,12 @@ public class KumandraCommand implements CommandExecutor {
                                                             }else{
                                                                 PlayerStatus status = new PlayerStatus(uuid, 0);
                                                                 plugin.getDataHandler().getStatusHolder().put(uuid, status);
-                                                                player.sendMessage(ChatColor.AQUA+playername+"'s account has been created, set "+ChatColor.GOLD+fmt.format(0)+plugin.getRegistryConfiguration().currency_prefix);
+                                                                player.sendMessage(ChatColor.AQUA+playername+"'s "+lang.get("AccSet")+" "+ChatColor.GOLD+fmt.format(0)+plugin.getRegistryConfiguration().currency_prefix);
                                                             }
                                                             for(Player receiver: Bukkit.getServer().getOnlinePlayers())
                                                                 if(receiver.getUniqueId().toString().equals(uuid))
-                                                                    receiver.sendMessage(ChatColor.GREEN+""+player.getName()+" had deducted "+ChatColor.GOLD+fmt.format(+amount)+plugin.getRegistryConfiguration().currency_prefix+ChatColor.GREEN+" to your account");
-                                                            player.sendMessage(ChatColor.GREEN+"You have deducted "+ChatColor.GOLD+fmt.format(+amount)+plugin.getRegistryConfiguration().currency_prefix+ChatColor.GREEN+ " to "+playername+"'s account");
+                                                                    receiver.sendMessage(ChatColor.GREEN+""+player.getName()+" "+lang.get("hadDeducted")+" "+ChatColor.GOLD+fmt.format(+amount)+plugin.getRegistryConfiguration().currency_prefix+ChatColor.GREEN+" "+lang.get("YourAcc"));
+                                                            player.sendMessage(ChatColor.GREEN+lang.get("youDeduct")+" "+ChatColor.GOLD+fmt.format(+amount)+plugin.getRegistryConfiguration().currency_prefix+ChatColor.GREEN+ " "+lang.get("To")+" "+playername+"'s "+lang.get("Account").toLowerCase());
 
                                                             return true;
                                                         }
@@ -178,12 +181,12 @@ public class KumandraCommand implements CommandExecutor {
                                                                 }else{
                                                                     PlayerStatus status = new PlayerStatus(uuid, 0);
                                                                     plugin.getDataHandler().getStatusHolder().put(uuid, status);
-                                                                    player.sendMessage(ChatColor.AQUA+playername+"'s account has been created, set "+ChatColor.GOLD+fmt.format(0)+plugin.getRegistryConfiguration().currency_prefix);
+                                                                    player.sendMessage(ChatColor.AQUA+playername+"'s "+lang.get("AccSet")+" "+ChatColor.GOLD+fmt.format(0)+plugin.getRegistryConfiguration().currency_prefix);
                                                                 }
                                                                 for(Player receiver: Bukkit.getServer().getOnlinePlayers())
                                                                     if(receiver.getUniqueId().toString().equals(uuid))
-                                                                        receiver.sendMessage(ChatColor.GREEN+""+player.getName()+" had deducted "+ChatColor.GOLD+fmt.format(+amount)+plugin.getRegistryConfiguration().currency_prefix+ChatColor.GREEN+" to your account");
-                                                                player.sendMessage(ChatColor.GREEN+"You have deducted "+ChatColor.GOLD+fmt.format(+amount)+plugin.getRegistryConfiguration().currency_prefix+ChatColor.GREEN+ " to "+playername+"'s account");
+                                                                        receiver.sendMessage(ChatColor.GREEN+""+player.getName()+" "+lang.get("hadDeducted")+" "+ChatColor.GOLD+fmt.format(+amount)+plugin.getRegistryConfiguration().currency_prefix+ChatColor.GREEN+" "+lang.get("YourAcc"));
+                                                                player.sendMessage(ChatColor.GREEN+lang.get("youDeduct")+" "+ChatColor.GOLD+fmt.format(+amount)+plugin.getRegistryConfiguration().currency_prefix+ChatColor.GREEN+ " "+lang.get("To")+" "+playername+"'s "+lang.get("Account").toLowerCase());
 
                                                                 return true;
                                                             }
@@ -191,11 +194,11 @@ public class KumandraCommand implements CommandExecutor {
                                                     }
                                                 }
                                                 if(uuid.equals("")){
-                                                    player.sendMessage(ChatColor.RED+"Could not find "+playername);
+                                                    player.sendMessage(ChatColor.RED+lang.get("CouldNotFind")+" "+playername);
                                                     return true;
                                                 }
                                             }else{
-                                                player.sendMessage(ChatColor.RED+"Please specify the amount");
+                                                player.sendMessage(ChatColor.RED+lang.get("SpecifyAMT"));
                                                 return true;
                                             }
                                         }
@@ -216,12 +219,12 @@ public class KumandraCommand implements CommandExecutor {
                                                         }else{
                                                             PlayerStatus status = new PlayerStatus(uuid, 0);
                                                             plugin.getDataHandler().getStatusHolder().put(uuid, status);
-                                                            player.sendMessage(ChatColor.AQUA+playername+"'s account has been created, set "+ChatColor.GOLD+fmt.format(0)+plugin.getRegistryConfiguration().currency_prefix);
+                                                            player.sendMessage(ChatColor.AQUA+playername+"'s "+lang.get("AccSet")+" "+ChatColor.GOLD+fmt.format(0)+plugin.getRegistryConfiguration().currency_prefix);
                                                         }
                                                         for(Player receiver: Bukkit.getServer().getOnlinePlayers())
                                                             if(receiver.getUniqueId().toString().equals(uuid))
-                                                                receiver.sendMessage(ChatColor.GREEN+""+player.getName()+" had set "+ChatColor.GOLD+fmt.format(0)+plugin.getRegistryConfiguration().currency_prefix+ChatColor.GREEN+" to your account");
-                                                        player.sendMessage(ChatColor.GREEN+"You have set "+ChatColor.GOLD+fmt.format(0)+plugin.getRegistryConfiguration().currency_prefix+ChatColor.GREEN+ " to "+playername+"'s account");
+                                                                receiver.sendMessage(ChatColor.GREEN+""+player.getName()+" "+lang.get("hadSet")+" "+ChatColor.GOLD+fmt.format(0)+plugin.getRegistryConfiguration().currency_prefix+ChatColor.GREEN+" "+lang.get("YourAcc"));
+                                                        player.sendMessage(ChatColor.GREEN+lang.get("youSet")+" "+ChatColor.GOLD+fmt.format(0)+plugin.getRegistryConfiguration().currency_prefix+ChatColor.GREEN+ " "+lang.get("To")+" "+playername+"'s "+lang.get("Account").toLowerCase());
 
                                                         return true;
                                                     }
@@ -241,12 +244,12 @@ public class KumandraCommand implements CommandExecutor {
                                                             }else{
                                                                 PlayerStatus status = new PlayerStatus(uuid, 0);
                                                                 plugin.getDataHandler().getStatusHolder().put(uuid, status);
-                                                                player.sendMessage(ChatColor.AQUA+playername+"'s account has been created, set "+ChatColor.GOLD+fmt.format(0)+plugin.getRegistryConfiguration().currency_prefix);
+                                                                player.sendMessage(ChatColor.AQUA+playername+"'s "+lang.get("AccSet")+" "+ChatColor.GOLD+fmt.format(0)+plugin.getRegistryConfiguration().currency_prefix);
                                                             }
                                                             for(Player receiver: Bukkit.getServer().getOnlinePlayers())
                                                                 if(receiver.getUniqueId().toString().equals(uuid))
-                                                                    receiver.sendMessage(ChatColor.GREEN+""+player.getName()+" had set "+ChatColor.GOLD+fmt.format(0)+plugin.getRegistryConfiguration().currency_prefix+ChatColor.GREEN+" to your account");
-                                                            player.sendMessage(ChatColor.GREEN+"You have set "+ChatColor.GOLD+fmt.format(0)+plugin.getRegistryConfiguration().currency_prefix+ChatColor.GREEN+ " to "+playername+"'s account");
+                                                                    receiver.sendMessage(ChatColor.GREEN+""+player.getName()+" "+lang.get("hadSet")+" "+ChatColor.GOLD+fmt.format(0)+plugin.getRegistryConfiguration().currency_prefix+ChatColor.GREEN+" "+lang.get("YourAcc"));
+                                                            player.sendMessage(ChatColor.GREEN+lang.get("youSet")+" "+ChatColor.GOLD+fmt.format(0)+plugin.getRegistryConfiguration().currency_prefix+ChatColor.GREEN+ " "+lang.get("To")+" "+playername+"'s "+lang.get("Account").toLowerCase());
 
                                                             return true;
                                                         }
@@ -254,22 +257,22 @@ public class KumandraCommand implements CommandExecutor {
                                                 }
                                             }
                                             if(uuid.equals("")){
-                                                player.sendMessage(ChatColor.RED+"Could not find "+playername);
+                                                player.sendMessage(ChatColor.RED+lang.get("CouldNotFind")+" "+playername);
                                                 return true;
                                             }
                                             return true;
                                         }
 
                                     }else{
-                                        player.sendMessage(ChatColor.RED+"invalid command argument");
+                                        player.sendMessage(ChatColor.RED+lang.get("invalidArg"));
                                         return true;
                                     }
                                 }else{
-                                    player.sendMessage(ChatColor.RED+"You need to specify the player");
+                                    player.sendMessage(ChatColor.RED+lang.get("specifyPlayer"));
                                     return true;
                                 }
                             }else{
-                                player.sendMessage(ChatColor.RED+"You do not have the permission to use this command");
+                                player.sendMessage(ChatColor.RED+lang.get("noPermission"));
                                 return true;
                             }
                         }else if(args[0].equalsIgnoreCase("pay")){
@@ -278,14 +281,14 @@ public class KumandraCommand implements CommandExecutor {
                                 if(args.length>1){
                                     String playername = args[1];
                                     if(player.getName().equals(playername)){
-                                        player.sendMessage(ChatColor.RED+"You cannot send money to yourself");
+                                        player.sendMessage(ChatColor.RED+lang.get("sendMoneyToSelf"));
                                         return true;
                                     }
                                     if(args.length>2){
                                         double amount = 0;
                                         try{
                                             amount = Double.parseDouble(args[2]);
-                                        }catch (Exception e){player.sendMessage(ChatColor.RED+"Invalid Amount");return true;}
+                                        }catch (Exception e){player.sendMessage(ChatColor.RED+lang.get("InvalidAMT"));return true;}
 
 
                                         String uuid = "";
@@ -295,7 +298,7 @@ public class KumandraCommand implements CommandExecutor {
                                                     uuid = offP.getUniqueId().toString();
                                                     PlayerStatus stat = plugin.getDataHandler().getStatusHolder().get(player.getUniqueId().toString());
                                                     if(stat.getBalance()<amount){
-                                                        player.sendMessage(ChatColor.RED+"You do not have enough balance to pay!");
+                                                        player.sendMessage(ChatColor.RED+lang.get("notEnough"));
                                                         return true;
                                                     }
 
@@ -307,7 +310,7 @@ public class KumandraCommand implements CommandExecutor {
                                                     }else{
                                                         PlayerStatus status = new PlayerStatus(uuid, amount);
                                                         plugin.getDataHandler().getStatusHolder().put(uuid, status);
-                                                        player.sendMessage(ChatColor.AQUA+playername+"'s account has been created, added "+ChatColor.GOLD+fmt.format(amount)+plugin.getRegistryConfiguration().currency_prefix);
+                                                        player.sendMessage(ChatColor.AQUA+playername+"'s "+lang.get("AccCreated")+" "+ChatColor.GOLD+fmt.format(amount)+plugin.getRegistryConfiguration().currency_prefix);
                                                     }
 
                                                     double userBal = stat.getBalance() - amount;
@@ -315,9 +318,9 @@ public class KumandraCommand implements CommandExecutor {
                                                     plugin.getDataHandler().getStatusHolder().replace(player.getUniqueId().toString(),stat);
                                                     for(Player receiver: Bukkit.getServer().getOnlinePlayers())
                                                         if(receiver.getUniqueId().toString().equals(uuid))
-                                                            receiver.sendMessage(ChatColor.GREEN+""+player.getName()+" had deposited "+ChatColor.GOLD+fmt.format(amount)+plugin.getRegistryConfiguration().currency_prefix+ChatColor.GREEN+" to your account");
-                                                    player.sendMessage(ChatColor.GREEN+"You have paid "+ChatColor.GOLD+fmt.format(amount)+plugin.getRegistryConfiguration().currency_prefix+ChatColor.GREEN+ " to "+playername+"'s account");
-                                                    player.sendMessage(ChatColor.GREEN+"Your running balance: "+ChatColor.GOLD+""+fmt.format(stat.getBalance())+plugin.getRegistryConfiguration().currency_prefix);
+                                                            receiver.sendMessage(ChatColor.GREEN+""+player.getName()+" "+lang.get("hadDeposit")+" "+ChatColor.GOLD+fmt.format(amount)+plugin.getRegistryConfiguration().currency_prefix+ChatColor.GREEN+lang.get("YourAcc"));
+                                                    player.sendMessage(ChatColor.GREEN+lang.get("youPaid")+" "+ChatColor.GOLD+fmt.format(amount)+plugin.getRegistryConfiguration().currency_prefix+ChatColor.GREEN+ " "+lang.get("To")+" "+playername+"'s "+lang.get("Account").toLowerCase());
+                                                    player.sendMessage(ChatColor.GREEN+lang.get("yourRunningBal")+" "+ChatColor.GOLD+""+fmt.format(stat.getBalance())+plugin.getRegistryConfiguration().currency_prefix);
 
 
                                                     return true;
@@ -325,19 +328,19 @@ public class KumandraCommand implements CommandExecutor {
                                             }
                                         }
                                         if(uuid.equals("")){
-                                            player.sendMessage(ChatColor.RED+playername+" was not found!");
+                                            player.sendMessage(ChatColor.RED+playername+" "+lang.get("wasNotFound"));
                                         }
 
                                     }else{
-                                        player.sendMessage(ChatColor.RED+"You need to specify the amount");
+                                        player.sendMessage(ChatColor.RED+lang.get("SpecifyAMT"));
                                         return true;
                                     }
                                 }else{
-                                    player.sendMessage(ChatColor.RED+"You need to specify the player");
+                                    player.sendMessage(ChatColor.RED+lang.get("specifyPlayer"));
                                     return true;
                                 }
                             }else{
-                                player.sendMessage(ChatColor.RED+"You do not have the permission to use this command");
+                                player.sendMessage(ChatColor.RED+lang.get("noPermission"));
                                 return true;
                             }
                         }else if(args[0].equalsIgnoreCase("trade")){
@@ -363,17 +366,17 @@ public class KumandraCommand implements CommandExecutor {
                                         }
                                     //trading
                                     if(!isOnline){
-                                        player.sendMessage(ChatColor.RED+"The player must be online");
+                                        player.sendMessage(ChatColor.RED+lang.get("playerOnline"));
                                         return true;
                                     }
 
 
                                 }else{
-                                    player.sendMessage(ChatColor.RED+"You need to specify the player");
+                                    player.sendMessage(ChatColor.RED+lang.get("specifyPlayer"));
                                     return true;
                                 }
                             }else{
-                                player.sendMessage(ChatColor.RED+"You do not have the permission to use this command");
+                                player.sendMessage(ChatColor.RED+lang.get("noPermission"));
                                 return true;
                             }
                         }else if(args[0].equalsIgnoreCase("deliver")){
@@ -382,7 +385,7 @@ public class KumandraCommand implements CommandExecutor {
                                 if(args.length>1){
                                     String playername = args[1];
                                     if(player.getName().equals(playername)){
-                                        player.sendMessage(ChatColor.RED+"You cannot deliver something for yourself");
+                                        player.sendMessage(ChatColor.RED+lang.get("DeliverSelf"));
                                         return true;
                                     }
                                     boolean isOnline = false;
@@ -396,17 +399,17 @@ public class KumandraCommand implements CommandExecutor {
                                         }
                                     //trading
                                     if(!isOnline){
-                                        player.sendMessage(ChatColor.RED+"The player must be online");
+                                        player.sendMessage(ChatColor.RED+lang.get("playerOnline"));
                                         return true;
                                     }
 
 
                                 }else{
-                                    player.sendMessage(ChatColor.RED+"You need to specify the player");
+                                    player.sendMessage(ChatColor.RED+ lang.get("specifyPlayer"));
                                     return true;
                                 }
                             }else{
-                                player.sendMessage(ChatColor.RED+"You do not have the permission to use this command");
+                                player.sendMessage(ChatColor.RED+lang.get("noPermission"));
                                 return true;
                             }
                         }else if(args[0].equalsIgnoreCase("jobs")){
@@ -414,7 +417,7 @@ public class KumandraCommand implements CommandExecutor {
                                 player.openInventory(plugin.getJobsGUI());
                                 return true;
                             } else{
-                                player.sendMessage(ChatColor.RED+"You do not have the permission to use this command");
+                                player.sendMessage(ChatColor.RED+lang.get("noPermission"));
                                 return true;
                             }
                         }else if(args[0].equalsIgnoreCase("questAccept")){
@@ -436,15 +439,15 @@ public class KumandraCommand implements CommandExecutor {
                                             if(args.length>2){
                                                 String shopname = args[2];
                                                 if(plugin.getShopDataHandler().getShopItems().containsKey(shopname)){
-                                                    player.sendMessage(ChatColor.RED+"Shop name was already taken");
+                                                    player.sendMessage(ChatColor.RED+lang.get("shopNameTaken"));
                                                     return true;
                                                 }
                                                 new ShopHandler().createShop(shopname, player.getLocation());
                                                 player.sendMessage(ChatColor.GREEN+"Shop "+ChatColor.AQUA+shopname+ChatColor.GREEN+" was created");
-                                                player.sendMessage(ChatColor.DARK_AQUA+"The shop is now ready for modification");
+                                                player.sendMessage(ChatColor.DARK_AQUA+lang.get("shopReady"));
                                                 return true;
                                             }else{
-                                                player.sendMessage(ChatColor.RED+"Specify the shop names");
+                                                player.sendMessage(ChatColor.RED+lang.get("specifyShopName"));
                                                 return true;
                                             }
                                         }else if (args[1].equalsIgnoreCase("Modify")) {
@@ -488,11 +491,11 @@ public class KumandraCommand implements CommandExecutor {
                                                         return true;
                                                     }
                                                 }else{
-                                                    player.sendMessage(ChatColor.RED+"Invalid Arguments");
+                                                    player.sendMessage(ChatColor.RED+lang.get("invalidArgument"));
                                                 }
                                                 return true;
                                             }else{
-                                                player.sendMessage(ChatColor.RED+"Invalid Arguments");
+                                                player.sendMessage(ChatColor.RED+lang.get("invalidArgument"));
                                                 return true;
                                             }
                                         }else if (args[1].equalsIgnoreCase("Delete")) {
@@ -517,15 +520,15 @@ public class KumandraCommand implements CommandExecutor {
                                                 }
                                                 return true;
                                             }else{
-                                                player.sendMessage(ChatColor.RED+"Specify the shop names");
+                                                player.sendMessage(ChatColor.RED+lang.get("specifyShopName"));
                                                 return true;
                                             }
                                         }else {
-                                            player.sendMessage(ChatColor.RED+"Invalid Argument");
+                                            player.sendMessage(ChatColor.RED+lang.get("invalidArgument"));
                                             return true;
                                         }
                                     }else{
-                                    player.sendMessage(ChatColor.RED+"You do not have the permission to use this command");
+                                    player.sendMessage(ChatColor.RED+lang.get("noPermission"));
                                     return true;
                                 }
                                 }else{
@@ -536,21 +539,21 @@ public class KumandraCommand implements CommandExecutor {
                                             int z = plugin.getShopDataHandler().getShopLocation().get(shopName).getBlockZ();
                                             String distance = "";
                                             if(plugin.getShopDataHandler().getShopLocation().get(shopName).getWorld().equals(player.getWorld()))
-                                                distance = ""+fmt.format(plugin.getShopDataHandler().getShopLocation().get(shopName).distance(player.getLocation()))+" blocks";
+                                                distance = ""+fmt.format(plugin.getShopDataHandler().getShopLocation().get(shopName).distance(player.getLocation()))+" "+lang.get("blocks");
                                             else
-                                                distance = "Too far";
-                                            player.sendMessage(ChatColor.GREEN+"Shop: "+ChatColor.YELLOW+shopName+ChatColor.GREEN+" ["+ChatColor.AQUA+x+","+y+","+z+ChatColor.WHITE+" - distance: "+distance+ChatColor.GREEN+"]");
+                                                distance = lang.get("tooFar");
+                                            player.sendMessage(ChatColor.GREEN+"Shop: "+ChatColor.YELLOW+shopName+ChatColor.GREEN+" ["+ChatColor.AQUA+x+","+y+","+z+ChatColor.WHITE+" - "+lang.get("distance")+": "+distance+ChatColor.GREEN+"]");
                                         }
                                     }
                                     return true;
                                 }
                             }else{
-                                player.sendMessage(ChatColor.RED+"You do not have the permission to use this command");
+                                player.sendMessage(ChatColor.RED+lang.get("noPermission"));
                                 return true;
                             }
                         }
                     }else{
-                        player.sendMessage(ChatColor.AQUA+"You need to specify the sub command");
+                        player.sendMessage(ChatColor.AQUA+""+lang.get("specifySubCommand"));
                     }
 
 
@@ -558,7 +561,7 @@ public class KumandraCommand implements CommandExecutor {
 
                 return true;
             }
-            plugin.getLogger().info(ChatColor.RED+"Only players can use this command ["+label+"]");
+            plugin.getLogger().info(ChatColor.RED+lang.get("onlyPlayersUseCommand")+" ["+label+"]");
             return true;
         }
         return false;

@@ -49,16 +49,15 @@ public final class KumandrasEconomy extends JavaPlugin {
         //register classes
         ConfigurationSerialization.registerClass(PlayerStatus.class);
         ConfigurationSerialization.registerClass(QuestData.class);
-
-        //Load Registry Configuration
-        new ConfigLoader(this);
-
         //load handlers
         dataHandler = new dataHandler();
         mySQLConfig = new MySQLConfig(this);
         dataHandlerLoader = new dataHandlerLoader(this);
         tradingHandler = new TradingHandler(this);
         shopDataHandler = new ShopDataHandler(this);
+        //Load Registry Configuration
+        new ConfigLoader(this);
+
         loadDataLoader();
 
         //instantiate classes

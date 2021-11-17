@@ -13,11 +13,13 @@ import org.bukkit.inventory.meta.ItemMeta;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 public class DeliveryGUI {
 
     DeliveryDataHandler deliveryHandler;
     String kumandra_prefix = KumandrasEconomy.getPlugin(KumandrasEconomy.class).getRegistryConfiguration().currency_prefix;
+    private final Map<String,String> lang = KumandrasEconomy.getPlugin(KumandrasEconomy.class).getDataHandler().getLanguageData();
     public DeliveryGUI(DeliveryDataHandler deliveryHandler){
         this.deliveryHandler = deliveryHandler;
     }
@@ -40,13 +42,13 @@ public class DeliveryGUI {
         item = new ItemStack(Material.BARREL);
         meta = item.getItemMeta();
         assert meta != null;
-        meta.setDisplayName(ChatColor.GREEN+""+ChatColor.BOLD+"Cheap Delivery");
+        meta.setDisplayName(ChatColor.GREEN+""+ChatColor.BOLD+lang.get("CheapDelivery"));
         List<String> lores = new ArrayList<>();
         lores.add(" ");
-        lores.add(ChatColor.DARK_AQUA+"Slots: "+ChatColor.YELLOW+"5");
-        lores.add(ChatColor.DARK_AQUA+"Delivery Time: "+ChatColor.YELLOW+deliveryHandler.getCheap_delivery_timer()+"s");
-        lores.add(ChatColor.DARK_AQUA+"Delivery Price: "+ChatColor.YELLOW+deliveryHandler.getCheap_delivery_price()+kumandra_prefix);
-        lores.add(ChatColor.LIGHT_PURPLE+"Click to pay");
+        lores.add(ChatColor.DARK_AQUA+lang.get("Slots")+" "+ChatColor.YELLOW+"5");
+        lores.add(ChatColor.DARK_AQUA+lang.get("DeliverTime")+" "+ChatColor.YELLOW+deliveryHandler.getCheap_delivery_timer()+"s");
+        lores.add(ChatColor.DARK_AQUA+lang.get("DeliverPrice")+" "+ChatColor.YELLOW+deliveryHandler.getCheap_delivery_price()+kumandra_prefix);
+        lores.add(ChatColor.LIGHT_PURPLE+lang.get("ClickPay"));
         meta.setLore(lores);
         item.setItemMeta(meta);
         lores.clear();
@@ -56,13 +58,13 @@ public class DeliveryGUI {
         item = new ItemStack(Material.CHEST);
         meta = item.getItemMeta();
         assert meta != null;
-        meta.setDisplayName(ChatColor.GREEN+""+ChatColor.BOLD+"Regular Delivery");
+        meta.setDisplayName(ChatColor.GREEN+""+ChatColor.BOLD+lang.get("RegularDelivery"));
         lores = new ArrayList<>();
         lores.add(" ");
-        lores.add(ChatColor.DARK_AQUA+"Slots: "+ChatColor.YELLOW+"10");
-        lores.add(ChatColor.DARK_AQUA+"Delivery Time: "+ChatColor.YELLOW+deliveryHandler.getRegular_delivery_timer()+"s");
-        lores.add(ChatColor.DARK_AQUA+"Delivery Price: "+ChatColor.YELLOW+deliveryHandler.getRegular_delivery_price()+kumandra_prefix);
-        lores.add(ChatColor.LIGHT_PURPLE+"Click to pay");
+        lores.add(ChatColor.DARK_AQUA+lang.get("Slots")+" "+ChatColor.YELLOW+"10");
+        lores.add(ChatColor.DARK_AQUA+lang.get("DeliverTime")+" "+ChatColor.YELLOW+deliveryHandler.getRegular_delivery_timer()+"s");
+        lores.add(ChatColor.DARK_AQUA+lang.get("DeliverPrice")+" "+ChatColor.YELLOW+deliveryHandler.getRegular_delivery_price()+kumandra_prefix);
+        lores.add(ChatColor.LIGHT_PURPLE+lang.get("ClickPay"));
         meta.setLore(lores);
         item.setItemMeta(meta);
         lores.clear();
@@ -72,13 +74,13 @@ public class DeliveryGUI {
         item = new ItemStack(Material.GREEN_SHULKER_BOX);
         meta = item.getItemMeta();
         assert meta != null;
-        meta.setDisplayName(ChatColor.GREEN+""+ChatColor.BOLD+"Fast Delivery");
+        meta.setDisplayName(ChatColor.GREEN+""+ChatColor.BOLD+lang.get("FastDelivery"));
         lores = new ArrayList<>();
         lores.add(" ");
-        lores.add(ChatColor.DARK_AQUA+"Slots: "+ChatColor.YELLOW+"10");
-        lores.add(ChatColor.DARK_AQUA+"Delivery Time: "+ChatColor.YELLOW+deliveryHandler.getFast_delivery_timer()+"s");
-        lores.add(ChatColor.DARK_AQUA+"Delivery Price: "+ChatColor.YELLOW+deliveryHandler.getFast_delivery_price()+kumandra_prefix);
-        lores.add(ChatColor.LIGHT_PURPLE+"Click to pay");
+        lores.add(ChatColor.DARK_AQUA+lang.get("Slots")+" "+ChatColor.YELLOW+"10");
+        lores.add(ChatColor.DARK_AQUA+lang.get("DeliverTime")+" "+ChatColor.YELLOW+deliveryHandler.getFast_delivery_timer()+"s");
+        lores.add(ChatColor.DARK_AQUA+lang.get("DeliverPrice")+" "+ChatColor.YELLOW+deliveryHandler.getFast_delivery_price()+kumandra_prefix);
+        lores.add(ChatColor.LIGHT_PURPLE+lang.get("ClickPay"));
         meta.setLore(lores);
         item.setItemMeta(meta);
         lores.clear();
@@ -88,13 +90,13 @@ public class DeliveryGUI {
         item = new ItemStack(Material.ENDER_CHEST);
         meta = item.getItemMeta();
         assert meta != null;
-        meta.setDisplayName(ChatColor.GREEN+""+ChatColor.BOLD+"Priority Delivery");
+        meta.setDisplayName(ChatColor.GREEN+""+ChatColor.BOLD+lang.get("PriorityDelivery"));
         lores = new ArrayList<>();
         lores.add(" ");
-        lores.add(ChatColor.DARK_AQUA+"Slots: "+ChatColor.YELLOW+"15");
-        lores.add(ChatColor.DARK_AQUA+"Delivery Time: "+ChatColor.YELLOW+deliveryHandler.getPriority_delivery_timer()+"s");
-        lores.add(ChatColor.DARK_AQUA+"Delivery Price: "+ChatColor.YELLOW+deliveryHandler.getPriority_delivery_price()+kumandra_prefix);
-        lores.add(ChatColor.LIGHT_PURPLE+"Click to pay");
+        lores.add(ChatColor.DARK_AQUA+lang.get("Slots")+" "+ChatColor.YELLOW+"15");
+        lores.add(ChatColor.DARK_AQUA+lang.get("DeliverTime")+" "+ChatColor.YELLOW+deliveryHandler.getPriority_delivery_timer()+"s");
+        lores.add(ChatColor.DARK_AQUA+lang.get("DeliverPrice")+" "+ChatColor.YELLOW+deliveryHandler.getPriority_delivery_price()+kumandra_prefix);
+        lores.add(ChatColor.LIGHT_PURPLE+lang.get("ClickPay"));
         meta.setLore(lores);
         item.setItemMeta(meta);
         lores.clear();
@@ -122,8 +124,8 @@ public class DeliveryGUI {
         item = new ItemStack(Material.DARK_OAK_SIGN);
         meta = item.getItemMeta();
         assert meta != null;
-        meta.setDisplayName(ChatColor.YELLOW+"[DELIVER]");
-        meta.setDisplayName(ChatColor.GREEN+"Send items to "+recipient);
+        meta.setDisplayName(ChatColor.YELLOW+"["+lang.get("Deliver")+"]");
+        meta.setDisplayName(ChatColor.GREEN+lang.get("SendTo")+" "+recipient);
         item.setItemMeta(meta);
         ui.setItem(8,item);
 
@@ -150,8 +152,8 @@ public class DeliveryGUI {
         item = new ItemStack(Material.DARK_OAK_SIGN);
         meta = item.getItemMeta();
         assert meta != null;
-        meta.setDisplayName(ChatColor.YELLOW+"[DELIVER]");
-        meta.setDisplayName(ChatColor.GREEN+"Send items to "+recipient);
+        meta.setDisplayName(ChatColor.YELLOW+"["+lang.get("Deliver")+"]");
+        meta.setDisplayName(ChatColor.GREEN+lang.get("SendTo")+" "+recipient);
         item.setItemMeta(meta);
         ui.setItem(17,item);
 
@@ -182,8 +184,8 @@ public class DeliveryGUI {
         item = new ItemStack(Material.DARK_OAK_SIGN);
         meta = item.getItemMeta();
         assert meta != null;
-        meta.setDisplayName(ChatColor.YELLOW+"[DELIVER]");
-        meta.setDisplayName(ChatColor.GREEN+"Send items to "+recipient);
+        meta.setDisplayName(ChatColor.YELLOW+"["+lang.get("Deliver")+"]");
+        meta.setDisplayName(ChatColor.GREEN+lang.get("SendTo")+" "+recipient);
         item.setItemMeta(meta);
         ui.setItem(26,item);
 

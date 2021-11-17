@@ -15,13 +15,10 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.persistence.PersistentDataType;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 
 public class TradingGUI {
-
+    private final Map<String,String> lang = KumandrasEconomy.getPlugin(KumandrasEconomy.class).getDataHandler().getLanguageData();
     public Inventory createTradeInventory(String trader, String buyer){
         Inventory inv = Bukkit.createInventory(null, 54, ChatColor.DARK_GREEN+"Trading Session ID: "+new Random().nextInt(1000));
 
@@ -55,8 +52,8 @@ public class TradingGUI {
         item = new ItemStack(Material.MAGENTA_STAINED_GLASS_PANE);
         meta = item.getItemMeta();
         assert meta != null;
-        meta.setDisplayName(ChatColor.GOLD+"Trading: "+trader+" -> "+buyer);
-        meta.setLore(Arrays.asList(ChatColor.LIGHT_PURPLE+"Trader: "+trader,ChatColor.LIGHT_PURPLE+"Trader partner: "+buyer,ChatColor.GREEN+"Trader UI will be on the left",ChatColor.GREEN+"Trader partner UI will be on the right",ChatColor.DARK_AQUA+"Click on "+ChatColor.GREEN+"SET TRADE"+ChatColor.DARK_AQUA+" to trade items",ChatColor.RED+"Closing the UI will end the trading session"));
+        meta.setDisplayName(ChatColor.GOLD+lang.get("Trading")+" "+trader+" -> "+buyer);
+        meta.setLore(Arrays.asList(ChatColor.LIGHT_PURPLE+lang.get("Trader")+": "+trader,ChatColor.LIGHT_PURPLE+lang.get("TraderPartner")+": "+buyer,ChatColor.GREEN+lang.get("TradeGuide1"),ChatColor.GREEN+lang.get("TradeGuide2"),ChatColor.DARK_AQUA+lang.get("TradeGuide3")+" "+ChatColor.GREEN+lang.get("TradeGuide4")+ChatColor.DARK_AQUA+" "+lang.get("TradeGuide5"),ChatColor.RED+lang.get("TradeGuide6")));
         item.setItemMeta(meta);
         inv.setItem(4, item);
         inv.setItem(13, item);
@@ -68,27 +65,27 @@ public class TradingGUI {
         item = new PlayerHeads().getPlayerHead(trader);
         meta = item.getItemMeta();
         assert meta != null;
-        meta.setLore(Arrays.asList(ChatColor.GREEN+"Trader"));
+        meta.setLore(Arrays.asList(ChatColor.GREEN+lang.get("Trader")));
         item.setItemMeta(meta);
         inv.setItem(2, item);
 
         item = new PlayerHeads().getPlayerHead(buyer);
         meta = item.getItemMeta();
         assert meta != null;
-        meta.setLore(Arrays.asList(ChatColor.GREEN+"Trading Partner"));
+        meta.setLore(Arrays.asList(ChatColor.GREEN+lang.get("TraderPartner")));
         item.setItemMeta(meta);
         inv.setItem(6, item);
 
         item = new ItemStack(Material.GOLD_INGOT);
         meta = item.getItemMeta();
         assert meta != null;
-        meta.setDisplayName(ChatColor.GOLD+"Increment by "+KumandrasEconomy.getPlugin(KumandrasEconomy.class).getRegistryConfiguration().tradingIncrease+KumandrasEconomy.getPlugin(KumandrasEconomy.class).getRegistryConfiguration().currency_prefix);
+        meta.setDisplayName(ChatColor.GOLD+lang.get("IncBy")+" "+KumandrasEconomy.getPlugin(KumandrasEconomy.class).getRegistryConfiguration().tradingIncrease+KumandrasEconomy.getPlugin(KumandrasEconomy.class).getRegistryConfiguration().currency_prefix);
         item.setItemMeta(meta);
 
         inv.setItem(38, item);
         inv.setItem(42, item);
 
-        meta.setDisplayName(ChatColor.GOLD+"Decrement by "+KumandrasEconomy.getPlugin(KumandrasEconomy.class).getRegistryConfiguration().tradingIncrease+KumandrasEconomy.getPlugin(KumandrasEconomy.class).getRegistryConfiguration().currency_prefix);
+        meta.setDisplayName(ChatColor.GOLD+lang.get("DecBy")+" "+KumandrasEconomy.getPlugin(KumandrasEconomy.class).getRegistryConfiguration().tradingIncrease+KumandrasEconomy.getPlugin(KumandrasEconomy.class).getRegistryConfiguration().currency_prefix);
         item.setItemMeta(meta);
 
         inv.setItem(37, item);
@@ -98,12 +95,12 @@ public class TradingGUI {
         meta = item.getItemMeta();
         assert meta != null;
 
-        meta.setDisplayName(ChatColor.LIGHT_PURPLE+"Trade "+trader+" items");
-        meta.setLore(Arrays.asList(ChatColor.GREEN+"for "+ChatColor.GOLD+KumandrasEconomy.getPlugin(KumandrasEconomy.class).getRegistryConfiguration().tradingIncrease+ KumandrasEconomy.getPlugin(KumandrasEconomy.class).getRegistryConfiguration().currency_prefix, ChatColor.RED+"(Not set)"));
+        meta.setDisplayName(ChatColor.LIGHT_PURPLE+lang.get("Trade")+" "+trader+" "+lang.get("Items"));
+        meta.setLore(Arrays.asList(ChatColor.GREEN+"for "+ChatColor.GOLD+KumandrasEconomy.getPlugin(KumandrasEconomy.class).getRegistryConfiguration().tradingIncrease+ KumandrasEconomy.getPlugin(KumandrasEconomy.class).getRegistryConfiguration().currency_prefix, ChatColor.RED+lang.get("NotSet")));
         item.setItemMeta(meta);
 
         inv.setItem(39, item);
-        meta.setDisplayName(ChatColor.LIGHT_PURPLE+"Trade "+buyer+" items");
+        meta.setDisplayName(ChatColor.LIGHT_PURPLE+lang.get("Trade")+" "+buyer+" "+lang.get("Items"));
         item.setItemMeta(meta);
         inv.setItem(43, item);
 
@@ -113,7 +110,7 @@ public class TradingGUI {
         meta.addEnchant(Enchantment.DURABILITY, 1, true);
         meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
         meta.addItemFlags(ItemFlag.HIDE_ATTRIBUTES);
-        meta.setDisplayName(ChatColor.GREEN+"SET TRADE");
+        meta.setDisplayName(ChatColor.GREEN+lang.get("TradeGuide4"));
         meta.setLore(null);
 
         NamespacedKey itemdata = new NamespacedKey(KumandrasEconomy.getPlugin(KumandrasEconomy.class), "itemData");
