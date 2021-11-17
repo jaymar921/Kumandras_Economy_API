@@ -83,5 +83,11 @@ kumandrasAPI.deposit(@NotNull Player player, double amount);//Boolean, returns t
 
 //Withdraw money from player
 kumandrasAPI.withdraw(@NotNull Player player, double amount);//Boolean, returns false if amount>balance or player has no data
+
+//Primary Economy
+KumandrasAPI.primaryEconomy(); //Boolean, returns true if the plugin was set to primary economy
+
+//Get Jobs
+KumandrasAPI.getJobs(); //JobList[], returns an enum of Jobs which can be used for job comparing
 ```
 
