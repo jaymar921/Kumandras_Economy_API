@@ -45,7 +45,7 @@ Add the dependency
 <dependency>
     <groupId>com.github.jaymar921</groupId>
     <artifactId>Kumandras_Economy_Plugin</artifactId>
-    <version>1.0</version>
+    <version>-79cf72e34a-1</version>
     <scope>provided</scope>
 </dependency>
 ```
