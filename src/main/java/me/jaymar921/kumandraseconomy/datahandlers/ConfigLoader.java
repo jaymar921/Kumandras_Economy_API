@@ -3,6 +3,7 @@ package me.jaymar921.kumandraseconomy.datahandlers;
 import me.jaymar921.kumandraseconomy.KumandrasEconomy;
 import me.jaymar921.kumandraseconomy.Version.UpdateChecker;
 import me.jaymar921.kumandraseconomy.datahandlers.Configurations.DataConfigUpdater;
+import me.jaymar921.kumandraseconomy.datahandlers.Configurations.LangConfig.TurkishConfig;
 import me.jaymar921.kumandraseconomy.datahandlers.Configurations.LanguageConfig;
 import me.jaymar921.kumandraseconomy.utility.TranslateParser;
 import org.bukkit.ChatColor;
@@ -247,6 +248,9 @@ public class ConfigLoader {
     }
 
     public void loadLanguage(){
+        //load pre-made languages
+        new TurkishConfig(plugin);
+
         LanguageConfig config = new LanguageConfig(plugin);
 
         Map<String,String> lang = new HashMap<>();
