@@ -16,14 +16,13 @@ public class KumandrasAPI {
         plugin = main;
     }
 
-    @Nullable
     public Double getBalance(@NotNull Player player){
         String uuid = player.getUniqueId().toString();
         if(plugin.getDataHandler().getStatusHolder().containsKey(uuid)){
             PlayerStatus status = plugin.getDataHandler().getStatusHolder().get(uuid);
             return status.getBalance();
         }
-        return null;
+        return -1.0;
     }
 
     public boolean deposit(@NotNull Player player, double amount){
