@@ -26,7 +26,7 @@ allprojects {
 Add the dependency
 ```gradle
 dependencies {
-    implementation 'com.github.jaymar921:Kumandras_Economy_Plugin:1.4' 	
+    implementation 'com.github.jaymar921:Kumandras_Economy_Plugin:3347a8e041' 	
 }
 ```
 ----
@@ -45,7 +45,7 @@ Add the dependency
 <dependency>
     <groupId>com.github.jaymar921</groupId>
     <artifactId>Kumandras_Economy_Plugin</artifactId>
-    <version>2e59a0f111</version>
+    <version>3347a8e041</version>
     <scope>provided</scope>
 </dependency>
 ```
