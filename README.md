@@ -76,7 +76,7 @@ kumandrasAPI.RegisterPlugin(@NotNull String pluginName); //Void
 //e.g. kumandrasAPI.RegisterPlugin("CustomEnchantments"); 
 
 //Get player balance
-double balance = kumandrasAPI.getBalance(@NotNull player); //Double, returns null if player has no data
+double balance = kumandrasAPI.getBalance(@NotNull player); //Double, returns -1 if player has no data
 
 //Deposit money to player
 kumandrasAPI.deposit(@NotNull Player player, double amount);//Boolean, returns true if amount is added to player data
