@@ -1,4 +1,4 @@
-## Kumandra's Economy Plugin
+## Kumandra's Economy API
 
 ### by JayMar921
 
